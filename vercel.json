@@ -1,29 +1,21 @@
 {
-  "cleanUrls": true,
-  "rewrites": [
+  "redirects": [
     {
       "source": "/",
-      "destination": "/html/index.html"
-    },
-    {
-      "source": "/admin",
-      "destination": "/html/admin-cam-nang.html"
-    },
-    {
-      "source": "/admin-cam-nang",
-      "destination": "/html/admin-cam-nang.html"
-    },
-    {
-      "source": "/admin-cam-nang.html",
-      "destination": "/html/admin-cam-nang.html"
-    },
-    {
-      "source": "/cam-nang",
-      "destination": "/html/tin-tuc-blog.html"
-    },
-    {
-      "source": "/tin-tuc",
-      "destination": "/html/tin-tuc-blog.html"
+      "destination": "/html/index.html",
+      "permanent": false
     }
+  ],
+  "rewrites": [
+    { "source": "/tin-tuc-blog.html", "destination": "/html/tin-tuc-blog.html" },
+    { "source": "/thong-tin-dat-cho.html", "destination": "/html/thong-tin-dat-cho.html" },
+    { "source": "/quy-dinh.html", "destination": "/html/quy-dinh.html" },
+    { "source": "/admin-cam-nang.html", "destination": "/html/admin-cam-nang.html" },
+    { "source": "/admin", "destination": "/html/admin-cam-nang.html" },
+    { "source": "/admin-cam-nang", "destination": "/html/admin-cam-nang.html" },
+    { "source": "/cam-nang", "destination": "/html/tin-tuc-blog.html" },
+    { "source": "/tin-tuc", "destination": "/html/tin-tuc-blog.html" },
+    { "source": "/quy-dinh", "destination": "/html/quy-dinh.html" },
+    { "source": "/thong-tin-dat-cho", "destination": "/html/thong-tin-dat-cho.html" }
   ]
 }
