@@ -1,0 +1,32 @@
+/* ==========================================================================
+   DSVN - VIETNAM RAILWAYS
+   File: css/style.css
+   Mô tả: Tệp CSS chính - Tích hợp các mô-đun giao diện đã được chia nhỏ
+   ========================================================================== */
+
+/* 1. Biến màu sắc & Thiết kế */
+@import url('bien-mau-sac.css');
+
+/* 2. Định dạng cơ sở & Lớp dùng chung */
+@import url('chung.css');
+
+/* 3. Đầu trang (Header) & Chân trang (Footer) */
+@import url('dau-trang-chan-trang.css');
+
+/* 4. Giao diện Tài khoản & Modal Popup */
+@import url('tai-khoan.css');
+
+/* 5. Giao diện Tìm vé & Đoàn tàu */
+@import url('tim-ve.css');
+
+/* 6. Giao diện Thông tin đặt chỗ & Tra cứu vé */
+@import url('thong-tin-dat-cho.css');
+
+/* 7. Giao diện Quy định & Biểu phí */
+@import url('quy-dinh.css');
+
+/* 8. Giao diện Blog & Cẩm nang du lịch */
+@import url('blog.css');
+
+/* 9. Tối ưu hiển thị Di động & Máy tính bảng */
+@import url('giao-dien-di-dong.css');

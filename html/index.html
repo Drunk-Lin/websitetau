@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tổng công ty Đường sắt Việt Nam - Đặt vé tàu trực tuyến chính thức</title>
+  <meta name="description"
+    content="Hệ thống bán vé tàu hỏa trực tuyến chính thức của Tổng công ty Đường sắt Việt Nam (DSVN). Tra cứu lịch trình, giá vé và chọn chỗ dễ dàng." />
+
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+
+<body>
+
+  <!-- ==================== 1. HEADER (2 TẦNG: TOPBAR + NAVBAR) ==================== -->
+  <!-- TẦNG 1: TOPBAR TRẮNG -->
+  <div class="site-topbar">
+    <div class="container topbar-container">
+      <!-- Brand Logo -->
+      <a href="index.html" class="brand-logo-area" title="Đường sắt Việt Nam - Trang chủ">
+        <div class="brand-logo-icon">
+          <img src="../images/logo-dsvn.png" alt="Đường sắt Việt Nam Logo" width="42" height="42" />
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">TẬP ĐOÀN ĐƯỜNG SẮT VIỆT NAM</span>
+          <span class="brand-subtitle">VIETNAM RAILWAYS</span>
+        </div>
+      </a>
+
+      <!-- Thanh chạy chữ thông báo Tin tức / Khuyến mãi -->
+      <div class="topbar-marquee">
+        <marquee behavior="scroll" direction="left" scrollamount="6">
+          <span class="icon marquee-icon">campaign</span>
+          <strong>Thông báo DSVN:</strong> Giảm giá vé tập thể đến 15% cho các đoàn tàu Thống Nhất • Đổi trả vé trực
+          tuyến thuận tiện trên hệ thống trước giờ tàu chạy • Trẻ em dưới 6 tuổi miễn vé, từ 6 - 10 tuổi giảm 25% giá
+          vé!
+        </marquee>
+      </div>
+
+      <!-- Khu vực hotline, ngôn ngữ & tài khoản -->
+      <div class="topbar-right">
+        <div class="topbar-hotline">
+          <span class="icon">call</span>
+          <span>1900 0109</span>
+        </div>
+        <div class="lang-switch">
+          <button class="lang-btn active" type="button" onclick="doiNgonNgu('vi')">VN</button>
+          <span>|</span>
+          <button class="lang-btn" type="button" onclick="doiNgonNgu('en')">EN</button>
+        </div>
+        <!-- Khu vực Tài khoản người dùng (Đăng nhập / Hồ sơ) -->
+        <div id="userAccountArea"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TẦNG 2: NAVBAR XANH DƯƠNG (#2fa4e7) -->
+  <nav class="site-navbar" aria-label="Menu chính">
+    <div class="container navbar-container">
+      <div class="mobile-nav-brand">
+        <span class="icon" style="font-size:18px;margin-right:4px">train</span>
+        <span>HỆ THỐNG VÉ ĐIỆN TỬ DSVN</span>
+      </div>
+      <div class="main-nav">
+        <a href="index.html" class="nav-link active">Tìm vé</a>
+        <a href="tin-tuc-blog.html" class="nav-link">Cẩm nang & Tin tức</a>
+        <a href="https://dsvn.vn/#/" class="nav-link" target="_blank" rel="noopener noreferrer">
+          <span>Tìm giá vé rẻ</span>
+          <span class="icon external-icon">open_in_new</span>
+        </a>
+        <a href="https://dsvn.vn/#/" class="nav-link" target="_blank" rel="noopener noreferrer">
+          <span>Khuyến mại</span>
+          <span class="icon external-icon">open_in_new</span>
+        </a>
+        <a href="thong-tin-dat-cho.html" class="nav-link">Thông tin đặt chỗ</a>
+        <a href="quy-dinh.html" class="nav-link">Quy định</a>
+      </div>
+
+      <button class="mobile-menu-toggle" id="mobileMenuToggle" type="button" aria-label="Mở menu">
+        <span class="icon">menu</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-nav-backdrop" id="mobileNavBackdrop">
+    <div class="mobile-nav-drawer">
+      <div class="mobile-drawer-header">
+        <div class="brand-text">
+          <span class="brand-title">ĐƯỜNG SẮT VIỆT NAM</span>
+        </div>
+        <button id="closeMobileMenu" class="icon" style="color:#ffffff;font-size:24px;cursor:pointer">close</button>
+      </div>
+      <div class="mobile-nav-list">
+        <a href="index.html" class="nav-link active">Tìm vé</a>
+        <a href="tin-tuc-blog.html" class="nav-link">Cẩm nang & Tin tức</a>
+        <a href="https://dsvn.vn/#/" class="nav-link" target="_blank" rel="noopener noreferrer">
+          <span>Tìm giá vé rẻ</span>
+          <span class="icon external-icon">open_in_new</span>
+        </a>
+        <a href="https://dsvn.vn/#/" class="nav-link" target="_blank" rel="noopener noreferrer">
+          <span>Khuyến mại</span>
+          <span class="icon external-icon">open_in_new</span>
+        </a>
+        <a href="thong-tin-dat-cho.html" class="nav-link">Thông tin đặt chỗ</a>
+        <a href="quy-dinh.html" class="nav-link">Quy định</a>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <!-- ==================== 2. BANNER & FORM TÌM VÉ TÀU TRỰC TUYẾN ==================== -->
+    <section class="hero-section">
+      <div class="container">
+        <!-- Banner Showcase -->
+        <div class="home-banner-wrapper">
+          <img src="../images/screen12.jpg" alt="Săn vé tàu hỏa ngay - Tổng công ty Đường sắt Việt Nam"
+            class="home-banner-img" />
+        </div>
+
+        <!-- SEARCH CONSOLE WIDGET (MUA VÉ TÀU TRỰC TUYẾN CHUẨN DSVN.VN) -->
+        <div class="search-console-wrapper">
+          <div class="search-card">
+            <!-- Tiêu đề ĐẶT VÉ TÀU -->
+            <div class="search-card-header">
+              <h2 class="search-card-title">
+                <span class="icon">train</span>
+                <span>ĐẶT VÉ TÀU</span>
+              </h2>
+            </div>
+
+            <!-- Capsule Chọn loại vé: Một chiều / Khứ hồi -->
+            <div class="dsvn-trip-capsule">
+              <button type="button" class="dsvn-pill-btn active" id="tabOneway">
+                <span>Một chiều</span>
+              </button>
+              <button type="button" class="dsvn-pill-btn" id="tabRoundtrip">
+                <span>Khứ hồi</span>
+              </button>
+            </div>
+
+            <!-- Form Tìm Kiếm DSVN Style Thanh Ngang Hiện Đại (Phương Án B) -->
+            <form id="trainSearchForm" class="dsvn-search-form dsvn-search-bar-mode">
+              <div class="dsvn-bar-row">
+                <!-- 1. Nơi đi -->
+                <div class="dsvn-input-card dsvn-bar-station" id="cardStationFrom">
+                  <span class="icon dsvn-card-icon">location_on</span>
+                  <div class="dsvn-card-content">
+                    <label class="dsvn-card-label" for="inputFrom">Nơi đi</label>
+                    <input type="text" id="inputFrom" class="dsvn-card-input" placeholder="Gõ tên Ga để tìm"
+                      value="Hà Nội" autocomplete="off" required />
+                  </div>
+                  <span class="icon dsvn-caret-icon">arrow_drop_down</span>
+                  <!-- Dropdown gợi ý Ga đi -->
+                  <div class="station-autocomplete-list" id="autocompleteFrom"></div>
+                </div>
+
+                <!-- Nút Đảo Chiều Ga Đi - Ga Đến -->
+                <button type="button" class="dsvn-btn-swap" id="btnSwapStations" title="Đổi chiều ga đi - ga đến" aria-label="Hoán đổi ga đi và ga đến">
+                  <span class="icon">swap_horiz</span>
+                </button>
+
+                <!-- 2. Nơi đến -->
+                <div class="dsvn-input-card dsvn-bar-station" id="cardStationTo">
+                  <span class="icon dsvn-card-icon">location_on</span>
+                  <div class="dsvn-card-content">
+                    <label class="dsvn-card-label" for="inputTo">Nơi đến</label>
+                    <input type="text" id="inputTo" class="dsvn-card-input" placeholder="Gõ tên Ga để tìm"
+                      value="Sài Gòn" autocomplete="off" required />
+                  </div>
+                  <span class="icon dsvn-caret-icon">arrow_drop_down</span>
+                  <!-- Dropdown gợi ý Ga đến -->
+                  <div class="station-autocomplete-list" id="autocompleteTo"></div>
+                </div>
+
+                <!-- 3. Ngày đi -->
+                <div class="dsvn-input-card date-card dsvn-bar-date" id="cardDeptDate">
+                  <span class="icon dsvn-card-icon">calendar_month</span>
+                  <div class="dsvn-card-content">
+                    <label class="dsvn-card-label" for="inputDeptDate">Ngày đi</label>
+                    <div class="dsvn-date-display-val" id="deptDateDisplay">11/10/2026</div>
+                  </div>
+                  <input type="date" id="inputDeptDate" class="dsvn-date-native-overlay" required />
+                </div>
+
+                <!-- 4. Ngày về (Khứ hồi) -->
+                <div class="dsvn-input-card date-card disabled dsvn-bar-date" id="returnDateWrapper">
+                  <span class="icon dsvn-card-icon">calendar_month</span>
+                  <div class="dsvn-card-content">
+                    <label class="dsvn-card-label" for="inputReturnDate">Ngày về (Khứ hồi)</label>
+                    <div class="dsvn-return-text" id="returnDateDisplay">Chọn nếu mua vé về</div>
+                  </div>
+                  <input type="date" id="inputReturnDate" class="dsvn-date-native-overlay" disabled />
+                </div>
+
+                <!-- 5. Nút TÌM VÉ -->
+                <button type="submit" class="dsvn-btn-submit dsvn-bar-submit" id="btnSearchSubmit"
+                  onclick="thucHienTimKiemChuyenTau()">
+                  <span class="icon">search</span>
+                  <span>TÌM VÉ</span>
+                </button>
+              </div>
+            </form>
+
+            <!-- Chặng phổ biến & Thông tin lưu ý -->
+            <div class="dsvn-search-bottom">
+              <div class="popular-routes-bar">
+                <span>Chặng phổ biến:</span>
+                <button type="button" class="popular-chip" data-from="Hà Nội" data-to="Sài Gòn">HN ⇄ SG</button>
+                <button type="button" class="popular-chip" data-from="Hà Nội" data-to="Đà Nẵng">HN ⇄ ĐN</button>
+                <button type="button" class="popular-chip" data-from="Huế" data-to="Đà Nẵng">Huế ⇄ ĐN</button>
+                <button type="button" class="popular-chip" data-from="Sài Gòn" data-to="Nha Trang">SG ⇄ Nha
+                  Trang</button>
+              </div>
+              <div class="search-bottom-notice" style="margin-top:10px;padding-top:10px;border-top:none">
+                <div class="search-notice-left">
+                  <span class="icon" style="font-size:18px;color:#f59e0b">campaign</span>
+                  <span>Chính sách giá vé: Trẻ em dưới 6 tuổi miễn vé, từ 6 - 10 tuổi giảm 25% giá vé. Người cao tuổi từ
+                    60 tuổi giảm 15%.</span>
+                </div>
+                <a href="quy-dinh.html" class="search-notice-link">
+                  <span>Xem quy định đổi trả vé</span>
+                  <span class="icon" style="font-size:14px">arrow_forward</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 3. KẾT QUẢ TÌM KIẾM CHUYẾN TÀU ==================== -->
+    <section class="results-section" id="resultsSection" style="display:none;">
+      <div class="container">
+        <!-- Header thông tin hành trình tìm kiếm -->
+        <div class="results-header-bar">
+          <div>
+            <div class="route-badge">
+              <span class="icon" style="font-size:16px">verified</span>
+              <span>Tuyến đường sắt Thống Nhất • DSVN</span>
+            </div>
+            <h2 class="results-title">
+              <span id="resFrom">HÀ NỘI</span>
+              <span class="results-title-arrow">➔</span>
+              <span id="resTo">SÀI GÒN</span>
+            </h2>
+            <p class="results-meta">
+              Ngày khởi hành: <strong id="resDate">--/--/----</strong> • Danh sách đoàn tàu có chỗ trống
+            </p>
+          </div>
+
+          <!-- Bộ lọc loại toa thực tế -->
+          <div class="train-filters">
+            <button type="button" class="filter-btn active" onclick="locDanhSachTau('all', this)">Tất cả đoàn
+              tàu</button>
+            <button type="button" class="filter-btn" onclick="locDanhSachTau('se', this)">Tàu nhanh SE</button>
+            <button type="button" class="filter-btn" onclick="locDanhSachTau('vip', this)">Khoang VIP Di Sản</button>
+            <button type="button" class="filter-btn" onclick="locDanhSachTau('k4', this)">Giường nằm K4</button>
+          </div>
+        </div>
+
+        <!-- Container chứa các thẻ đoàn tàu động qua JavaScript -->
+        <div id="resultsContainer"></div>
+      </div>
+    </section>
+
+    <!-- ==================== 4. QUY TRÌNH ĐẶT VÉ TRỰC TUYẾN 3 BƯỚC ==================== -->
+    <section class="booking-process-section">
+      <div class="container">
+        <div class="process-heading-box">
+          <h2 class="process-heading">QUY TRÌNH ĐẶT VÉ TRỰC TUYẾN</h2>
+          <p class="process-subheading">Chỉ với 3 bước đơn giản để sở hữu vé tàu hỏa điện tử an toàn và thuận tiện</p>
+        </div>
+
+        <div class="process-steps-grid">
+          <!-- Bước 1 -->
+          <div class="process-step-item">
+            <div class="process-step-num">1</div>
+            <div class="process-step-info">
+              <h3>Chọn Hành Trình</h3>
+              <p>Tra cứu ga đi, ga đến, ngày khởi hành và tìm kiếm chuyến tàu phù hợp với thời gian mong muốn.</p>
+            </div>
+          </div>
+
+          <!-- Bước 2 -->
+          <div class="process-step-item">
+            <div class="process-step-num">2</div>
+            <div class="process-step-info">
+              <h3>Chọn Ghế / Toa Xe</h3>
+              <p>Lựa chọn loại chỗ ngồi (Ghế mềm điều hòa, Giường nằm K4/K6, Khoang VIP) trên sơ đồ trực quan thời gian
+                thực.</p>
+            </div>
+          </div>
+
+          <!-- Bước 3 -->
+          <div class="process-step-item">
+            <div class="process-step-num">3</div>
+            <div class="process-step-info">
+              <h3>Thanh Toán & Nhận Vé</h3>
+              <p>Thanh toán bảo mật đa kênh qua VNPAY-QR hoặc ATM/Internet Banking và nhận Thẻ lên tàu điện tử tức thì.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 5. HỆ THỐNG NHÀ GA ĐƯỜNG SẮT TRỌNG ĐIỂM ==================== -->
+    <section class="stations-section">
+      <div class="container">
+        <div class="section-title-box">
+          <div class="section-eyebrow">Mạng lưới đường sắt</div>
+          <h2 class="section-title">Hệ Thống Nhà Ga Trọng Điểm</h2>
+          <p class="section-desc">Thông tin các nhà ga đường sắt lớn trên toàn quốc phục vụ đón trả khách và vận chuyển
+            hành lý.</p>
+        </div>
+
+        <div class="stations-grid">
+          <!-- Ga 1: Ga Sài Gòn -->
+          <div class="station-card" onclick="chonGaNhanh('Sài Gòn')" title="Chọn Ga Sài Gòn">
+            <div class="station-card-media">
+              <span class="station-badge-ribbon">Ga Sài Gòn</span>
+              <img src="../images/screen9.png" alt="Ga Sài Gòn" class="station-card-img" />
+              <div class="station-card-bottom">
+                <h3 class="station-card-title">GA SÀI GÒN</h3>
+              </div>
+            </div>
+          </div>
+
+          <!-- Ga 2: Ga Biên Hòa -->
+          <div class="station-card" onclick="chonGaNhanh('Biên Hòa')" title="Chọn Ga Biên Hòa">
+            <div class="station-card-media">
+              <span class="station-badge-ribbon">Ga Biên Hòa</span>
+              <img src="../images/screen4.png" alt="Ga Biên Hòa" class="station-card-img" />
+              <div class="station-card-bottom">
+                <h3 class="station-card-title">GA BIÊN HÒA</h3>
+              </div>
+            </div>
+          </div>
+
+          <!-- Ga 3: Ga Long Khánh -->
+          <div class="station-card" onclick="chonGaNhanh('Long Khánh')" title="Chọn Ga Long Khánh">
+            <div class="station-card-media">
+              <span class="station-badge-ribbon">Ga Long Khánh</span>
+              <img src="../images/screen8.png" alt="Ga Long Khánh" class="station-card-img" />
+              <div class="station-card-bottom">
+                <h3 class="station-card-title">GA LONG KHÁNH</h3>
+              </div>
+            </div>
+          </div>
+
+          <!-- Ga 4: Ga Phủ Lý -->
+          <div class="station-card" onclick="chonGaNhanh('Phủ Lý')" title="Chọn Ga Phủ Lý">
+            <div class="station-card-media">
+              <span class="station-badge-ribbon">Ga Phủ Lý</span>
+              <img src="../images/screen7.png" alt="Ga Phủ Lý" class="station-card-img" />
+              <div class="station-card-bottom">
+                <h3 class="station-card-title">GA PHỦ LÝ</h3>
+              </div>
+            </div>
+          </div>
+
+          <!-- Ga 5: Ga Nam Định -->
+          <div class="station-card" onclick="chonGaNhanh('Nam Định')" title="Chọn Ga Nam Định">
+            <div class="station-card-media">
+              <span class="station-badge-ribbon">Ga Nam Định</span>
+              <img src="../images/screen6.png" alt="Ga Nam Định" class="station-card-img" />
+              <div class="station-card-bottom">
+                <h3 class="station-card-title">GA NAM ĐỊNH</h3>
+              </div>
+            </div>
+          </div>
+
+          <!-- Ga 6: Ga Hà Nội -->
+          <div class="station-card" onclick="chonGaNhanh('Hà Nội')" title="Chọn Ga Hà Nội">
+            <div class="station-card-media">
+              <span class="station-badge-ribbon">Ga Hà Nội</span>
+              <img src="../images/hanoi.jpg" alt="Ga Hà Nội" class="station-card-img" />
+              <div class="station-card-bottom">
+                <h3 class="station-card-title">GA HÀ NỘI</h3>
+              </div>
+            </div>
+          </div>
+
+          <!-- Ga 7: Ga Đà Nẵng -->
+          <div class="station-card" onclick="chonGaNhanh('Đà Nẵng')" title="Chọn Ga Đà Nẵng">
+            <div class="station-card-media">
+              <span class="station-badge-ribbon">Ga Đà Nẵng</span>
+              <img src="../images/danang.jpg" alt="Ga Đà Nẵng" class="station-card-img" />
+              <div class="station-card-bottom">
+                <h3 class="station-card-title">GA ĐÀ NẴNG</h3>
+              </div>
+            </div>
+          </div>
+
+          <!-- Ga 8: Ga Nha Trang -->
+          <div class="station-card" onclick="chonGaNhanh('Nha Trang')" title="Chọn Ga Nha Trang">
+            <div class="station-card-media">
+              <span class="station-badge-ribbon">Ga Nha Trang</span>
+              <img src="../images/images.jpg" alt="Ga Nha Trang" class="station-card-img" />
+              <div class="station-card-bottom">
+                <h3 class="station-card-title">GA NHA TRANG</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== ĐIỂM ĐẾN HẤP DẪN ==================== -->
+    <section class="destination-section">
+      <div class="container">
+        <div class="section-title-box">
+          <div class="section-eyebrow">Điểm đến du lịch</div>
+          <h2 class="section-title" data-i18n="sec_dest_title">Điểm Đến Hấp Dẫn</h2>
+          <p class="section-desc" data-i18n="sec_dest_sub">Kết nối các điểm đến du lịch trong nước</p>
+        </div>
+
+        <div class="destination-grid">
+          <!-- Điểm đến 1: Vinh (screen15.png) -->
+          <div class="destination-card" onclick="chonDiemDenDuLich('Vinh')" title="Khám phá và đặt vé đi Ga Vinh">
+            <div class="destination-img-wrap">
+              <img src="../images/screen15.png" alt="Điểm đến hấp dẫn - Vinh" class="destination-card-img" />
+            </div>
+            <div class="destination-info-bar">
+              <div>
+                <h3 class="destination-name">Ga Vinh (Nghệ An)</h3>
+                <span class="destination-desc">Quê hương Bác Hồ • Đảo chè Thanh Chương kỳ vĩ</span>
+              </div>
+              <span class="destination-action">
+                <span data-i18n="dest_book_train">Đặt vé ngay</span>
+                <span class="icon" style="font-size:16px">arrow_forward</span>
+              </span>
+            </div>
+          </div>
+
+          <!-- Điểm đến 2: Phan Thiết (screen14.png) -->
+          <div class="destination-card" onclick="chonDiemDenDuLich('Phan Thiết')"
+            title="Khám phá và đặt vé đi Ga Phan Thiết">
+            <div class="destination-img-wrap">
+              <img src="../images/screen14.png" alt="Điểm đến hấp dẫn - Phan Thiết" class="destination-card-img" />
+            </div>
+            <div class="destination-info-bar">
+              <div>
+                <h3 class="destination-name">Ga Phan Thiết (Bình Thuận)</h3>
+                <span class="destination-desc">Tháp Chàm Poshanư • Biển Mũi Né cát vàng</span>
+              </div>
+              <span class="destination-action">
+                <span data-i18n="dest_book_train">Đặt vé ngay</span>
+                <span class="icon" style="font-size:16px">arrow_forward</span>
+              </span>
+            </div>
+          </div>
+
+          <!-- Điểm đến 3: Tuy Hòa (screen16.png) -->
+          <div class="destination-card" onclick="chonDiemDenDuLich('Tuy Hòa')" title="Khám phá và đặt vé đi Ga Tuy Hòa">
+            <div class="destination-img-wrap">
+              <img src="../images/screen16.png" alt="Điểm đến hấp dẫn - Tuy Hòa" class="destination-card-img" />
+            </div>
+            <div class="destination-info-bar">
+              <div>
+                <h3 class="destination-name">Ga Tuy Hòa (Phú Yên)</h3>
+                <span class="destination-desc">Hải đăng Mũi Điện • Xứ sở hoa vàng cỏ xanh</span>
+              </div>
+              <span class="destination-action">
+                <span data-i18n="dest_book_train">Đặt vé ngay</span>
+                <span class="icon" style="font-size:16px">arrow_forward</span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 6. CÁC TUYẾN TÀU DI SẢN & TIÊU BIỂU ==================== -->
+    <section style="padding: 50px 0; background: var(--background); border-top: 1px solid var(--vien-the);">
+      <div class="container">
+        <div class="section-title-box">
+          <div class="section-eyebrow">Trải nghiệm đường sắt</div>
+          <h2 class="section-title">Những Hành Trình Đường Sắt Tiêu Biểu</h2>
+          <p class="section-desc">Khám phá vẻ đẹp đất nước qua khung cửa sổ toa tàu với dịch vụ chất lượng cao của Đường
+            sắt Việt Nam.</p>
+        </div>
+
+        <div class="heritage-grid">
+          <!-- Card 1: Tuyến Bắc Nam SE1/SE2 -->
+          <div class="heritage-card">
+            <div class="heritage-card-media">
+              <img src="../images/screen11.png" alt="Tàu Thống Nhất SE1 Hà Nội - Sài Gòn" />
+              <span class="heritage-card-tag">Tàu Thống Nhất SE1</span>
+            </div>
+            <div class="heritage-card-body">
+              <h3 class="heritage-card-title">Tuyến Hà Nội — TP. Hồ Chí Minh</h3>
+              <p class="heritage-card-text">Hành trình xuyên Việt 1.726 km qua đèo Hải Vân hùng vĩ, vịnh Lăng Cô và
+                những danh lam thắng cảnh dọc chiều dài đất nước.</p>
+              <a href="#trainSearchForm" class="heritage-card-link"
+                onclick="document.getElementById('inputFrom').value='Hà Nội';document.getElementById('inputTo').value='Sài Gòn';thucHienTimKiemChuyenTau();">
+                <span>Tìm vé tàu Thống Nhất</span>
+                <span class="icon" style="font-size:16px">arrow_forward</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 2: Tuyến Kết Nối Di Sản Huế - Đà Nẵng -->
+          <div class="heritage-card">
+            <div class="heritage-card-media">
+              <img src="../images/tau-du-lich-hue-da-nang.jpg" alt="Tàu Di Sản HĐ1 Huế - Đà Nẵng" />
+              <span class="heritage-card-tag">Tàu Di Sản HĐ1/HĐ2</span>
+            </div>
+            <div class="heritage-card-body">
+              <h3 class="heritage-card-title">Đoàn Tàu Kết Nối Di Sản Miền Trung</h3>
+              <p class="heritage-card-text">Trải nghiệm ngắm trọn cung đường đèo Hải Vân và bờ biển Lăng Cô tuyệt mỹ
+                trên đoàn tàu du lịch chuyên biệt Huế — Đà Nẵng.</p>
+              <a href="#trainSearchForm" class="heritage-card-link"
+                onclick="document.getElementById('inputFrom').value='Huế';document.getElementById('inputTo').value='Đà Nẵng';thucHienTimKiemChuyenTau();">
+                <span>Tìm vé Huế — Đà Nẵng</span>
+                <span class="icon" style="font-size:16px">arrow_forward</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 3: Tuyến Sài Gòn - Nha Trang -->
+          <div class="heritage-card">
+            <div class="heritage-card-media">
+              <img src="../images/tau-sai-gon-nha-trang.png" alt="Tàu SNT Sài Gòn - Nha Trang" />
+              <span class="heritage-card-tag">Tàu Du Lịch SNT1/SNT2</span>
+            </div>
+            <div class="heritage-card-body">
+              <h3 class="heritage-card-title">Tuyến Sài Gòn — Nha Trang</h3>
+              <p class="heritage-card-text">Lựa chọn hàng đầu cho các kỳ nghỉ biển với toa xe hiện đại, giường nằm êm ái
+                và hành trình khởi hành thuận lợi vào ban đêm.</p>
+              <a href="#trainSearchForm" class="heritage-card-link"
+                onclick="document.getElementById('inputFrom').value='Sài Gòn';document.getElementById('inputTo').value='Nha Trang';thucHienTimKiemChuyenTau();">
+                <span>Tìm vé Sài Gòn — Nha Trang</span>
+                <span class="icon" style="font-size:16px">arrow_forward</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== CẨM NANG & BLOG DU LỊCH ĐƯỜNG SẮT ==================== -->
+    <section class="home-blog-section" id="homeBlogSection">
+      <div class="container">
+        <div class="blog-section-header">
+          <div class="blog-header-left">
+            <div class="blog-eyebrow">
+              <span class="icon" style="font-size:18px">menu_book</span>
+              <span>Cẩm Nang & Trải Nghiệm</span>
+            </div>
+            <h2 class="blog-section-title">Hành Trình Khám Phá & Tin Tức Mới</h2>
+            <p class="blog-section-desc">
+              Những câu chuyện di sản, cẩm nang du lịch và kinh nghiệm đi tàu hữu ích giúp chuyến đi của bạn thêm trọn vẹn.
+            </p>
+          </div>
+          <a href="tin-tuc-blog.html" class="btn-view-all-blog">
+            <span>Xem tất cả bài viết</span>
+            <span class="icon">arrow_forward</span>
+          </a>
+        </div>
+
+        <!-- Lưới bài viết động kết nối từ blog.js -->
+        <div class="blog-cards-grid" id="homeBlogContainer"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================== 6. FOOTER & LIÊN HỆ ==================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Cột 1: Thông tin Tổng công ty -->
+        <div class="footer-brand">
+          <div class="footer-brand-title">TỔNG CÔNG TY ĐƯỜNG SẮT VIỆT NAM</div>
+          <p class="footer-desc">
+            Doanh nghiệp nhà nước giữ vai trò chủ đạo trong vận tải đường sắt quốc gia, kết nối kinh tế - văn hóa - xã
+            hội trên toàn tuyến đường sắt Việt Nam.
+          </p>
+          <div style="font-size:12px;color:rgba(255,255,255,0.6)">
+            Giấy chứng nhận ĐKKD số: 0100105052 do Sở KHĐT TP. Hà Nội cấp.<br>
+            Quyết định thành lập số 973/QĐ-TTg của Thủ tướng Chính phủ.
+          </div>
+        </div>
+
+        <!-- Cột 2: Điều hướng dịch vụ -->
+        <div>
+          <div class="footer-column-title">Dịch Vụ Trực Tuyến</div>
+          <div class="footer-links">
+            <a href="index.html">Tìm vé tàu</a>
+            <a href="tin-tuc-blog.html">Cẩm nang & Blog du lịch</a>
+            <a href="https://dsvn.vn/#/" target="_blank" rel="noopener noreferrer">Tìm giá vé rẻ</a>
+            <a href="https://dsvn.vn/#/" target="_blank" rel="noopener noreferrer">Chương trình khuyến mại</a>
+            <a href="thong-tin-dat-cho.html">Thông tin đặt chỗ</a>
+            <a href="quy-dinh.html">Quy định đổi trả vé</a>
+          </div>
+        </div>
+
+        <!-- Cột 3: Hướng dẫn & Quy định -->
+        <div>
+          <div class="footer-column-title">Chính Sách & Quy Định</div>
+          <div class="footer-links">
+            <a href="quy-dinh.html#quy-dinh-ngay-thuong">Quy định vé ngày thường</a>
+            <a href="quy-dinh.html#quy-dinh-dip-tet">Quy định vé cao điểm Tết</a>
+            <a href="quy-dinh.html#quy-dinh-hanh-ly">Quy định hành lý miễn cước</a>
+            <a href="quy-dinh.html#giay-to-tuy-than">Giấy tờ tùy thân đi tàu</a>
+          </div>
+        </div>
+
+        <!-- Cột 4: Thông tin liên hệ chính thức -->
+        <div>
+          <div class="footer-column-title">Thông Tin Liên Hệ</div>
+          <div class="footer-contact-info">
+            <div class="contact-item">
+              <span class="icon">location_on</span>
+              <span>Số 118 đường Lê Duẩn, Phường Văn Miếu, Quận Đống Đa, TP. Hà Nội</span>
+            </div>
+            <div class="contact-item">
+              <span class="icon">call</span>
+              <span>Tổng đài Miền Bắc: <strong>1900 0109</strong></span>
+            </div>
+            <div class="contact-item">
+              <span class="icon">call</span>
+              <span>Tổng đài Miền Nam: <strong>1900 1520</strong></span>
+            </div>
+            <div class="contact-item">
+              <span class="icon">mail</span>
+              <span>Email hỗ trợ: support@dsvn.vn</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
+        <div>© 2026 Tổng công ty Đường sắt Việt Nam (DSVN). Tất cả quyền được bảo lưu.</div>
+        <div>Hệ thống đặt vé tàu trực tuyến tiêu chuẩn Quốc gia.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== MODAL: ĐĂNG NHẬP / ĐĂNG KÝ HỘI VIÊN ==================== -->
+  <div class="custom-modal-backdrop" id="authModal">
+    <div class="custom-modal-card auth-modal-card">
+      <!-- Header với nhận diện thương hiệu DSVN -->
+      <div class="auth-modal-header">
+        <button type="button" class="btn-close-modal" onclick="dongModalTaiKhoan()" aria-label="Đóng"
+          title="Đóng">&times;</button>
+        <div class="auth-brand-badge">
+          <img src="../images/logo-dsvn.png" alt="Logo DSVN" />
+        </div>
+        <h3 class="auth-modal-title">CỔNG HỘI VIÊN ĐƯỜNG SẮT</h3>
+        <p class="auth-modal-desc">Hệ thống vé tàu điện tử & Tích điểm hội viên thân thiết</p>
+      </div>
+
+      <div class="modal-body-content" style="padding: 20px 24px;">
+        <!-- Tab chuyển đổi Đăng nhập / Đăng ký -->
+        <div class="auth-tab-switch">
+          <button type="button" class="auth-tab-btn active" id="tabAuthLogin" onclick="chuyenTabAuth('login')">
+            <span class="icon" style="font-size:16px">login</span>
+            <span>Đăng nhập</span>
+          </button>
+          <button type="button" class="auth-tab-btn" id="tabAuthRegister" onclick="chuyenTabAuth('register')">
+            <span class="icon" style="font-size:16px">person_add</span>
+            <span>Đăng ký mới</span>
+          </button>
+        </div>
+
+        <!-- FORM ĐĂNG NHẬP -->
+        <form id="formAuthLogin">
+          <div class="auth-form-field">
+            <label for="loginAccount">Số điện thoại hoặc Email</label>
+            <div class="auth-input-wrapper">
+              <span class="icon input-icon">account_circle</span>
+              <input type="text" id="loginAccount" placeholder="VD: 0912345678 hoặc dsvn@vr.com.vn" required />
+            </div>
+          </div>
+
+          <div class="auth-form-field">
+            <label for="loginPassword">Mật khẩu</label>
+            <div class="auth-input-wrapper">
+              <span class="icon input-icon">lock</span>
+              <input type="password" id="loginPassword" placeholder="Nhập mật khẩu tài khoản" required />
+              <button type="button" class="btn-toggle-pwd" onclick="toggleMatKhau('loginPassword', this)"
+                title="Hiện mật khẩu">
+                <span class="icon" style="font-size:18px">visibility_off</span>
+              </button>
+            </div>
+          </div>
+
+          <div
+            style="display:flex;align-items:center;justify-content:space-between;font-size:12.5px;margin: 10px 0 16px 0;">
+            <label style="display:flex;align-items:center;gap:6px;cursor:pointer;color:#475569;font-weight:500;">
+              <input type="checkbox" checked style="accent-color:#0284c7;" /> Ghi nhớ đăng nhập
+            </label>
+            <a href="#" style="color:#0284c7;font-weight:600;text-decoration:none;"
+              onclick="quenMatKhauToast();return false;">Quên mật khẩu?</a>
+          </div>
+
+          <button type="submit" class="btn-auth-submit">
+            <span class="icon">login</span>
+            <span>Đăng nhập hệ thống</span>
+          </button>
+
+          <div class="auth-divider">
+            <span>HOẶC TIẾP TỤC VỚI</span>
+          </div>
+
+          <button type="button" class="btn-sso-vneid" onclick="dangNhapVNeID()">
+            <span class="vneid-star">★</span>
+            <span>Đăng nhập bằng tài khoản VNeID (Định danh Quốc gia)</span>
+          </button>
+
+          <div class="auth-footer-prompt">
+            Chưa có tài khoản hội viên? <a href="#" onclick="chuyenTabAuth('register');return false;">Đăng ký ngay tại
+              đây</a>
+          </div>
+        </form>
+
+        <!-- FORM ĐĂNG KÝ -->
+        <form id="formAuthRegister" style="display:none">
+          <div class="auth-form-field">
+            <label for="regFullName">Họ và tên (theo CCCD) *</label>
+            <div class="auth-input-wrapper">
+              <span class="icon input-icon">badge</span>
+              <input type="text" id="regFullName" placeholder="VD: NGUYỄN VĂN AN" required />
+            </div>
+          </div>
+
+          <div class="auth-form-field">
+            <label for="regPhone">Số điện thoại *</label>
+            <div class="auth-input-wrapper">
+              <span class="icon input-icon">phone</span>
+              <input type="tel" id="regPhone" placeholder="VD: 0987654321" required />
+            </div>
+          </div>
+
+          <div class="auth-form-field">
+            <label for="regIdCard">Số CCCD / Mã định danh</label>
+            <div class="auth-input-wrapper">
+              <span class="icon input-icon">fingerprint</span>
+              <input type="text" id="regIdCard" placeholder="12 chữ số trên thẻ căn cước" />
+            </div>
+          </div>
+
+          <div class="auth-form-field">
+            <label for="regEmail">Email nhận vé điện tử</label>
+            <div class="auth-input-wrapper">
+              <span class="icon input-icon">mail</span>
+              <input type="email" id="regEmail" placeholder="hanhkhach@gmail.com" />
+            </div>
+          </div>
+
+          <div class="auth-form-field">
+            <label for="regPassword">Mật khẩu *</label>
+            <div class="auth-input-wrapper">
+              <span class="icon input-icon">lock</span>
+              <input type="password" id="regPassword" placeholder="Tối thiểu 6 ký tự" required />
+              <button type="button" class="btn-toggle-pwd" onclick="toggleMatKhau('regPassword', this)"
+                title="Hiện mật khẩu">
+                <span class="icon" style="font-size:18px">visibility_off</span>
+              </button>
+            </div>
+          </div>
+
+          <label class="auth-terms-label">
+            <input type="checkbox" checked required style="accent-color:#0284c7;" />
+            <span>Tôi đồng ý với <a href="quy-dinh.html" target="_blank" style="color:#0284c7;font-weight:600;">Quy chế
+                vận tải</a> & Chính sách hội viên Đường sắt Việt Nam</span>
+          </label>
+
+          <button type="submit" class="btn-auth-submit">
+            <span class="icon">person_add</span>
+            <span>Hoàn tất đăng ký hội viên</span>
+          </button>
+
+          <div class="auth-footer-prompt">
+            Đã có tài khoản? <a href="#" onclick="chuyenTabAuth('login');return false;">Đăng nhập ngay</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== MODAL: XÁC NHẬN ĐẶT VÉ & THANH TOÁN ==================== -->
+  <div class="custom-modal-backdrop" id="checkoutModal">
+    <div class="custom-modal-card modal-lg checkout-modal-card">
+      <div class="modal-header-bar checkout-modal-header">
+        <div class="modal-header-title">
+          <span class="icon">confirmation_number</span>
+          <span>Thông Tin Hành Khách & Thanh Toán</span>
+        </div>
+        <button type="button" class="btn-close-modal" onclick="dongModalDatVe()" aria-label="Đóng">&times;</button>
+      </div>
+      <div class="modal-body-content checkout-modal-body">
+        <!-- Thanh tiến trình & Đếm ngược thời gian -->
+        <div class="booking-step-indicator">
+          <div class="booking-stepper">
+            <div class="step-item active">
+              <div class="step-circle">1</div>
+              <span class="step-label">Hành khách</span>
+            </div>
+            <div class="step-connector"></div>
+            <div class="step-item">
+              <div class="step-circle">2</div>
+              <span class="step-label">Thanh toán</span>
+            </div>
+            <div class="step-connector"></div>
+            <div class="step-item">
+              <div class="step-circle">3</div>
+              <span class="step-label">Xuất vé</span>
+            </div>
+          </div>
+          <div class="timer-badge">
+            <span class="icon">schedule</span>
+            <span>Giữ chỗ: <strong id="checkoutTimer">10:00</strong></span>
+          </div>
+        </div>
+
+        <!-- Danh sách nhập thông tin hành khách -->
+        <div id="passengersInputContainer"></div>
+
+        <!-- Thông Tin Người Nhận Vé -->
+        <div class="checkout-contact-card">
+          <div class="checkout-card-title">
+            <span class="icon">contact_mail</span>
+            <div>
+              <span>Thông Tin Người Nhận Vé</span>
+              <p class="checkout-card-subtitle">Vé điện tử và hóa đơn sẽ được gửi đến số điện thoại và email này</p>
+            </div>
+          </div>
+          <div class="checkout-contact-grid">
+            <div class="form-field-group">
+              <label class="form-label">Số điện thoại nhận vé <span class="text-danger" style="color:#ef4444">*</span></label>
+              <div class="input-box">
+                <span class="icon input-prefix-icon">call</span>
+                <input type="tel" id="checkoutPhone" placeholder="0912345678" required />
+              </div>
+            </div>
+            <div class="form-field-group">
+              <label class="form-label">Email nhận Thẻ lên tàu</label>
+              <div class="input-box">
+                <span class="icon input-prefix-icon">mail</span>
+                <input type="email" id="checkoutEmail" placeholder="khachhang@email.com" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Phương thức thanh toán -->
+        <div class="checkout-payment-section">
+          <div class="checkout-card-title" style="margin-bottom:12px">
+            <span class="icon">payments</span>
+            <span>Phương thức thanh toán trực tuyến</span>
+          </div>
+          <div class="payment-methods-grid">
+            <div class="payment-method-card selected" onclick="chonPhuongThucThanhToan(this, 'vnpay')">
+              <div class="payment-card-left">
+                <span class="icon payment-icon">qr_code_scanner</span>
+                <div>
+                  <div class="payment-title">Quét mã VNPAY-QR (Khuyên dùng)</div>
+                  <div class="payment-desc">Hơn 30 ngân hàng và ví điện tử VNPAY</div>
+                </div>
+              </div>
+              <span class="icon payment-check-icon">check_circle</span>
+            </div>
+            <div class="payment-method-card" onclick="chonPhuongThucThanhToan(this, 'atm')">
+              <div class="payment-card-left">
+                <span class="icon payment-icon">credit_card</span>
+                <div>
+                  <div class="payment-title">Thẻ ATM / Internet Banking</div>
+                  <div class="payment-desc">Cổng Napas các ngân hàng nội địa</div>
+                </div>
+              </div>
+              <span class="icon payment-check-icon payment-uncheck">radio_button_unchecked</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer tổng tiền & nút hoàn tất -->
+        <div class="checkout-footer-bar">
+          <div class="checkout-total-block">
+            <span class="checkout-total-label">Tổng tiền thanh toán</span>
+            <div class="checkout-total-value" id="checkoutTotalDisplay">0 VNĐ</div>
+          </div>
+          <button type="button" class="btn-proceed-reserve" onclick="xacNhanHoanTatDatVe()">
+            <span class="icon">verified</span>
+            <span>Xác Nhận & Thanh Toán</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== MODAL: ĐẶT VÉ THÀNH CÔNG & THẺ LÊN TÀU ĐIỆN TỬ ==================== -->
+  <div class="custom-modal-backdrop" id="bookingSuccessModal">
+    <div class="custom-modal-card modal-lg ticket-success-card">
+      <div class="ticket-success-header">
+        <div class="success-icon-badge">
+          <span class="icon">check_circle</span>
+        </div>
+        <h2 class="ticket-success-title">ĐẶT VÉ & THANH TOÁN THÀNH CÔNG!</h2>
+        <p class="ticket-success-subtitle">Tổng công ty Đường sắt Việt Nam chúc quý khách có một chuyến hành trình an
+          toàn và thuận lợi.</p>
+        <button type="button" class="btn-close-modal" onclick="dongModalThanhCong()" aria-label="Đóng">&times;</button>
+      </div>
+
+      <div class="ticket-success-body">
+        <!-- Mã đặt chỗ nổi bật -->
+        <div class="booking-code-banner">
+          <div>
+            <div class="booking-code-label">MÃ ĐẶT CHỖ (BOOKING CODE)</div>
+            <div class="booking-code-value" id="successBookingCode">VNR646775</div>
+          </div>
+          <button type="button" class="btn-copy-code" onclick="saoChepMaDatCho()">
+            <span class="icon">content_copy</span>
+            <span id="copyBtnText">Sao chép mã</span>
+          </button>
+        </div>
+
+        <!-- Thẻ lên tàu điện tử (Electronic Boarding Pass Preview) -->
+        <div class="boarding-pass-preview" id="boardingPassPrintArea">
+          <div class="boarding-pass-header">
+            <div class="pass-brand">
+              <img src="../images/logo-dsvn.png" alt="DSVN" width="28" height="28" />
+              <div>
+                <div class="pass-brand-title">TỔNG CÔNG TY ĐƯỜNG SẮT VIỆT NAM</div>
+                <div class="pass-brand-sub">THẺ LÊN TÀU ĐIỆN TỬ • ELECTRONIC BOARDING PASS</div>
+              </div>
+            </div>
+            <span class="pass-status-pill">ĐÃ THANH TOÁN</span>
+          </div>
+
+          <div class="boarding-pass-grid">
+            <div class="pass-route-col">
+              <div class="pass-route-item">
+                <span class="pass-lbl">GA ĐI (ORIGIN)</span>
+                <span class="pass-val-station" id="successFrom">HÀ NỘI</span>
+              </div>
+              <div class="pass-route-arrow">
+                <span class="icon">trending_flat</span>
+              </div>
+              <div class="pass-route-item" style="text-align:right">
+                <span class="pass-lbl">GA ĐẾN (DESTINATION)</span>
+                <span class="pass-val-station" id="successTo">SÀI GÒN</span>
+              </div>
+            </div>
+
+            <div class="pass-details-row">
+              <div class="pass-detail-item">
+                <span class="pass-lbl">ĐOÀN TÀU</span>
+                <span class="pass-val" id="successTrain">SE3</span>
+              </div>
+              <div class="pass-detail-item">
+                <span class="pass-lbl">NGÀY KHỞI HÀNH</span>
+                <span class="pass-val" id="successDate">10/10/2026</span>
+              </div>
+              <div class="pass-detail-item">
+                <span class="pass-lbl">CHỖ NGỒI</span>
+                <span class="pass-val" id="successSeats">Ghế 22</span>
+              </div>
+              <div class="pass-detail-item">
+                <span class="pass-lbl">HÀNH KHÁCH</span>
+                <span class="pass-val" id="successPassenger">Nguyen Van B</span>
+              </div>
+              <div class="pass-detail-item">
+                <span class="pass-lbl">SỐ ĐIỆN THOẠI</span>
+                <span class="pass-val" id="successPhone">0912345678</span>
+              </div>
+              <div class="pass-detail-item">
+                <span class="pass-lbl">TỔNG TIỀN VÉ</span>
+                <span class="pass-val price-highlight" id="successPrice">1.050.000 đ</span>
+              </div>
+            </div>
+
+            <div class="pass-qr-box">
+              <img src="../images/qrcode.png" alt="QR Code" width="52" height="52"
+                style="width:52px;height:52px;object-fit:contain;flex-shrink:0" />
+              <div class="pass-qr-note">
+                <strong>Thẻ lên tàu hợp lệ:</strong> Xuất trình mã QR này hoặc mã đặt chỗ tại cổng kiểm soát vé tự động
+                ở nhà ga.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ticket-notice-box">
+          <span class="icon">verified_user</span>
+          <span>Thông tin vé điện tử đã được lưu vào hệ thống. Quý khách có thể tra cứu và xem lại thẻ lên tàu bất kỳ
+            lúc nào tại mục <strong>Thông tin đặt chỗ</strong>.</span>
+        </div>
+      </div>
+
+      <div class="ticket-success-footer">
+        <button type="button" class="btn-ticket-secondary" onclick="dongModalThanhCong()">
+          <span>Đóng & Đặt vé mới</span>
+        </button>
+        <button type="button" class="btn-ticket-primary" onclick="inTheLenTau()">
+          <span class="icon">print</span>
+          <span>In Thẻ Lên Tàu</span>
+        </button>
+        <button type="button" class="btn-ticket-accent" onclick="chuyenSangTraCuu()">
+          <span class="icon">receipt_long</span>
+          <span>Xem trong Tra Cứu Vé</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts Modular JS -->
+  <script src="../js/du-lieu-ga-tau.js"></script>
+  <script src="../js/dieu-huong.js"></script>
+  <script src="../js/thong-bao.js"></script>
+  <script src="../js/ngon-ngu.js"></script>
+  <script src="../js/tai-khoan.js"></script>
+  <script src="../js/chon-ghe.js"></script>
+  <script src="../js/luong-dat-ve.js"></script>
+  <script src="../js/tim-ve.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="../js/blog.js"></script>
+</body>
+
+</html>

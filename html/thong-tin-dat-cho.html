@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thông tin đặt chỗ & Tra cứu vé điện tử - Tổng công ty Đường sắt Việt Nam</title>
+  <meta name="description"
+    content="Hướng dẫn quy trình mua vé trực tuyến, tra cứu mã đặt chỗ, kiểm tra thông tin vé điện tử và in Thẻ lên tàu hỏa chính thức của Tổng công ty Đường sắt Việt Nam." />
+
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+
+<body>
+
+  <!-- ==================== 1. HEADER (2 TẦNG: TOPBAR + NAVBAR) ==================== -->
+  <!-- TẦNG 1: TOPBAR TRẮNG -->
+  <div class="site-topbar">
+    <div class="container topbar-container">
+      <!-- Brand Logo -->
+      <a href="index.html" class="brand-logo-area" title="Đường sắt Việt Nam - Trang chủ">
+        <div class="brand-logo-icon">
+          <img src="../images/logo-dsvn.png" alt="Đường sắt Việt Nam Logo" width="42" height="42" />
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">ĐƯỜNG SẮT VIỆT NAM</span>
+          <span class="brand-subtitle">VIETNAM RAILWAYS</span>
+        </div>
+      </a>
+
+      <!-- Thanh chạy chữ thông báo Tin tức / Khuyến mãi -->
+      <div class="topbar-marquee">
+        <marquee behavior="scroll" direction="left" scrollamount="6">
+          <span class="icon marquee-icon">campaign</span>
+          <strong>Thông báo DSVN:</strong> Giảm giá vé tập thể đến 15% cho các đoàn tàu Thống Nhất • Đổi trả vé trực
+          tuyến thuận tiện trên hệ thống trước giờ tàu chạy • Trẻ em dưới 6 tuổi miễn vé, từ 6 - 10 tuổi giảm 25% giá
+          vé!
+        </marquee>
+      </div>
+
+      <!-- Khu vực hotline, ngôn ngữ & tài khoản -->
+      <div class="topbar-right">
+        <div class="topbar-hotline">
+          <span class="icon">call</span>
+          <span>1900 0109</span>
+        </div>
+        <div class="lang-switch">
+          <button class="lang-btn active" type="button" onclick="doiNgonNgu('vi')">VN</button>
+          <span>|</span>
+          <button class="lang-btn" type="button" onclick="doiNgonNgu('en')">EN</button>
+        </div>
+        <!-- Khu vực Tài khoản người dùng (Đăng nhập / Hồ sơ) -->
+        <div id="userAccountArea"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TẦNG 2: NAVBAR XANH DƯƠNG (#2fa4e7) -->
+  <nav class="site-navbar" aria-label="Menu chính">
+    <div class="container navbar-container">
+      <div class="mobile-nav-brand">
+        <span class="icon" style="font-size:18px;margin-right:4px">train</span>
+        <span>HỆ THỐNG VÉ ĐIỆN TỬ DSVN</span>
+      </div>
+      <div class="main-nav">
+        <a href="index.html" class="nav-link">Tìm vé</a>
+        <a href="tin-tuc-blog.html" class="nav-link">Cẩm nang & Tin tức</a>
+        <a href="https://dsvn.vn/#/" class="nav-link" target="_blank" rel="noopener noreferrer">
+          <span>Tìm giá vé rẻ</span>
+          <span class="icon external-icon">open_in_new</span>
+        </a>
+        <a href="https://dsvn.vn/#/" class="nav-link" target="_blank" rel="noopener noreferrer">
+          <span>Khuyến mại</span>
+          <span class="icon external-icon">open_in_new</span>
+        </a>
+        <a href="thong-tin-dat-cho.html" class="nav-link active">Thông tin đặt chỗ</a>
+        <a href="quy-dinh.html" class="nav-link">Quy định</a>
+      </div>
+
+      <button class="mobile-menu-toggle" id="mobileMenuToggle" type="button" aria-label="Mở menu">
+        <span class="icon">menu</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-nav-backdrop" id="mobileNavBackdrop">
+    <div class="mobile-nav-drawer">
+      <div class="mobile-drawer-header">
+        <div class="brand-text">
+          <span class="brand-title">ĐƯỜNG SẮT VIỆT NAM</span>
+        </div>
+        <button id="closeMobileMenu" class="icon" style="color:#ffffff;font-size:24px;cursor:pointer">close</button>
+      </div>
+      <div class="mobile-nav-list">
+        <a href="index.html" class="nav-link">Tìm vé</a>
+        <a href="tin-tuc-blog.html" class="nav-link">Cẩm nang & Tin tức</a>
+        <a href="https://dsvn.vn/#/" class="nav-link" target="_blank" rel="noopener noreferrer">
+          <span>Tìm giá vé rẻ</span>
+          <span class="icon external-icon">open_in_new</span>
+        </a>
+        <a href="https://dsvn.vn/#/" class="nav-link" target="_blank" rel="noopener noreferrer">
+          <span>Khuyến mại</span>
+          <span class="icon external-icon">open_in_new</span>
+        </a>
+        <a href="thong-tin-dat-cho.html" class="nav-link active">Thông tin đặt chỗ</a>
+        <a href="quy-dinh.html" class="nav-link">Quy định</a>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <!-- ==================== 2. PAGE BANNER ==================== -->
+    <section class="page-banner">
+      <div class="container">
+        <div class="breadcrumb-nav">
+          <a href="index.html">Trang chủ</a>
+          <span>/</span>
+          <span style="color:#ffffff;font-weight:600">Thông tin đặt chỗ</span>
+        </div>
+        <h1 class="page-title">Thông Tin Đặt Chỗ & Tra Cứu Vé Điện Tử</h1>
+        <p class="page-subtitle">
+          Tra cứu nhanh lịch trình chuyến đi, trạng thái giao dịch vé tàu hỏa và in Thẻ lên tàu điện tử trực tiếp trên
+          hệ thống của Tổng công ty Đường sắt Việt Nam.
+        </p>
+      </div>
+    </section>
+
+    <!-- ==================== 3. LOOKUP TICKET CONSOLE ==================== -->
+    <section class="container" style="padding-top:24px;padding-bottom:20px;">
+      <div class="lookup-container">
+        <div class="lookup-card">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+            <span class="icon" style="font-size:24px;color:var(--accent)">search_check</span>
+            <h2 style="font-size:18px;font-weight:700;color:var(--accent)">Tra Cứu Mã Đặt Chỗ</h2>
+          </div>
+          <p style="font-size:13px;color:var(--chu-phu);line-height:1.5;">
+            Nhập Mã đặt chỗ (6-8 ký tự) nhận được qua SMS hoặc Email và Số điện thoại/Email dùng khi đặt vé để xem chi
+            tiết Thẻ lên tàu.
+          </p>
+
+          <!-- Form Tra cứu -->
+          <form id="reservationLookupForm">
+            <div class="lookup-form-grid">
+              <div class="form-group">
+                <label class="form-label" for="bookingCode">
+                  <span>Mã đặt chỗ / Mã vé</span>
+                  <span style="color:#f59e0b">*</span>
+                </label>
+                <div class="input-box">
+                  <span class="icon input-icon">confirmation_number</span>
+                  <input type="text" id="bookingCode" placeholder="VD: VNR8921 hoặc SE1-893" value="VNR8921" required />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="passengerContact">
+                  <span>SĐT hoặc Email đặt vé</span>
+                  <span style="color:#f59e0b">*</span>
+                </label>
+                <div class="input-box">
+                  <span class="icon input-icon">contact_mail</span>
+                  <input type="text" id="passengerContact" placeholder="VD: 0912345678" value="0912345678" required />
+                </div>
+              </div>
+
+              <div class="form-group form-group-btn">
+                <button type="submit" class="lookup-btn-submit btn-search-submit" id="btnLookupTicket">
+                  <span class="icon">search</span>
+                  <span>Tìm vé</span>
+                </button>
+              </div>
+            </div>
+          </form>
+
+          <!-- Kết quả Thẻ Lên Tàu Điện Tử Demo -->
+          <div class="ticket-pass-result" id="ticketPassResult">
+            <div class="ticket-pass-header">
+              <div class="ticket-pass-brand">
+                <div class="brand-logo-icon" style="width:36px;height:36px">
+                  <img src="../images/logo-dsvn.png" alt="DSVN" width="30" height="30" style="object-fit:contain" />
+                </div>
+                <div>
+                  <div style="font-weight:700;color:var(--accent);font-size:15px">THẺ LÊN TÀU HỎA ĐIỆN TỬ</div>
+                  <div style="font-size:11px;color:var(--chu-mo)">TỔNG CÔNG TY ĐƯỜNG SẮT VIỆT NAM (DSVN)</div>
+                </div>
+              </div>
+              <div class="ticket-pass-status">
+                <span class="icon" style="font-size:16px">verified</span>
+                <span>ĐÃ THANH TOÁN (HỢP LỆ)</span>
+              </div>
+            </div>
+
+            <div class="ticket-pass-grid">
+              <div>
+                <div class="ticket-field-label">Mã đặt chỗ</div>
+                <div class="ticket-field-value" style="color:#f59e0b" id="ticketPassCode">VNR8921</div>
+              </div>
+
+              <div>
+                <div class="ticket-field-label">Đoàn tàu / Hành trình</div>
+                <div class="ticket-field-value">TÀU SE1 (HN ➔ SG)</div>
+              </div>
+
+              <div>
+                <div class="ticket-field-label">Giờ & Ngày khởi hành</div>
+                <div class="ticket-field-value">20:55 • 28/11/2026</div>
+              </div>
+
+              <div>
+                <div class="ticket-field-label">Vị trí chỗ ngồi</div>
+                <div class="ticket-field-value">Toa 03 • Ghế số 12</div>
+              </div>
+
+              <div class="ticket-qr-code">
+                <img src="../images/qrcode.png" alt="Mã QR vé điện tử DSVN" width="88" height="88" />
+              </div>
+            </div>
+
+            <div
+              style="margin-top:16px;padding-top:14px;border-top:1px solid var(--vien-the);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px">
+              <div style="font-size:13px;color:var(--chu-phu)">
+                Hành khách: <strong>NGUYEN VAN A</strong> (CCCD: 00109001****) • Liên hệ: <span
+                  id="ticketPassContact">0912345678</span>
+              </div>
+              <div style="display:flex;gap:10px">
+                <button type="button" class="btn-primary-token" onclick="window.printBoardingPass()"
+                  style="padding:8px 18px;font-size:13px;background:var(--accent);border-radius:4px">
+                  <span class="icon" style="font-size:16px;margin-right:4px">print</span>
+                  <span>In Thẻ Lên Tàu</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 4. QUY TRÌNH ĐẶT VÉ TRỰC TUYẾN 4 BƯỚC ==================== -->
+    <section style="padding: 40px 0 60px 0; background: #ffffff; border-top: 1px solid var(--vien-the);">
+      <div class="container">
+        <div class="section-title-box">
+          <div class="section-eyebrow">Hướng dẫn giao dịch</div>
+          <h2 class="section-title">Quy Trình Mua Vé Tàu Trực Tuyến</h2>
+          <p class="section-desc">Chỉ với 4 bước đơn giản, quý khách đã có thể sở hữu Thẻ lên tàu điện tử chính thức một
+            cách an toàn và tiện lợi.</p>
+        </div>
+
+        <div class="steps-grid">
+          <!-- Bước 1 -->
+          <div class="step-card">
+            <div class="step-number">1</div>
+            <h3 class="step-title">Tìm kiếm chuyến tàu</h3>
+            <p class="step-text">
+              Chọn ga đi, ga đến, ngày khởi hành và loại hành trình (một chiều hoặc khứ hồi) trên trang chủ để xem danh
+              sách chuyến tàu phù hợp.
+            </p>
+          </div>
+
+          <!-- Bước 2 -->
+          <div class="step-card">
+            <div class="step-number">2</div>
+            <h3 class="step-title">Chọn toa và vị trí chỗ</h3>
+            <p class="step-text">
+              Xem sơ đồ chỗ ngồi chi tiết của từng toa (ngồi mềm, giường nằm khoang 4, khoang 6 hoặc khoang VIP) và chọn
+              vị trí yêu thích.
+            </p>
+          </div>
+
+          <!-- Bước 3 -->
+          <div class="step-card">
+            <div class="step-number">3</div>
+            <h3 class="step-title">Nhập thông tin & Thanh toán</h3>
+            <p class="step-text">
+              Điền chính xác họ tên, số CCCD/Hộ chiếu người đi tàu và lựa chọn hình thức thanh toán trực tuyến bảo mật
+              (VNPAY-QR, Thẻ ngân hàng, Ví điện tử).
+            </p>
+          </div>
+
+          <!-- Bước 4 -->
+          <div class="step-card">
+            <div class="step-number">4</div>
+            <h3 class="step-title">Nhận Thẻ lên tàu điện tử</h3>
+            <p class="step-text">
+              Hệ thống gửi mã đặt chỗ qua SMS và Thẻ lên tàu điện tử có gắn mã QR qua Email. Quý khách chỉ cần xuất
+              trình trên điện thoại khi lên ga.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== ĐIỂM ĐẾN HẤP DẪN ==================== -->
+    <section class="destination-section">
+      <div class="container">
+        <div class="section-title-box">
+          <div class="section-eyebrow">Điểm đến du lịch</div>
+          <h2 class="section-title" data-i18n="sec_dest_title">Điểm Đến Hấp Dẫn</h2>
+          <p class="section-desc" data-i18n="sec_dest_sub">Kết nối các điểm đến du lịch trong nước</p>
+        </div>
+
+        <div class="destination-grid">
+          <!-- Điểm đến 1: Vinh (screen15.png) -->
+          <div class="destination-card" onclick="chonDiemDenDuLich('Vinh')" title="Khám phá và đặt vé đi Ga Vinh">
+            <div class="destination-img-wrap">
+              <img src="../images/screen15.png" alt="Điểm đến hấp dẫn - Vinh" class="destination-card-img" />
+            </div>
+            <div class="destination-info-bar">
+              <div>
+                <h3 class="destination-name">Ga Vinh (Nghệ An)</h3>
+                <span class="destination-desc">Quê hương Bác Hồ • Đảo chè Thanh Chương kỳ vĩ</span>
+              </div>
+              <span class="destination-action">
+                <span data-i18n="dest_book_train">Đặt vé ngay</span>
+                <span class="icon" style="font-size:16px">arrow_forward</span>
+              </span>
+            </div>
+          </div>
+
+          <!-- Điểm đến 2: Phan Thiết (screen14.png) -->
+          <div class="destination-card" onclick="chonDiemDenDuLich('Phan Thiết')"
+            title="Khám phá và đặt vé đi Ga Phan Thiết">
+            <div class="destination-img-wrap">
+              <img src="../images/screen14.png" alt="Điểm đến hấp dẫn - Phan Thiết" class="destination-card-img" />
+            </div>
+            <div class="destination-info-bar">
+              <div>
+                <h3 class="destination-name">Ga Phan Thiết (Bình Thuận)</h3>
+                <span class="destination-desc">Tháp Chàm Poshanư • Biển Mũi Né cát vàng</span>
+              </div>
+              <span class="destination-action">
+                <span data-i18n="dest_book_train">Đặt vé ngay</span>
+                <span class="icon" style="font-size:16px">arrow_forward</span>
+              </span>
+            </div>
+          </div>
+
+          <!-- Điểm đến 3: Tuy Hòa (screen16.png) -->
+          <div class="destination-card" onclick="chonDiemDenDuLich('Tuy Hòa')" title="Khám phá và đặt vé đi Ga Tuy Hòa">
+            <div class="destination-img-wrap">
+              <img src="../images/screen16.png" alt="Điểm đến hấp dẫn - Tuy Hòa" class="destination-card-img" />
+            </div>
+            <div class="destination-info-bar">
+              <div>
+                <h3 class="destination-name">Ga Tuy Hòa (Phú Yên)</h3>
+                <span class="destination-desc">Hải đăng Mũi Điện • Xứ sở hoa vàng cỏ xanh</span>
+              </div>
+              <span class="destination-action">
+                <span data-i18n="dest_book_train">Đặt vé ngay</span>
+                <span class="icon" style="font-size:16px">arrow_forward</span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 5. PHƯƠNG THỨC THANH TOÁN & HỖ TRỢ ==================== -->
+    <section style="padding: 50px 0; background: var(--background); border-top: 1px solid var(--vien-the);">
+      <div class="container">
+        <div class="payment-notes-grid">
+          <!-- Phương thức thanh toán -->
+          <div class="card-token" style="background:#ffffff;">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px">
+              <span class="icon" style="font-size:24px;color:var(--accent)">account_balance_wallet</span>
+              <h3 style="font-size:16px;font-weight:700;color:var(--chu-chinh)">Phương Thức Thanh Toán</h3>
+            </div>
+            <p style="font-size:13px;color:var(--chu-phu);line-height:1.5;margin-bottom:14px">
+              Hệ thống bán vé Đường sắt Việt Nam hỗ trợ đa dạng phương thức thanh toán an toàn, bảo mật tiêu chuẩn quốc
+              gia:
+            </p>
+            <ul style="display:flex;flex-direction:column;gap:10px;font-size:13px;color:var(--chu-phu)">
+              <li style="display:flex;align-items:center;gap:8px">
+                <span class="icon" style="font-size:18px;color:var(--accent)">qr_code_scanner</span>
+                <span><strong>Quét mã VNPAY-QR:</strong> Nhanh chóng qua ứng dụng của hơn 30 ngân hàng.</span>
+              </li>
+              <li style="display:flex;align-items:center;gap:8px">
+                <span class="icon" style="font-size:18px;color:var(--accent)">credit_card</span>
+                <span><strong>Thẻ ATM / Internet Banking:</strong> Cổng thanh toán nội địa các ngân hàng Việt
+                  Nam.</span>
+              </li>
+              <li style="display:flex;align-items:center;gap:8px">
+                <span class="icon" style="font-size:18px;color:var(--accent)">credit_score</span>
+                <span><strong>Thẻ Quốc tế:</strong> Visa, MasterCard, JCB phát hành trong nước và quốc tế.</span>
+              </li>
+              <li style="display:flex;align-items:center;gap:8px">
+                <span class="icon" style="font-size:18px;color:var(--accent)">storefront</span>
+                <span><strong>Thanh toán trả sau:</strong> Giữ chỗ trực tuyến và thanh toán trực tiếp tại các nhà
+                  ga.</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Lưu ý an toàn khi đi tàu -->
+          <div class="card-token" style="background:#ffffff;">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px">
+              <span class="icon" style="font-size:24px;color:#f59e0b">warning</span>
+              <h3 style="font-size:16px;font-weight:700;color:var(--chu-chinh)">Lưu Ý Khi Sử Dụng Vé Điện Tử</h3>
+            </div>
+            <div
+              style="background:#fffbeb;border:1px solid #fef3c7;border-left:4px solid #f59e0b;padding:12px 14px;border-radius:4px;font-size:13px;color:#92400e;line-height:1.5;margin-bottom:12px">
+              <strong>Thông tin người đi tàu:</strong> Tên và số giấy tờ tùy thân (CCCD/Hộ chiếu) trên Thẻ lên tàu phải
+              trùng khớp hoàn toàn với giấy tờ gốc xuất trình cho nhân viên kiểm soát tại cửa ga.
+            </div>
+            <p style="font-size:13px;color:var(--chu-phu);line-height:1.5;">
+              Hành khách có mặt tại nhà ga trước giờ tàu chạy ít nhất <strong>30 phút</strong> để thực hiện thủ tục kiểm
+              tra vé và quét mã QR tại cổng kiểm soát tự động.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================== 6. FOOTER & LIÊN HỆ ==================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-brand-title">TỔNG CÔNG TY ĐƯỜNG SẮT VIỆT NAM</div>
+          <p class="footer-desc">
+            Doanh nghiệp nhà nước giữ vai trò chủ đạo trong vận tải đường sắt quốc gia, kết nối kinh tế - văn hóa - xã
+            hội trên toàn tuyến đường sắt Việt Nam.
+          </p>
+          <div style="font-size:12px;color:rgba(255,255,255,0.6)">
+            Giấy chứng nhận ĐKKD số: 0100105052 do Sở KHĐT TP. Hà Nội cấp.<br>
+            Quyết định thành lập số 973/QĐ-TTg của Thủ tướng Chính phủ.
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-column-title">Dịch Vụ Trực Tuyến</div>
+          <div class="footer-links">
+            <a href="index.html">Tìm vé tàu</a>
+            <a href="tin-tuc-blog.html">Cẩm nang & Blog du lịch</a>
+            <a href="https://dsvn.vn/#/" target="_blank" rel="noopener noreferrer">Tìm giá vé rẻ</a>
+            <a href="https://dsvn.vn/#/" target="_blank" rel="noopener noreferrer">Chương trình khuyến mại</a>
+            <a href="thong-tin-dat-cho.html">Thông tin đặt chỗ</a>
+            <a href="quy-dinh.html">Quy định đổi trả vé</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-column-title">Chính Sách & Quy Định</div>
+          <div class="footer-links">
+            <a href="quy-dinh.html#quy-dinh-ngay-thuong">Quy định vé ngày thường</a>
+            <a href="quy-dinh.html#quy-dinh-dip-tet">Quy định vé cao điểm Tết</a>
+            <a href="quy-dinh.html#quy-dinh-hanh-ly">Quy định hành lý miễn cước</a>
+            <a href="quy-dinh.html#giay-to-tuy-than">Giấy tờ tùy thân đi tàu</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-column-title">Thông Tin Liên Hệ</div>
+          <div class="footer-contact-info">
+            <div class="contact-item">
+              <span class="icon">location_on</span>
+              <span>Số 118 đường Lê Duẩn, Phường Văn Miếu, Quận Đống Đa, TP. Hà Nội</span>
+            </div>
+            <div class="contact-item">
+              <span class="icon">call</span>
+              <span>Tổng đài Miền Bắc: <strong>1900 0109</strong></span>
+            </div>
+            <div class="contact-item">
+              <span class="icon">call</span>
+              <span>Tổng đài Miền Nam: <strong>1900 1520</strong></span>
+            </div>
+            <div class="contact-item">
+              <span class="icon">mail</span>
+              <span>Email hỗ trợ: support@dsvn.vn</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 Tổng công ty Đường sắt Việt Nam (DSVN). Tất cả quyền được bảo lưu.</div>
+        <div>Hệ thống đặt vé tàu trực tuyến tiêu chuẩn Quốc gia.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== MODAL: ĐĂNG NHẬP / ĐĂNG KÝ ==================== -->
+  <!-- ==================== MODAL: ĐĂNG NHẬP / ĐĂNG KÝ HỘI VIÊN ==================== -->
+  <div class="custom-modal-backdrop" id="authModal">
+    <div class="custom-modal-card auth-modal-card">
+      <!-- Header với nhận diện thương hiệu DSVN -->
+      <div class="auth-modal-header">
+        <button type="button" class="btn-close-modal" onclick="dongModalTaiKhoan()" aria-label="Đóng"
+          title="Đóng">&times;</button>
+        <div class="auth-brand-badge">
+          <img src="../images/logo-dsvn.png" alt="Logo DSVN" />
+        </div>
+        <h3 class="auth-modal-title">CỔNG HỘI VIÊN ĐƯỜNG SẮT</h3>
+        <p class="auth-modal-desc">Hệ thống vé tàu điện tử & Tích điểm hội viên thân thiết</p>
+      </div>
+
+      <div class="modal-body-content" style="padding: 20px 24px;">
+        <!-- Tab chuyển đổi Đăng nhập / Đăng ký -->
+        <div class="auth-tab-switch">
+          <button type="button" class="auth-tab-btn active" id="tabAuthLogin" onclick="chuyenTabAuth('login')">
+            <span class="icon" style="font-size:16px">login</span>
+            <span>Đăng nhập</span>
+          </button>
+          <button type="button" class="auth-tab-btn" id="tabAuthRegister" onclick="chuyenTabAuth('register')">
+            <span class="icon" style="font-size:16px">person_add</span>
+            <span>Đăng ký mới</span>
+          </button>
+        </div>
+
+        <!-- FORM ĐĂNG NHẬP -->
+        <form id="formAuthLogin">
+          <div class="auth-form-field">
+            <label for="loginAccount">Số điện thoại hoặc Email</label>
+            <div class="auth-input-wrapper">
+              <span class="icon input-icon">account_circle</span>
+              <input type="text" id="loginAccount" placeholder="VD: 0912345678 hoặc dsvn@vr.com.vn" required />
+            </div>
+          </div>
+
+          <div class="auth-form-field">
+            <label for="loginPassword">Mật khẩu</label>
+            <div class="auth-input-wrapper">
+              <span class="icon input-icon">lock</span>
+              <input type="password" id="loginPassword" placeholder="Nhập mật khẩu tài khoản" required />
+              <button type="button" class="btn-toggle-pwd" onclick="toggleMatKhau('loginPassword', this)"
+                title="Hiện mật khẩu">
+                <span class="icon" style="font-size:18px">visibility_off</span>
+              </button>
+            </div>
+          </div>
+
+          <div
+            style="display:flex;align-items:center;justify-content:space-between;font-size:12.5px;margin: 10px 0 16px 0;">
+            <label style="display:flex;align-items:center;gap:6px;cursor:pointer;color:#475569;font-weight:500;">
+              <input type="checkbox" checked style="accent-color:#0284c7;" /> Ghi nhớ đăng nhập
+            </label>
+            <a href="#" style="color:#0284c7;font-weight:600;text-decoration:none;"
+              onclick="quenMatKhauToast();return false;">Quên mật khẩu?</a>
+          </div>
+
+          <button type="submit" class="btn-auth-submit">
+            <span class="icon">login</span>
+            <span>Đăng nhập hệ thống</span>
+          </button>
+
+          <div class="auth-divider">
+            <span>HOẶC TIẾP TỤC VỚI</span>
+          </div>
+
+          <button type="button" class="btn-sso-vneid" onclick="dangNhapVNeID()">
+            <span class="vneid-star">★</span>
+            <span>Đăng nhập bằng tài khoản VNeID (Định danh Quốc gia)</span>
+          </button>
+
+          <div class="auth-footer-prompt">
+            Chưa có tài khoản hội viên? <a href="#" onclick="chuyenTabAuth('register');return false;">Đăng ký ngay tại
+              đây</a>
+          </div>
+        </form>
+
+        <!-- FORM ĐĂNG KÝ -->
+        <form id="formAuthRegister" style="display:none">
+          <div class="auth-form-field">
+            <label for="regFullName">Họ và tên (theo CCCD) *</label>
+            <div class="auth-input-wrapper">
+              <span class="icon input-icon">badge</span>
+              <input type="text" id="regFullName" placeholder="VD: NGUYỄN VĂN AN" required />
+            </div>
+          </div>
+
+          <div class="auth-form-field">
+            <label for="regPhone">Số điện thoại *</label>
+            <div class="auth-input-wrapper">
+              <span class="icon input-icon">phone</span>
+              <input type="tel" id="regPhone" placeholder="VD: 0987654321" required />
+            </div>
+          </div>
+
+          <div class="auth-form-field">
+            <label for="regIdCard">Số CCCD / Mã định danh</label>
+            <div class="auth-input-wrapper">
+              <span class="icon input-icon">fingerprint</span>
+              <input type="text" id="regIdCard" placeholder="12 chữ số trên thẻ căn cước" />
+            </div>
+          </div>
+
+          <div class="auth-form-field">
+            <label for="regEmail">Email nhận vé điện tử</label>
+            <div class="auth-input-wrapper">
+              <span class="icon input-icon">mail</span>
+              <input type="email" id="regEmail" placeholder="hanhkhach@gmail.com" />
+            </div>
+          </div>
+
+          <div class="auth-form-field">
+            <label for="regPassword">Mật khẩu *</label>
+            <div class="auth-input-wrapper">
+              <span class="icon input-icon">lock</span>
+              <input type="password" id="regPassword" placeholder="Tối thiểu 6 ký tự" required />
+              <button type="button" class="btn-toggle-pwd" onclick="toggleMatKhau('regPassword', this)"
+                title="Hiện mật khẩu">
+                <span class="icon" style="font-size:18px">visibility_off</span>
+              </button>
+            </div>
+          </div>
+
+          <label class="auth-terms-label">
+            <input type="checkbox" checked required style="accent-color:#0284c7;" />
+            <span>Tôi đồng ý với <a href="quy-dinh.html" target="_blank" style="color:#0284c7;font-weight:600;">Quy chế
+                vận tải</a> & Chính sách hội viên Đường sắt Việt Nam</span>
+          </label>
+
+          <button type="submit" class="btn-auth-submit">
+            <span class="icon">person_add</span>
+            <span>Hoàn tất đăng ký hội viên</span>
+          </button>
+
+          <div class="auth-footer-prompt">
+            Đã có tài khoản? <a href="#" onclick="chuyenTabAuth('login');return false;">Đăng nhập ngay</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts Modular JS -->
+  <script src="../js/dieu-huong.js"></script>
+  <script src="../js/thong-bao.js"></script>
+  <script src="../js/ngon-ngu.js"></script>
+  <script src="../js/tai-khoan.js"></script>
+  <script src="../js/tra-cuu-ve.js"></script>
+</body>
+
+</html>

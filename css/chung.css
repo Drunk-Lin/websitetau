@@ -1,0 +1,331 @@
+/* ==========================================================================
+   DSVN - VIETNAM RAILWAYS
+   File: css/chung.css
+   Mô tả: Định dạng cơ sở, reset, typography chuẩn và lớp dùng chung
+   ========================================================================== */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 14px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-chinh);
+  background-color: var(--background);
+  color: var(--text);
+  font-size: var(--p-size);
+  line-height: var(--p-line-height);
+  font-weight: var(--p-weight);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  font-family: var(--font-chinh);
+  font-size: var(--h1-size);
+  font-weight: var(--h1-weight);
+  line-height: var(--h1-line-height);
+  letter-spacing: 0;
+  color: var(--chu-chinh);
+}
+
+h2 {
+  font-family: var(--font-chinh);
+  font-size: var(--h2-size);
+  font-weight: var(--h2-weight);
+  line-height: var(--h2-line-height);
+  letter-spacing: 0;
+  color: var(--chu-chinh);
+}
+
+h3 {
+  font-family: var(--font-chinh);
+  font-size: var(--h3-size);
+  font-weight: var(--h3-weight);
+  line-height: var(--h3-line-height);
+  letter-spacing: 0;
+  color: var(--chu-chinh);
+}
+
+h4 {
+  font-family: var(--font-chinh);
+  font-size: var(--h4-size);
+  font-weight: var(--h4-weight);
+  line-height: var(--h4-line-height);
+  letter-spacing: 0;
+  color: var(--chu-chinh);
+}
+
+p {
+  font-family: var(--font-chinh);
+  font-size: var(--p-size);
+  font-weight: var(--p-weight);
+  line-height: var(--p-line-height);
+  letter-spacing: 0;
+  color: var(--text);
+}
+
+img, svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: var(--chuyen-dong);
+}
+
+button, input, select, textarea {
+  font-family: var(--font-chinh);
+  font-size: inherit;
+  border: none;
+  outline: none;
+}
+
+button {
+  cursor: pointer;
+  background: none;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--chieu-rong-toi-da);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* Biểu tượng Icon chuẩn */
+.icon {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 20px;
+  line-height: 1;
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Nút bấm chuẩn theo Design Token */
+.btn-primary-token {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 36px;
+  min-height: 40px;
+  background-color: #2fa4e7;
+  color: #ffffff;
+  border: 1px solid #2fa4e7;
+  border-radius: 4px;
+  padding: 3px 8px;
+  font-size: 12px;
+  font-weight: 400;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-decoration: none;
+  transition: var(--chuyen-dong);
+}
+
+.btn-primary-token:hover {
+  background-color: #197bbd;
+  border-color: #197bbd;
+}
+
+.btn-secondary-token {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 36px;
+  min-height: 40px;
+  background-color: transparent;
+  color: #555555;
+  border: 1px solid #555555;
+  border-radius: 4px;
+  padding: 3px 8px;
+  font-size: 12px;
+  font-weight: 400;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-decoration: none;
+  transition: var(--chuyen-dong);
+}
+
+.btn-secondary-token:hover {
+  background-color: #e5e7eb;
+}
+
+/* Thẻ Card chuẩn theo Design Token */
+.card-token {
+  background-color: #f0f1f3;
+  color: #555555;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: var(--shadow-sm);
+}
+
+/* Thẻ thông báo Banner đầu trang */
+.page-banner {
+  background: linear-gradient(135deg, var(--mau-chinh-dam) 0%, var(--mau-chinh) 100%);
+  color: var(--chu-trang);
+  padding: 36px 0;
+  position: relative;
+  border-bottom: 3px solid var(--mau-do-duong-sat);
+}
+
+.breadcrumb-nav {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 12px;
+}
+
+.breadcrumb-nav a:hover {
+  color: var(--chu-trang);
+}
+
+.page-title {
+  font-size: 26px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+.page-subtitle {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 720px;
+}
+
+main {
+  flex: 1;
+  margin-top: 0;
+}
+
+/* ==========================================================================
+   SECTION: ĐIỂM ĐẾN HẤP DẪN (DESTINATIONS SHOWCASE)
+   ========================================================================== */
+.destination-section {
+  padding: 50px 0;
+  background: var(--background);
+  border-top: 1px solid var(--vien-the);
+}
+
+.destination-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.destination-card {
+  position: relative;
+  border-radius: var(--bo-goc-lon);
+  overflow: hidden;
+  box-shadow: var(--bong-nhe);
+  border: 1px solid var(--vien-the);
+  cursor: pointer;
+  background: #ffffff;
+  transition: var(--chuyen-dong);
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-chinh);
+}
+
+.destination-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--bong-lon);
+  border-color: var(--accent);
+}
+
+.destination-img-wrap {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  position: relative;
+  background: #e5e7eb;
+}
+
+.destination-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.destination-card:hover .destination-card-img {
+  transform: scale(1.05);
+}
+
+.destination-info-bar {
+  padding: 14px 18px;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex: 1;
+  font-family: var(--font-chinh);
+}
+
+.destination-name {
+  font-family: var(--font-chinh);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--chu-chinh);
+  margin: 0 0 3px 0;
+}
+
+.destination-desc {
+  font-family: var(--font-chinh);
+  font-size: 12px;
+  color: var(--chu-phu);
+  display: block;
+  line-height: 1.4;
+}
+
+.destination-action {
+  font-family: var(--font-chinh);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--accent);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  padding: 6px 10px;
+  border-radius: 4px;
+  background: var(--accent-light);
+  border: 1px solid transparent;
+  transition: var(--chuyen-dong);
+}
+
+.destination-card:hover .destination-action {
+  background: var(--accent);
+  color: #ffffff;
+}
+
+@media (max-width: 960px) {
+  .destination-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}

@@ -1,0 +1,117 @@
+<!-- ==================== THÀNH PHẦN: HERO & BẢNG TÌM VÉ TÀU ==================== -->
+<section class="hero-section">
+  <div class="hero-backdrop-pattern"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-glow-left"></div>
+
+  <div class="container">
+    <!-- Banner Showcase -->
+    <div class="home-banner-wrapper">
+      <img src="../images/screen10.png" alt="Săn vé tàu hỏa ngay - Tổng công ty Đường sắt Việt Nam" class="home-banner-img" />
+    </div>
+
+    <!-- KHUNG TÌM KIẾM CHÍNH -->
+    <div class="search-console-wrapper">
+      <div class="search-card">
+        <!-- Tiêu đề ĐẶT VÉ TÀU -->
+        <div class="search-card-header">
+          <h2 class="search-card-title">
+            <span class="icon">train</span>
+            <span>ĐẶT VÉ TÀU</span>
+          </h2>
+        </div>
+
+        <!-- Capsule Chọn loại vé: Một chiều / Khứ hồi -->
+        <div class="dsvn-trip-capsule">
+          <button type="button" class="dsvn-pill-btn active" id="tabOneway">
+            <span>Một chiều</span>
+          </button>
+          <button type="button" class="dsvn-pill-btn" id="tabRoundtrip">
+            <span>Khứ hồi</span>
+          </button>
+        </div>
+
+        <!-- Form Tìm Kiếm DSVN Style Thanh Ngang Hiện Đại (Phương Án B) -->
+        <form id="trainSearchForm" class="dsvn-search-form dsvn-search-bar-mode">
+          <div class="dsvn-bar-row">
+            <!-- 1. Nơi đi -->
+            <div class="dsvn-input-card dsvn-bar-station" id="cardStationFrom">
+              <span class="icon dsvn-card-icon">location_on</span>
+              <div class="dsvn-card-content">
+                <label class="dsvn-card-label" for="inputFrom">Nơi đi</label>
+                <input type="text" id="inputFrom" class="dsvn-card-input" placeholder="Gõ tên Ga để tìm" value="Hà Nội" autocomplete="off" required />
+              </div>
+              <span class="icon dsvn-caret-icon">arrow_drop_down</span>
+              <!-- Dropdown gợi ý Ga đi -->
+              <div class="station-autocomplete-list" id="autocompleteFrom"></div>
+            </div>
+
+            <!-- Nút Đảo Chiều Ga Đi - Ga Đến -->
+            <button type="button" class="dsvn-btn-swap" id="btnSwapStations" title="Đổi chiều ga đi - ga đến" aria-label="Hoán đổi ga đi và ga đến">
+              <span class="icon">swap_horiz</span>
+            </button>
+
+            <!-- 2. Nơi đến -->
+            <div class="dsvn-input-card dsvn-bar-station" id="cardStationTo">
+              <span class="icon dsvn-card-icon">location_on</span>
+              <div class="dsvn-card-content">
+                <label class="dsvn-card-label" for="inputTo">Nơi đến</label>
+                <input type="text" id="inputTo" class="dsvn-card-input" placeholder="Gõ tên Ga để tìm" value="Sài Gòn" autocomplete="off" required />
+              </div>
+              <span class="icon dsvn-caret-icon">arrow_drop_down</span>
+              <!-- Dropdown gợi ý Ga đến -->
+              <div class="station-autocomplete-list" id="autocompleteTo"></div>
+            </div>
+
+            <!-- 3. Ngày đi -->
+            <div class="dsvn-input-card date-card dsvn-bar-date" id="cardDeptDate">
+              <span class="icon dsvn-card-icon">calendar_month</span>
+              <div class="dsvn-card-content">
+                <label class="dsvn-card-label" for="inputDeptDate">Ngày đi</label>
+                <div class="dsvn-date-display-val" id="deptDateDisplay">11/10/2026</div>
+              </div>
+              <input type="date" id="inputDeptDate" class="dsvn-date-native-overlay" required />
+            </div>
+
+            <!-- 4. Ngày về (Khứ hồi) -->
+            <div class="dsvn-input-card date-card disabled dsvn-bar-date" id="returnDateWrapper">
+              <span class="icon dsvn-card-icon">calendar_month</span>
+              <div class="dsvn-card-content">
+                <label class="dsvn-card-label" for="inputReturnDate">Ngày về (Khứ hồi)</label>
+                <div class="dsvn-return-text" id="returnDateDisplay">Chọn nếu mua vé về</div>
+              </div>
+              <input type="date" id="inputReturnDate" class="dsvn-date-native-overlay" disabled />
+            </div>
+
+            <!-- 5. Nút TÌM VÉ -->
+            <button type="submit" class="dsvn-btn-submit dsvn-bar-submit" id="btnSearchSubmit" onclick="thucHienTimKiemChuyenTau()">
+              <span class="icon">search</span>
+              <span>TÌM VÉ</span>
+            </button>
+          </div>
+        </form>
+
+        <!-- Chặng phổ biến & Thông tin lưu ý -->
+        <div class="dsvn-search-bottom">
+          <div class="popular-routes-bar">
+            <span>Chặng phổ biến:</span>
+            <button type="button" class="popular-chip" data-from="Hà Nội" data-to="Sài Gòn">HN ⇄ SG</button>
+            <button type="button" class="popular-chip" data-from="Hà Nội" data-to="Đà Nẵng">HN ⇄ ĐN</button>
+            <button type="button" class="popular-chip" data-from="Huế" data-to="Đà Nẵng">Huế ⇄ ĐN</button>
+            <button type="button" class="popular-chip" data-from="Sài Gòn" data-to="Nha Trang">SG ⇄ Nha Trang</button>
+          </div>
+          <div class="search-bottom-notice" style="margin-top:10px;padding-top:10px;border-top:none">
+            <div class="search-notice-left">
+              <span class="icon" style="font-size:18px;color:#f59e0b">campaign</span>
+              <span>Chính sách giá vé: Trẻ em dưới 6 tuổi miễn vé, từ 6 - 10 tuổi giảm 25% giá vé. Người cao tuổi từ 60 tuổi giảm 15%.</span>
+            </div>
+            <a href="quy-dinh.html" class="search-notice-link">
+              <span>Xem quy định đổi trả vé</span>
+              <span class="icon" style="font-size:14px">arrow_forward</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

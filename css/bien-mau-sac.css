@@ -1,0 +1,90 @@
+/* ==========================================================================
+   DSVN - VIETNAM RAILWAYS
+   File: css/bien-mau-sac.css
+   Mô tả: Biến toàn cục - Hệ thống Design Token chuẩn hóa (Verdana, #2fa4e7, #f0f1f3, #555555)
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
+
+:root {
+  /* 1. Colors & Accents */
+  --accent: #2fa4e7;                 /* Xanh nước biển sáng chủ đạo */
+  --accent-dark: #197bbd;            /* Xanh nước biển đậm hơn */
+  --accent-light: #d8edf8;           /* Xanh nước biển nhạt */
+  --mau-chinh: #2fa4e7;              /* Mapping chính */
+  --mau-chinh-dam: #197bbd;          /* Mapping đậm */
+  --mau-chinh-nhe: #4fb5ee;          /* Mapping sáng */
+  --mau-chinh-nhat: #e8f4fc;         /* Mapping nền nhẹ */
+  
+  /* Điểm nhấn Vàng (CTA Buttons & Highlights) */
+  --mau-do-duong-sat: #f59e0b;       /* Vàng rực rỡ */
+  --mau-do-hover: #d97706;           /* Vàng đậm khi hover */
+  --mau-do-nhat: #fef3c7;            /* Vàng kem nhạt */
+  --mau-vang-di-san: #f59e0b;        /* Vàng kim */
+  --mau-vang-nhat: #fffbeb;
+  
+  /* 2. Backgrounds & Surfaces */
+  --background: #f0f1f3;            /* Nền website xám bạc dịu mát */
+  --nen-website: #f0f1f3;
+  --nen-the-trang: #ffffff;          /* Nền thẻ trắng tinh */
+  --nen-the-xam: #f0f1f3;            /* Nền thẻ xám nhẹ theo token */
+  --nen-xam-nhe: #e9ecf0;            /* Nền ô nhập liệu */
+  --nen-xam-hover: #dfe4ea;
+  
+  /* 3. Text & Borders */
+  --text: #555555;                  /* Màu chữ chuẩn #555555 */
+  --chu-chinh: #333333;              /* Tiêu đề & chữ đậm */
+  --chu-phu: #555555;                /* Thân bài chuẩn */
+  --chu-mo: #777777;                 /* Ghi chú & placeholder */
+  --chu-trang: #ffffff;              /* Chữ trắng */
+  --vien-the: #e5e7eb;               /* Viền thẻ #e5e7eb */
+  --vien-nhe: #d1d5db;               /* Viền ô nhập */
+  
+  /* 4. Spacing Token (xs, sm, md, lg, xl) */
+  --spacing-xs: 2px;
+  --spacing-sm: 10px;
+  --spacing-md: 16px;
+  --spacing-lg: 20px;
+  --spacing-xl: 50px;
+  
+  /* 5. Shadows Token */
+  --shadow-sm: rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
+  --shadow-md: rgba(0, 0, 0, 0.176) 0px 6px 12px 0px;
+  --shadow-inner: rgba(0, 0, 0, 0.075) 0px 1px 1px 0px inset;
+  --bong-nhe: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+  --bong-vua: rgba(0, 0, 0, 0.12) 0px 4px 10px 0px;
+  --bong-lon: rgba(0, 0, 0, 0.176) 0px 6px 16px 0px;
+  --bong-noi-bat: rgba(0, 0, 0, 0.18) 0px 10px 24px -3px;
+
+  /* 6. Typography Token (Verdana) */
+  --font-chinh: Verdana, Geneva, Tahoma, sans-serif;
+  --h1-size: 32px;
+  --h1-line-height: 38px;
+  --h1-weight: 700;
+
+  --h2-size: 24px;
+  --h2-line-height: 29px;
+  --h2-weight: 700;
+
+  --h3-size: 20px;
+  --h3-line-height: 24px;
+  --h3-weight: 600;
+
+  --h4-size: 18px;
+  --h4-line-height: 22px;
+  --h4-weight: 600;
+
+  --p-size: 14px;
+  --p-line-height: 20px;
+  --p-weight: 400;
+
+  /* 7. Bo góc & Kích thước */
+  --bo-goc-nho: 4px;
+  --bo-goc-vua: 8px;
+  --bo-goc-lon: 12px;
+  --bo-goc-tron: 9999px;
+  
+  --chieu-rong-toi-da: 1240px;
+  --chieu-cao-header: 68px;
+  --chuyen-dong: all 0.2s ease-in-out;
+}

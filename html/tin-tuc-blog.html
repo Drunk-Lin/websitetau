@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cẩm Nang Du Lịch & Tin Tức Đường Sắt - Tổng công ty Đường sắt Việt Nam</title>
+  <meta name="description"
+    content="Chuyên mục Cẩm nang du lịch đường sắt, kinh nghiệm săn vé tàu giá rẻ, trải nghiệm các đoàn tàu di sản và tin tức mới nhất từ Tổng công ty Đường sắt Việt Nam (DSVN)." />
+
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+
+<body>
+
+  <!-- ==================== 1. HEADER (2 TẦNG: TOPBAR + NAVBAR) ==================== -->
+  <!-- TẦNG 1: TOPBAR TRẮNG -->
+  <div class="site-topbar">
+    <div class="container topbar-container">
+      <a href="index.html" class="brand-logo-area" title="Đường sắt Việt Nam - Trang chủ">
+        <div class="brand-logo-icon">
+          <img src="../images/logo-dsvn.png" alt="Đường sắt Việt Nam Logo" width="42" height="42" />
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">ĐƯỜNG SẮT VIỆT NAM</span>
+          <span class="brand-subtitle">VIETNAM RAILWAYS</span>
+        </div>
+      </a>
+
+      <!-- Thanh chạy chữ thông báo -->
+      <div class="topbar-marquee">
+        <marquee behavior="scroll" direction="left" scrollamount="6">
+          <span class="icon marquee-icon">campaign</span>
+          <strong>Tin mới DSVN:</strong> Khám phá đoàn tàu kết nối di sản Huế - Đà Nẵng với nhiều ưu đãi hấp dẫn • Giảm giá vé tập thể đến 15% cho các đoàn tàu Thống Nhất!
+        </marquee>
+      </div>
+
+      <!-- Khu vực hotline, ngôn ngữ & tài khoản -->
+      <div class="topbar-right">
+        <div class="topbar-hotline">
+          <span class="icon">call</span>
+          <span>1900 0109</span>
+        </div>
+        <div class="lang-switch">
+          <button class="lang-btn active" type="button" onclick="doiNgonNgu('vi')">VN</button>
+          <span>|</span>
+          <button class="lang-btn" type="button" onclick="doiNgonNgu('en')">EN</button>
+        </div>
+        <div id="userAccountArea"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TẦNG 2: NAVBAR XANH DƯƠNG -->
+  <nav class="site-navbar" aria-label="Menu chính">
+    <div class="container navbar-container">
+      <div class="mobile-nav-brand">
+        <span class="icon" style="font-size:18px;margin-right:4px">train</span>
+        <span>HỆ THỐNG VÉ ĐIỆN TỬ DSVN</span>
+      </div>
+      <div class="main-nav">
+        <a href="index.html" class="nav-link">Tìm vé</a>
+        <a href="tin-tuc-blog.html" class="nav-link active">Cẩm nang & Tin tức</a>
+        <a href="https://dsvn.vn/#/" class="nav-link" target="_blank" rel="noopener noreferrer">
+          <span>Tìm giá vé rẻ</span>
+          <span class="icon external-icon">open_in_new</span>
+        </a>
+        <a href="https://dsvn.vn/#/" class="nav-link" target="_blank" rel="noopener noreferrer">
+          <span>Khuyến mại</span>
+          <span class="icon external-icon">open_in_new</span>
+        </a>
+        <a href="thong-tin-dat-cho.html" class="nav-link">Thông tin đặt chỗ</a>
+        <a href="quy-dinh.html" class="nav-link">Quy định</a>
+      </div>
+
+      <button class="mobile-menu-toggle" id="mobileMenuToggle" type="button" aria-label="Mở menu">
+        <span class="icon">menu</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-nav-backdrop" id="mobileNavBackdrop">
+    <div class="mobile-nav-drawer">
+      <div class="mobile-drawer-header">
+        <div class="brand-text">
+          <span class="brand-title">ĐƯỜNG SẮT VIỆT NAM</span>
+        </div>
+        <button id="closeMobileMenu" class="icon" style="color:#ffffff;font-size:24px;cursor:pointer">close</button>
+      </div>
+      <div class="mobile-nav-list">
+        <a href="index.html" class="nav-link">Tìm vé</a>
+        <a href="tin-tuc-blog.html" class="nav-link active">Cẩm nang & Tin tức</a>
+        <a href="https://dsvn.vn/#/" class="nav-link" target="_blank" rel="noopener noreferrer">
+          <span>Tìm giá vé rẻ</span>
+          <span class="icon external-icon">open_in_new</span>
+        </a>
+        <a href="https://dsvn.vn/#/" class="nav-link" target="_blank" rel="noopener noreferrer">
+          <span>Khuyến mại</span>
+          <span class="icon external-icon">open_in_new</span>
+        </a>
+        <a href="thong-tin-dat-cho.html" class="nav-link">Thông tin đặt chỗ</a>
+        <a href="quy-dinh.html" class="nav-link">Quy định</a>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <!-- ==================== 2. HERO BANNER CHUYÊN TRANG BLOG ==================== -->
+    <section class="blog-hero-banner">
+      <div class="blog-hero-pattern"></div>
+      <div class="container">
+        <div class="blog-hero-content">
+          <div class="blog-hero-tag">
+            <span class="icon" style="font-size:16px">explore</span>
+            <span>GÓC DU LỊCH & TIN TỨC ĐƯỜNG SẮT</span>
+          </div>
+          <h1 class="blog-hero-title">Cẩm Nang Du Lịch & Trải Nghiệm Tàu Hỏa</h1>
+          <p class="blog-hero-desc">
+            Khám phá vẻ đẹp đất nước qua khung cửa toa tàu, kinh nghiệm săn vé giá rẻ và những câu chuyện văn hóa ẩm thực đặc sắc dọc chiều dài non sông.
+          </p>
+
+          <!-- Ô tìm kiếm bài viết -->
+          <div class="blog-controls-wrapper">
+            <div class="blog-search-box">
+              <span class="icon">search</span>
+              <input type="text" id="blogSearchInput" class="blog-search-input" placeholder="Tìm kiếm kinh nghiệm, chặng tàu, ẩm thực..." />
+              <button type="button" class="blog-search-btn">Tìm bài viết</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 3. THANH DANH MỤC CATEGORY ==================== -->
+    <nav class="blog-category-nav-bar" aria-label="Phân loại chuyên mục">
+      <div class="container">
+        <div class="blog-category-tabs">
+          <button type="button" class="category-tab-btn active" data-category="all">
+            <span>Tất cả bài viết</span>
+            <span class="tab-count-badge">12</span>
+          </button>
+          <button type="button" class="category-tab-btn" data-category="Trải nghiệm">
+            <span>Trải nghiệm đoàn tàu</span>
+            <span class="tab-count-badge">3</span>
+          </button>
+          <button type="button" class="category-tab-btn" data-category="Cẩm nang">
+            <span>Cẩm nang du lịch</span>
+            <span class="tab-count-badge">3</span>
+          </button>
+          <button type="button" class="category-tab-btn" data-category="Ẩm thực">
+            <span>Ẩm thực đường sắt</span>
+            <span class="tab-count-badge">3</span>
+          </button>
+          <button type="button" class="category-tab-btn" data-category="Tin tức">
+            <span>Tin tức & Sự kiện</span>
+            <span class="tab-count-badge">3</span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ==================== 4. BÀI VIẾT TIÊU ĐIỂM & DANH SÁCH BÀI VIẾT ==================== -->
+    <section style="padding: 30px 0 60px 0; background: #f8fafc;">
+      <div class="container">
+        <!-- Bài viết Tiêu Điểm Featured -->
+        <article class="blog-featured-card" onclick="moDocBaiViet(1)">
+          <div class="featured-card-media">
+            <img src="../images/blog-checkin-hai-van.jpg" alt="Đoàn tàu kết nối di sản Huế - Đà Nẵng đèo Hải Vân" class="featured-card-img" />
+            <span class="blog-category-badge" style="top:18px;left:18px;">Trải nghiệm độc bản</span>
+          </div>
+          <div class="featured-card-body">
+            <div class="featured-badge">
+              <span class="icon" style="font-size:16px">star</span>
+              <span>BÀI VIẾT NỔI BẬT NHẤT</span>
+            </div>
+            <div class="blog-meta-row" style="margin-bottom:12px">
+              <span class="blog-meta-item">
+                <span class="icon">calendar_today</span>
+                10/10/2026
+              </span>
+              <span class="blog-meta-item">
+                <span class="icon">schedule</span>
+                5 phút đọc
+              </span>
+            </div>
+            <h2 class="featured-title">Trải nghiệm đoàn tàu kết nối di sản Huế – Đà Nẵng: Cung đường biển ngoạn mục nhất Việt Nam</h2>
+            <p class="featured-excerpt">
+              Hành trình đưa du khách ngắm trọn vẹn vịnh Lăng Cô và đèo Hải Vân hùng vĩ qua ô cửa sổ toa tàu với dịch vụ biểu diễn ca Huế và ẩm thực cung đình đặc sắc.
+            </p>
+            <div class="blog-card-footer">
+              <div class="blog-author">
+                <span class="blog-author-avatar"><span class="icon" style="font-size:16px">person</span></span>
+                <span>Ban Biên Tập DSVN</span>
+              </div>
+              <span class="blog-read-more-link">
+                <span>Đọc bài viết chi tiết</span>
+                <span class="icon" style="font-size:16px">arrow_forward</span>
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Tiêu đề danh sách -->
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;flex-wrap:wrap;gap:8px">
+          <h2 id="blogListHeading" style="font-size:22px;font-weight:800;color:#0f172a;margin:0">Tất Cả Bài Viết (12)</h2>
+          <span id="blogListSubheading" style="font-size:13px;color:#64748b">Cập nhật liên tục từ Đường sắt Việt Nam</span>
+        </div>
+
+        <!-- Lưới tất cả bài viết -->
+        <div class="blog-cards-grid" id="blogListContainer"></div>
+
+        <!-- Newsletter Đăng ký nhận tin -->
+        <div class="blog-newsletter-card">
+          <div class="newsletter-left">
+            <h3 class="newsletter-title">Đăng Ký Nhận Bản Tin & Ưu Đãi Đường Sắt</h3>
+            <p class="newsletter-desc">
+              Nhận ngay thông báo về lịch mở bán vé tàu Tết, các chương trình giảm giá vé mùa hè và cẩm nang du lịch mới nhất qua email.
+            </p>
+          </div>
+          <form class="newsletter-form" onsubmit="return dangKyNhanBanTin(event)">
+            <input type="email" id="newsletterEmail" class="newsletter-input" placeholder="Nhập địa chỉ email của bạn..." required />
+            <button type="submit" class="newsletter-btn">Đăng ký ngay</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================== 5. FOOTER & LIÊN HỆ ==================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-brand-title">TỔNG CÔNG TY ĐƯỜNG SẮT VIỆT NAM</div>
+          <p class="footer-desc">
+            Doanh nghiệp nhà nước giữ vai trò chủ đạo trong vận tải đường sắt quốc gia, kết nối kinh tế - văn hóa - xã hội trên toàn tuyến đường sắt Việt Nam.
+          </p>
+          <div style="font-size:12px;color:rgba(255,255,255,0.6)">
+            Giấy chứng nhận ĐKKD số: 0100105052 do Sở KHĐT TP. Hà Nội cấp.<br>
+            Quyết định thành lập số 973/QĐ-TTg của Thủ tướng Chính phủ.
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-column-title">Dịch Vụ Trực Tuyến</div>
+          <div class="footer-links">
+            <a href="index.html">Tìm vé tàu</a>
+            <a href="tin-tuc-blog.html">Cẩm nang & Blog du lịch</a>
+            <a href="https://dsvn.vn/#/" target="_blank" rel="noopener noreferrer">Tìm giá vé rẻ</a>
+            <a href="https://dsvn.vn/#/" target="_blank" rel="noopener noreferrer">Chương trình khuyến mại</a>
+            <a href="thong-tin-dat-cho.html">Thông tin đặt chỗ</a>
+            <a href="quy-dinh.html">Quy định đổi trả vé</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-column-title">Chính Sách & Quy Định</div>
+          <div class="footer-links">
+            <a href="quy-dinh.html#quy-dinh-ngay-thuong">Quy định vé ngày thường</a>
+            <a href="quy-dinh.html#quy-dinh-dip-tet">Quy định vé cao điểm Tết</a>
+            <a href="quy-dinh.html#quy-dinh-hanh-ly">Quy định hành lý miễn cước</a>
+            <a href="quy-dinh.html#giay-to-tuy-than">Giấy tờ tùy thân đi tàu</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-column-title">Thông Tin Liên Hệ</div>
+          <div class="footer-contact-info">
+            <div class="contact-item">
+              <span class="icon">location_on</span>
+              <span>Số 118 đường Lê Duẩn, Phường Văn Miếu, Quận Đống Đa, TP. Hà Nội</span>
+            </div>
+            <div class="contact-item">
+              <span class="icon">call</span>
+              <span>Tổng đài Miền Bắc: <strong>1900 0109</strong></span>
+            </div>
+            <div class="contact-item">
+              <span class="icon">call</span>
+              <span>Tổng đài Miền Nam: <strong>1900 1520</strong></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>Bản quyền © 2026 Tổng công ty Đường sắt Việt Nam (DSVN). Tất cả các quyền được bảo lưu.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts Modular JS -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="../js/du-lieu-ga-tau.js"></script>
+  <script src="../js/dieu-huong.js"></script>
+  <script src="../js/thong-bao.js"></script>
+  <script src="../js/ngon-ngu.js"></script>
+  <script src="../js/tai-khoan.js"></script>
+  <script src="../js/blog.js"></script>
+</body>
+
+</html>

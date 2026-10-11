@@ -1,0 +1,6 @@
+/* ==========================================================================
+   DSVN - VIETNAM RAILWAYS
+   File: css/responsive.css
+   Mô tả: Tệp responsive liên kết trực tiếp đến css/giao-dien-di-dong.css
+   ========================================================================== */
+@import url('giao-dien-di-dong.css');

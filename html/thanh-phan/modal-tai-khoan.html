@@ -1,0 +1,135 @@
+<!-- ==================== THÀNH PHẦN: MODAL ĐĂNG NHẬP / ĐĂNG KÝ HỘI VIÊN ==================== -->
+<div class="custom-modal-backdrop" id="authModal">
+  <div class="custom-modal-card auth-modal-card">
+    <!-- Header với nhận diện thương hiệu DSVN -->
+    <div class="auth-modal-header">
+      <button type="button" class="btn-close-modal" onclick="dongModalTaiKhoan()" aria-label="Đóng" title="Đóng">&times;</button>
+      <div class="auth-brand-badge">
+        <img src="../images/logo-dsvn.png" alt="Logo DSVN" />
+      </div>
+      <h3 class="auth-modal-title">CỔNG HỘI VIÊN ĐƯỜNG SẮT</h3>
+      <p class="auth-modal-desc">Hệ thống vé tàu điện tử & Tích điểm hội viên thân thiết</p>
+    </div>
+
+    <div class="modal-body-content" style="padding: 20px 24px;">
+      <!-- Tab chuyển đổi Đăng nhập / Đăng ký -->
+      <div class="auth-tab-switch">
+        <button type="button" class="auth-tab-btn active" id="tabAuthLogin" onclick="chuyenTabAuth('login')">
+          <span class="icon" style="font-size:16px">login</span>
+          <span>Đăng nhập</span>
+        </button>
+        <button type="button" class="auth-tab-btn" id="tabAuthRegister" onclick="chuyenTabAuth('register')">
+          <span class="icon" style="font-size:16px">person_add</span>
+          <span>Đăng ký mới</span>
+        </button>
+      </div>
+
+      <!-- FORM ĐĂNG NHẬP -->
+      <form id="formAuthLogin">
+        <div class="auth-form-field">
+          <label for="loginAccount">Số điện thoại hoặc Email</label>
+          <div class="auth-input-wrapper">
+            <span class="icon input-icon">account_circle</span>
+            <input type="text" id="loginAccount" placeholder="VD: 0912345678 hoặc dsvn@vr.com.vn" required />
+          </div>
+        </div>
+
+        <div class="auth-form-field">
+          <label for="loginPassword">Mật khẩu</label>
+          <div class="auth-input-wrapper">
+            <span class="icon input-icon">lock</span>
+            <input type="password" id="loginPassword" placeholder="Nhập mật khẩu tài khoản" required />
+            <button type="button" class="btn-toggle-pwd" onclick="toggleMatKhau('loginPassword', this)" title="Hiện mật khẩu">
+              <span class="icon" style="font-size:18px">visibility_off</span>
+            </button>
+          </div>
+        </div>
+
+        <div style="display:flex;align-items:center;justify-content:space-between;font-size:12.5px;margin: 10px 0 16px 0;">
+          <label style="display:flex;align-items:center;gap:6px;cursor:pointer;color:#475569;font-weight:500;">
+            <input type="checkbox" checked style="accent-color:#0284c7;" /> Ghi nhớ đăng nhập
+          </label>
+          <a href="#" style="color:#0284c7;font-weight:600;text-decoration:none;" onclick="quenMatKhauToast();return false;">Quên mật khẩu?</a>
+        </div>
+
+        <button type="submit" class="btn-auth-submit">
+          <span class="icon">login</span>
+          <span>Đăng nhập hệ thống</span>
+        </button>
+
+        <div class="auth-divider">
+          <span>HOẶC TIẾP TỤC VỚI</span>
+        </div>
+
+        <button type="button" class="btn-sso-vneid" onclick="dangNhapVNeID()">
+          <span class="vneid-star">★</span>
+          <span>Đăng nhập bằng tài khoản VNeID (Định danh Quốc gia)</span>
+        </button>
+
+        <div class="auth-footer-prompt">
+          Chưa có tài khoản hội viên? <a href="#" onclick="chuyenTabAuth('register');return false;">Đăng ký ngay tại đây</a>
+        </div>
+      </form>
+
+      <!-- FORM ĐĂNG KÝ -->
+      <form id="formAuthRegister" style="display:none">
+        <div class="auth-form-field">
+          <label for="regFullName">Họ và tên (theo CCCD) *</label>
+          <div class="auth-input-wrapper">
+            <span class="icon input-icon">badge</span>
+            <input type="text" id="regFullName" placeholder="VD: NGUYỄN VĂN AN" required />
+          </div>
+        </div>
+
+        <div class="auth-form-field">
+          <label for="regPhone">Số điện thoại *</label>
+          <div class="auth-input-wrapper">
+            <span class="icon input-icon">phone</span>
+            <input type="tel" id="regPhone" placeholder="VD: 0987654321" required />
+          </div>
+        </div>
+
+        <div class="auth-form-field">
+          <label for="regIdCard">Số CCCD / Mã định danh</label>
+          <div class="auth-input-wrapper">
+            <span class="icon input-icon">fingerprint</span>
+            <input type="text" id="regIdCard" placeholder="12 chữ số trên thẻ căn cước" />
+          </div>
+        </div>
+
+        <div class="auth-form-field">
+          <label for="regEmail">Email nhận vé điện tử</label>
+          <div class="auth-input-wrapper">
+            <span class="icon input-icon">mail</span>
+            <input type="email" id="regEmail" placeholder="hanhkhach@gmail.com" />
+          </div>
+        </div>
+
+        <div class="auth-form-field">
+          <label for="regPassword">Mật khẩu *</label>
+          <div class="auth-input-wrapper">
+            <span class="icon input-icon">lock</span>
+            <input type="password" id="regPassword" placeholder="Tối thiểu 6 ký tự" required />
+            <button type="button" class="btn-toggle-pwd" onclick="toggleMatKhau('regPassword', this)" title="Hiện mật khẩu">
+              <span class="icon" style="font-size:18px">visibility_off</span>
+            </button>
+          </div>
+        </div>
+
+        <label class="auth-terms-label">
+          <input type="checkbox" checked required style="accent-color:#0284c7;" />
+          <span>Tôi đồng ý với <a href="quy-dinh.html" target="_blank" style="color:#0284c7;font-weight:600;">Quy chế vận tải</a> & Chính sách hội viên Đường sắt Việt Nam</span>
+        </label>
+
+        <button type="submit" class="btn-auth-submit">
+          <span class="icon">person_add</span>
+          <span>Hoàn tất đăng ký hội viên</span>
+        </button>
+
+        <div class="auth-footer-prompt">
+          Đã có tài khoản? <a href="#" onclick="chuyenTabAuth('login');return false;">Đăng nhập ngay</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

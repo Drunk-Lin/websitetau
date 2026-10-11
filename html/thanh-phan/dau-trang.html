@@ -1,0 +1,89 @@
+<!-- ==================== THÀNH PHẦN: ĐẦU TRANG (HEADER 2 TẦNG: TOPBAR + NAVBAR) ==================== -->
+<!-- TẦNG 1: TOPBAR TRẮNG -->
+<div class="site-topbar">
+  <div class="container topbar-container">
+    <!-- Brand Logo -->
+    <a href="index.html" class="brand-logo-area" title="Đường sắt Việt Nam - Trang chủ">
+      <div class="brand-logo-icon">
+        <img src="../images/logo-dsvn.png" alt="Đường sắt Việt Nam Logo" width="42" height="42" />
+      </div>
+      <div class="brand-text">
+        <span class="brand-title">ĐƯỜNG SẮT VIỆT NAM</span>
+        <span class="brand-subtitle">VIETNAM RAILWAYS</span>
+      </div>
+    </a>
+
+    <!-- Thanh chạy chữ thông báo Tin tức / Khuyến mãi -->
+    <div class="topbar-marquee">
+      <marquee behavior="scroll" direction="left" scrollamount="6">
+        <span class="icon marquee-icon">campaign</span>
+        <strong>Thông báo DSVN:</strong> Giảm giá vé tập thể đến 15% cho các đoàn tàu Thống Nhất • Đổi trả vé trực tuyến thuận tiện trên hệ thống trước giờ tàu chạy • Trẻ em dưới 6 tuổi miễn vé, từ 6 - 10 tuổi giảm 25% giá vé!
+      </marquee>
+    </div>
+
+    <!-- Khu vực hotline, ngôn ngữ & tài khoản -->
+    <div class="topbar-right">
+      <div class="topbar-hotline">
+        <span class="icon">call</span>
+        <span>1900 0109</span>
+      </div>
+      <div class="lang-switch">
+        <button class="lang-btn active" type="button" onclick="doiNgonNgu('vi')">VN</button>
+        <span>|</span>
+        <button class="lang-btn" type="button" onclick="doiNgonNgu('en')">EN</button>
+      </div>
+      <!-- Khu vực Tài khoản người dùng (Đăng nhập / Hồ sơ) -->
+      <div id="userAccountArea"></div>
+    </div>
+  </div>
+</div>
+
+<!-- TẦNG 2: NAVBAR XANH DƯƠNG (#2fa4e7) -->
+<nav class="site-navbar" aria-label="Menu chính">
+  <div class="container navbar-container">
+    <div class="main-nav">
+      <a href="index.html" class="nav-link" id="menu-tim-ve">Tìm vé</a>
+      <a href="tin-tuc-blog.html" class="nav-link" id="menu-blog">Cẩm nang & Tin tức</a>
+      <a href="https://dsvn.vn/#/" class="nav-link" target="_blank" rel="noopener noreferrer">
+        <span>Tìm giá vé rẻ</span>
+        <span class="icon external-icon">open_in_new</span>
+      </a>
+      <a href="https://dsvn.vn/#/" class="nav-link" target="_blank" rel="noopener noreferrer">
+        <span>Khuyến mại</span>
+        <span class="icon external-icon">open_in_new</span>
+      </a>
+      <a href="thong-tin-dat-cho.html" class="nav-link" id="menu-dat-cho">Thông tin đặt chỗ</a>
+      <a href="quy-dinh.html" class="nav-link" id="menu-quy-dinh">Quy định</a>
+    </div>
+
+    <button class="mobile-menu-toggle" id="mobileMenuToggle" type="button" aria-label="Mở menu">
+      <span class="icon">menu</span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Drawer Menu -->
+<div class="mobile-nav-backdrop" id="mobileNavBackdrop">
+  <div class="mobile-nav-drawer">
+    <div class="mobile-drawer-header">
+      <div class="brand-text">
+        <span class="brand-title">ĐƯỜNG SẮT VIỆT NAM</span>
+      </div>
+      <button id="closeMobileMenu" class="icon" style="color:#ffffff;font-size:24px;cursor:pointer">close</button>
+    </div>
+    <div class="mobile-nav-list">
+      <a href="index.html" class="nav-link">Tìm vé</a>
+      <a href="tin-tuc-blog.html" class="nav-link">Cẩm nang & Tin tức</a>
+      <a href="https://dsvn.vn/#/" class="nav-link" target="_blank" rel="noopener noreferrer">
+        <span>Tìm giá vé rẻ</span>
+        <span class="icon external-icon">open_in_new</span>
+      </a>
+      <a href="https://dsvn.vn/#/" class="nav-link" target="_blank" rel="noopener noreferrer">
+        <span>Khuyến mại</span>
+        <span class="icon external-icon">open_in_new</span>
+      </a>
+      <a href="thong-tin-dat-cho.html" class="nav-link">Thông tin đặt chỗ</a>
+      <a href="quy-dinh.html" class="nav-link">Quy định</a>
+    </div>
+  </div>
+</div>

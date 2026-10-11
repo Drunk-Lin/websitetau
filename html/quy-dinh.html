@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quy định vận chuyển & Chính sách đổi trả vé - Tổng công ty Đường sắt Việt Nam</title>
+  <meta name="description" content="Văn bản quy định chính thức về chính sách đổi vé, trả vé ngày thường, quy định vé tàu cao điểm Tết, biểu phí và điều kiện vận tải hành khách đường sắt Việt Nam." />
+  
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+
+  <!-- ==================== 1. HEADER (2 TẦNG: TOPBAR + NAVBAR) ==================== -->
+  <!-- TẦNG 1: TOPBAR TRẮNG -->
+  <div class="site-topbar">
+    <div class="container topbar-container">
+      <!-- Brand Logo -->
+      <a href="index.html" class="brand-logo-area" title="Đường sắt Việt Nam - Trang chủ">
+        <div class="brand-logo-icon">
+          <img src="../images/logo-dsvn.png" alt="Đường sắt Việt Nam Logo" width="42" height="42" />
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">ĐƯỜNG SẮT VIỆT NAM</span>
+          <span class="brand-subtitle">VIETNAM RAILWAYS</span>
+        </div>
+      </a>
+
+      <!-- Thanh chạy chữ thông báo Tin tức / Khuyến mãi -->
+      <div class="topbar-marquee">
+        <marquee behavior="scroll" direction="left" scrollamount="6">
+          <span class="icon marquee-icon">campaign</span>
+          <strong>Thông báo DSVN:</strong> Giảm giá vé tập thể đến 15% cho các đoàn tàu Thống Nhất • Đổi trả vé trực tuyến thuận tiện trên hệ thống trước giờ tàu chạy • Trẻ em dưới 6 tuổi miễn vé, từ 6 - 10 tuổi giảm 25% giá vé!
+        </marquee>
+      </div>
+
+      <!-- Khu vực hotline, ngôn ngữ & tài khoản -->
+      <div class="topbar-right">
+        <div class="topbar-hotline">
+          <span class="icon">call</span>
+          <span>1900 0109</span>
+        </div>
+        <div class="lang-switch">
+          <button class="lang-btn active" type="button" onclick="doiNgonNgu('vi')">VN</button>
+          <span>|</span>
+          <button class="lang-btn" type="button" onclick="doiNgonNgu('en')">EN</button>
+        </div>
+        <!-- Khu vực Tài khoản người dùng (Đăng nhập / Hồ sơ) -->
+        <div id="userAccountArea"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TẦNG 2: NAVBAR XANH DƯƠNG (#2fa4e7) -->
+  <nav class="site-navbar" aria-label="Menu chính">
+    <div class="container navbar-container">
+      <div class="mobile-nav-brand">
+        <span class="icon" style="font-size:18px;margin-right:4px">train</span>
+        <span>HỆ THỐNG VÉ ĐIỆN TỬ DSVN</span>
+      </div>
+      <div class="main-nav">
+        <a href="index.html" class="nav-link">Tìm vé</a>
+        <a href="tin-tuc-blog.html" class="nav-link">Cẩm nang & Tin tức</a>
+        <a href="https://dsvn.vn/#/" class="nav-link" target="_blank" rel="noopener noreferrer">
+          <span>Tìm giá vé rẻ</span>
+          <span class="icon external-icon">open_in_new</span>
+        </a>
+        <a href="https://dsvn.vn/#/" class="nav-link" target="_blank" rel="noopener noreferrer">
+          <span>Khuyến mại</span>
+          <span class="icon external-icon">open_in_new</span>
+        </a>
+        <a href="thong-tin-dat-cho.html" class="nav-link">Thông tin đặt chỗ</a>
+        <a href="quy-dinh.html" class="nav-link active">Quy định</a>
+      </div>
+
+      <button class="mobile-menu-toggle" id="mobileMenuToggle" type="button" aria-label="Mở menu">
+        <span class="icon">menu</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-nav-backdrop" id="mobileNavBackdrop">
+    <div class="mobile-nav-drawer">
+      <div class="mobile-drawer-header">
+        <div class="brand-text">
+          <span class="brand-title">ĐƯỜNG SẮT VIỆT NAM</span>
+        </div>
+        <button id="closeMobileMenu" class="icon" style="color:#ffffff;font-size:24px;cursor:pointer">close</button>
+      </div>
+      <div class="mobile-nav-list">
+        <a href="index.html" class="nav-link">Tìm vé</a>
+        <a href="tin-tuc-blog.html" class="nav-link">Cẩm nang & Tin tức</a>
+        <a href="https://dsvn.vn/#/" class="nav-link" target="_blank" rel="noopener noreferrer">
+          <span>Tìm giá vé rẻ</span>
+          <span class="icon external-icon">open_in_new</span>
+        </a>
+        <a href="https://dsvn.vn/#/" class="nav-link" target="_blank" rel="noopener noreferrer">
+          <span>Khuyến mại</span>
+          <span class="icon external-icon">open_in_new</span>
+        </a>
+        <a href="thong-tin-dat-cho.html" class="nav-link">Thông tin đặt chỗ</a>
+        <a href="quy-dinh.html" class="nav-link active">Quy định</a>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <!-- ==================== 2. PAGE BANNER ==================== -->
+    <section class="page-banner">
+      <div class="container">
+        <div class="breadcrumb-nav">
+          <a href="index.html">Trang chủ</a>
+          <span>/</span>
+          <span style="color:#ffffff;font-weight:600">Quy định</span>
+        </div>
+        <h1 class="page-title">Quy Định Vận Chuyển & Chính Sách Đổi, Trả Vé</h1>
+        <p class="page-subtitle">
+          Văn bản chính thức ban hành bởi Tổng công ty Đường sắt Việt Nam về điều kiện vận tải hành khách, biểu phí đổi trả và quy định hành lý trên mạng lưới đường sắt quốc gia.
+        </p>
+      </div>
+    </section>
+
+    <!-- ==================== 3. REGULATIONS MAIN CONTENT ==================== -->
+    <section class="container" style="padding-top:20px;padding-bottom:50px;">
+      <div class="regulations-layout">
+        <!-- Sticky Left Table of Contents -->
+        <aside class="sticky-toc-box">
+          <div class="toc-title">
+            <span class="icon" style="font-size:18px;color:var(--accent)">menu_book</span>
+            <span>Mục Lục Văn Bản</span>
+          </div>
+          <nav class="toc-menu" id="regulationsNav">
+            <a href="#quy-dinh-ngay-thuong" class="toc-link active">
+              <span class="toc-number">1</span>
+              <span>Đổi, trả vé ngày thường</span>
+            </a>
+            <a href="#quy-dinh-dip-tet" class="toc-link">
+              <span class="toc-number">2</span>
+              <span>Quy định cao điểm Tết</span>
+            </a>
+            <a href="#hinh-thuc-tra-ve" class="toc-link">
+              <span class="toc-number">3</span>
+              <span>Hình thức & Thủ tục trả vé</span>
+            </a>
+            <a href="#quy-dinh-hanh-ly" class="toc-link">
+              <span class="toc-number">4</span>
+              <span>Hành lý xách tay & Ký gửi</span>
+            </a>
+            <a href="#giay-to-tuy-than" class="toc-link">
+              <span class="toc-number">5</span>
+              <span>Giấy tờ tùy thân & Ưu tiên</span>
+            </a>
+          </nav>
+
+          <!-- Quick Box Hỗ trợ -->
+          <div style="margin-top:20px;padding-top:16px;border-top:1px solid var(--vien-the);font-size:12px">
+            <div style="font-weight:700;color:var(--accent);margin-bottom:6px">Tổng đài hỗ trợ 24/7</div>
+            <div style="color:var(--chu-phu)">Miền Bắc: <strong style="color:#f59e0b">1900 0109</strong></div>
+            <div style="color:var(--chu-phu)">Miền Nam: <strong style="color:#f59e0b">1900 1520</strong></div>
+          </div>
+        </aside>
+
+        <!-- Right Article Panels -->
+        <div class="regulations-article-list">
+          
+          <!-- Mục 1: Đổi, trả vé ngày thường -->
+          <article class="regulation-card" id="quy-dinh-ngay-thuong">
+            <div class="regulation-tag">
+              <span class="icon" style="font-size:16px;color:var(--accent)">event_available</span>
+              <span>Mục 01 • Biểu phí thường nhật</span>
+            </div>
+            <h2 class="regulation-title">1. Quy định đổi, trả vé ngày thường</h2>
+            <p class="regulation-text">
+              Áp dụng cho tất cả các đoàn tàu chở khách (Tàu Thống Nhất SE, tàu khu đoạn NA, SE, SPT, SNT...) trong thời gian thông thường ngoài các giai đoạn cao điểm Lễ, Tết.
+            </p>
+
+            <!-- Bảng Đổi vé -->
+            <div style="margin-bottom:16px">
+              <h3 style="font-size:15px;font-weight:700;color:var(--accent);margin-bottom:8px">A. Quy định Đổi vé:</h3>
+              <ul style="list-style:disc;padding-left:20px;font-size:13px;color:var(--chu-phu);line-height:1.6">
+                <li><strong>Vé cá nhân:</strong> Được đổi trước giờ tàu chạy từ <strong>24 giờ trở lên</strong>, lệ phí là <strong>20.000 đồng/vé</strong>. Dưới 24 giờ trước giờ tàu chạy không áp dụng đổi vé.</li>
+                <li><strong>Vé tập thể:</strong> Không áp dụng đổi vé đối với vé tập thể.</li>
+              </ul>
+            </div>
+
+            <!-- Bảng Trả vé -->
+            <div>
+              <h3 style="font-size:15px;font-weight:700;color:var(--accent);margin-bottom:8px">B. Quy định Trả vé (Hủy vé):</h3>
+              <div class="custom-table-wrapper">
+                <table class="custom-table">
+                  <thead>
+                    <tr>
+                      <th>Đối tượng vé</th>
+                      <th>Thời gian yêu cầu trả vé</th>
+                      <th>Mức khấu trừ lệ phí</th>
+                      <th>Ghi chú xử lý</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td rowspan="3"><strong>Vé cá nhân</strong></td>
+                      <td>Trước giờ tàu chạy từ <strong>24 giờ trở lên</strong></td>
+                      <td class="highlight-fee">10% giá vé</td>
+                      <td>Hoàn lại 90% giá tiền in trên thẻ</td>
+                    </tr>
+                    <tr>
+                      <td>Từ <strong>4 giờ đến dưới 24 giờ</strong></td>
+                      <td class="highlight-fee">20% giá vé</td>
+                      <td>Hoàn lại 80% giá tiền in trên thẻ</td>
+                    </tr>
+                    <tr style="background:#fee2e2">
+                      <td>Dưới <strong>4 giờ</strong> trước giờ khởi hành</td>
+                      <td style="color:#dc2626;font-weight:700">Không trả vé</td>
+                      <td>Vé hết hiệu lực hoàn tiền</td>
+                    </tr>
+                    <tr>
+                      <td rowspan="3"><strong>Vé tập thể</strong></td>
+                      <td>Trước giờ tàu chạy từ <strong>72 giờ trở lên</strong></td>
+                      <td class="highlight-fee">10% giá vé</td>
+                      <td>Hoàn lại 90% giá tiền in trên thẻ</td>
+                    </tr>
+                    <tr>
+                      <td>Từ <strong>24 giờ đến dưới 72 giờ</strong></td>
+                      <td class="highlight-fee">20% giá vé</td>
+                      <td>Hoàn lại 80% giá tiền in trên thẻ</td>
+                    </tr>
+                    <tr style="background:#fee2e2">
+                      <td>Dưới <strong>24 giờ</strong> trước giờ khởi hành</td>
+                      <td style="color:#dc2626;font-weight:700">Không trả vé</td>
+                      <td>Vé hết hiệu lực hoàn tiền</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </article>
+
+          <!-- Mục 2: Cao điểm Tết -->
+          <article class="regulation-card" id="quy-dinh-dip-tet">
+            <div class="regulation-tag">
+              <span class="icon" style="font-size:16px;color:#f59e0b">celebration</span>
+              <span>Mục 02 • Thời gian cao điểm</span>
+            </div>
+            <h2 class="regulation-title">2. Quy định đổi, trả vé dịp cao điểm Tết Nguyên Đán</h2>
+            
+            <div class="callout-box warning">
+              <span class="icon callout-icon">warning</span>
+              <div>
+                <strong>Mức khấu trừ chung dịp Tết:</strong> Trong thời gian cao điểm Tết, mức khấu trừ đối với vé trả lại, đổi vé là <strong>30% giá tiền</strong> in trên Thẻ lên tàu hỏa.
+              </div>
+            </div>
+
+            <p class="regulation-text">
+              Thời gian cao điểm Tết được xác định cụ thể theo kế hoạch chạy tàu hàng năm của Tổng công ty Đường sắt Việt Nam:
+            </p>
+
+            <ul style="list-style:disc;padding-left:20px;font-size:13px;color:var(--chu-phu);line-height:1.6;margin-bottom:14px">
+              <li><strong>Thời gian áp dụng chiều số chẵn:</strong> Các đoàn tàu có ga đi từ các ga miền Nam (Sài Gòn, Biên Hòa...) đi các ga miền Trung, miền Bắc trước Tết.</li>
+              <li><strong>Thời gian áp dụng chiều số lẻ:</strong> Các đoàn tàu từ các ga miền Bắc (Hà Nội, Phủ Lý...) đi các ga miền Trung, miền Nam sau Tết.</li>
+            </ul>
+
+            <h3 style="font-size:15px;font-weight:700;color:var(--accent);margin-bottom:8px">Thời gian gửi yêu cầu đổi, trả vé Tết:</h3>
+            <ul style="list-style:circle;padding-left:20px;font-size:13px;color:var(--chu-phu);line-height:1.6">
+              <li><strong>Hành khách đổi, trả vé cá nhân:</strong> Chậm nhất trước giờ tàu chạy là <strong>24 giờ</strong>.</li>
+              <li><strong>Hành khách trả vé tập thể:</strong> Chậm nhất trước giờ tàu chạy là <strong>48 giờ</strong>.</li>
+            </ul>
+          </article>
+
+          <!-- Mục 3: Hình thức trả vé -->
+          <article class="regulation-card" id="hinh-thuc-tra-ve">
+            <div class="regulation-tag">
+              <span class="icon" style="font-size:16px;color:var(--accent)">currency_exchange</span>
+              <span>Mục 03 • Quy trình hoàn tiền</span>
+            </div>
+            <h2 class="regulation-title">3. Hình thức và Thủ tục thực hiện trả vé</h2>
+            <p class="regulation-text">
+              Nhằm tạo sự thuận lợi tối đa cho hành khách, Tổng công ty Đường sắt Việt Nam áp dụng các kênh trả vé linh hoạt:
+            </p>
+
+            <div style="display:flex;flex-direction:column;gap:14px">
+              <div style="background:var(--background);padding:16px;border-radius:6px;border-left:4px solid var(--accent);border:1px solid var(--vien-the)">
+                <div style="font-weight:700;color:var(--accent);font-size:14px;margin-bottom:4px">A. Trả vé Online qua Website / Ứng dụng</div>
+                <p style="font-size:13px;color:var(--chu-phu);margin:0;line-height:1.5">
+                  Khi hành khách mua vé và thanh toán trực tuyến qua website dsvn.vn, app bán vé hoặc các ứng dụng ví điện tử đối tác thì có thể thực hiện trả vé trực tuyến tại mục Trả vé hoặc đến trực tiếp nhà ga. Tiền hoàn sẽ được chuyển về tài khoản/thẻ ban đầu của quý khách.
+                </p>
+              </div>
+
+              <div style="background:var(--background);padding:16px;border-radius:6px;border-left:4px solid #f59e0b;border:1px solid var(--vien-the)">
+                <div style="font-weight:700;color:#d97706;font-size:14px;margin-bottom:4px">B. Trả vé trực tiếp tại Nhà Ga</div>
+                <p style="font-size:13px;color:var(--chu-phu);margin:0;line-height:1.5">
+                  Khi hành khách mua vé bằng các hình thức khác (tiền mặt, máy POS tại ga), hành khách đến trực tiếp nhà ga kèm theo <strong>giấy tờ tùy thân bản chính</strong> của người đi tàu (hoặc người mua vé) cho nhân viên đường sắt. Thông tin trên thẻ đi tàu phải trùng khớp với giấy tờ tùy thân.
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Mục 4: Quy định hành lý -->
+          <article class="regulation-card" id="quy-dinh-hanh-ly">
+            <div class="regulation-tag">
+              <span class="icon" style="font-size:16px;color:var(--accent)">luggage</span>
+              <span>Mục 04 • Tiêu chuẩn hành lý</span>
+            </div>
+            <h2 class="regulation-title">4. Quy định về Hành lý xách tay & Ký gửi</h2>
+            
+            <div class="luggage-cards-grid">
+              <div style="background:#f0fdf4;border:1px solid #bbf7d0;padding:16px;border-radius:6px">
+                <div style="font-weight:700;color:#15803d;font-size:13px;margin-bottom:4px">Miễn cước hành lý</div>
+                <div style="font-size:22px;font-weight:700;color:#16a34a">20 kg / người</div>
+                <p style="font-size:12px;color:var(--chu-phu);margin-top:4px">Áp dụng cho mỗi hành khách có vé tàu hợp lệ.</p>
+              </div>
+
+              <div style="background:#fefce8;border:1px solid #fef08a;padding:16px;border-radius:6px">
+                <div style="font-weight:700;color:#854d0e;font-size:13px;margin-bottom:4px">Kích thước tối đa</div>
+                <div style="font-size:22px;font-weight:700;color:#ca8a04">Dài &lt; 0.8m</div>
+                <p style="font-size:12px;color:var(--chu-phu);margin-top:4px">Thể tích không quá 0.5 m³ để vừa khoang hành lý.</p>
+              </div>
+            </div>
+
+            <p class="regulation-text">
+              <strong>Hàng hóa cấm mang theo trong hành lý xách tay:</strong> Chất nổ, chất dễ cháy, vũ khí, hàng quốc cấm, chất độc hại, động vật sống (trừ động vật cảnh có lồng nhốt hợp vệ sinh) và những đồ vật cồng kềnh làm cản trở lối đi trên toa xe.
+            </p>
+          </article>
+
+          <!-- Mục 5: Giấy tờ tùy thân -->
+          <article class="regulation-card" id="giay-to-tuy-than">
+            <div class="regulation-tag">
+              <span class="icon" style="font-size:16px;color:var(--accent)">badge</span>
+              <span>Mục 05 • Giấy tờ kiểm soát</span>
+            </div>
+            <h2 class="regulation-title">5. Giấy tờ tùy thân hợp lệ khi đi tàu</h2>
+            <p class="regulation-text">
+              Khi đi tàu, hành khách phải mang theo một trong các giấy tờ tùy thân bản chính (hoặc tài khoản định danh điện tử) có ảnh và còn hiệu lực:
+            </p>
+
+            <ul style="list-style:disc;padding-left:20px;font-size:13px;color:var(--chu-phu);line-height:1.7">
+              <li><strong>Công dân Việt Nam:</strong> Thẻ Căn cước công dân (CCCD), Căn cước điện tử trên ứng dụng VNeID (Mức độ 2), Chứng minh nhân dân, Hộ chiếu, Giấy phép lái xe, Giấy chứng nhận của lực lượng vũ trang.</li>
+              <li><strong>Trẻ em dưới 14 tuổi:</strong> Giấy khai sinh bản chính, trích lục khai sinh hoặc Hộ chiếu (nếu đi cùng người giám hộ).</li>
+              <li><strong>Hành khách nước ngoài:</strong> Hộ chiếu còn hạn hoặc công hàm ngoại giao.</li>
+              <li><strong>Đối tượng ưu tiên giảm giá vé:</strong> Thương binh, bệnh binh, người cao tuổi (&ge; 60 tuổi), sinh viên, người khuyết tật xuất trình thêm thẻ/giấy chứng nhận đối tượng tương ứng.</li>
+            </ul>
+          </article>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================== 4. FOOTER & LIÊN HỆ ==================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-brand-title">TỔNG CÔNG TY ĐƯỜNG SẮT VIỆT NAM</div>
+          <p class="footer-desc">
+            Doanh nghiệp nhà nước giữ vai trò chủ đạo trong vận tải đường sắt quốc gia, kết nối kinh tế - văn hóa - xã hội trên toàn tuyến đường sắt Việt Nam.
+          </p>
+          <div style="font-size:12px;color:rgba(255,255,255,0.6)">
+            Giấy chứng nhận ĐKKD số: 0100105052 do Sở KHĐT TP. Hà Nội cấp.<br>
+            Quyết định thành lập số 973/QĐ-TTg của Thủ tướng Chính phủ.
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-column-title">Dịch Vụ Trực Tuyến</div>
+          <div class="footer-links">
+            <a href="index.html">Tìm vé tàu</a>
+            <a href="tin-tuc-blog.html">Cẩm nang & Blog du lịch</a>
+            <a href="https://dsvn.vn/#/" target="_blank" rel="noopener noreferrer">Tìm giá vé rẻ</a>
+            <a href="https://dsvn.vn/#/" target="_blank" rel="noopener noreferrer">Chương trình khuyến mại</a>
+            <a href="thong-tin-dat-cho.html">Thông tin đặt chỗ</a>
+            <a href="quy-dinh.html">Quy định đổi trả vé</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-column-title">Chính Sách & Quy Định</div>
+          <div class="footer-links">
+            <a href="quy-dinh.html#quy-dinh-ngay-thuong">Quy định vé ngày thường</a>
+            <a href="quy-dinh.html#quy-dinh-dip-tet">Quy định vé cao điểm Tết</a>
+            <a href="quy-dinh.html#quy-dinh-hanh-ly">Quy định hành lý miễn cước</a>
+            <a href="quy-dinh.html#giay-to-tuy-than">Giấy tờ tùy thân đi tàu</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-column-title">Thông Tin Liên Hệ</div>
+          <div class="footer-contact-info">
+            <div class="contact-item">
+              <span class="icon">location_on</span>
+              <span>Số 118 đường Lê Duẩn, Phường Văn Miếu, Quận Đống Đa, TP. Hà Nội</span>
+            </div>
+            <div class="contact-item">
+              <span class="icon">call</span>
+              <span>Tổng đài Miền Bắc: <strong>1900 0109</strong></span>
+            </div>
+            <div class="contact-item">
+              <span class="icon">call</span>
+              <span>Tổng đài Miền Nam: <strong>1900 1520</strong></span>
+            </div>
+            <div class="contact-item">
+              <span class="icon">mail</span>
+              <span>Email hỗ trợ: support@dsvn.vn</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 Tổng công ty Đường sắt Việt Nam (DSVN). Tất cả quyền được bảo lưu.</div>
+        <div>Hệ thống đặt vé tàu trực tuyến tiêu chuẩn Quốc gia.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== MODAL: ĐĂNG NHẬP / ĐĂNG KÝ HỘI VIÊN ==================== -->
+  <div class="custom-modal-backdrop" id="authModal">
+    <div class="custom-modal-card auth-modal-card">
+      <!-- Header với nhận diện thương hiệu DSVN -->
+      <div class="auth-modal-header">
+        <button type="button" class="btn-close-modal" onclick="dongModalTaiKhoan()" aria-label="Đóng" title="Đóng">&times;</button>
+        <div class="auth-brand-badge">
+          <img src="../images/logo-dsvn.png" alt="Logo DSVN" />
+        </div>
+        <h3 class="auth-modal-title">CỔNG HỘI VIÊN ĐƯỜNG SẮT</h3>
+        <p class="auth-modal-desc">Hệ thống vé tàu điện tử & Tích điểm hội viên thân thiết</p>
+      </div>
+
+      <div class="modal-body-content" style="padding: 20px 24px;">
+        <!-- Tab chuyển đổi Đăng nhập / Đăng ký -->
+        <div class="auth-tab-switch">
+          <button type="button" class="auth-tab-btn active" id="tabAuthLogin" onclick="chuyenTabAuth('login')">
+            <span class="icon" style="font-size:16px">login</span>
+            <span>Đăng nhập</span>
+          </button>
+          <button type="button" class="auth-tab-btn" id="tabAuthRegister" onclick="chuyenTabAuth('register')">
+            <span class="icon" style="font-size:16px">person_add</span>
+            <span>Đăng ký mới</span>
+          </button>
+        </div>
+
+        <!-- FORM ĐĂNG NHẬP -->
+        <form id="formAuthLogin">
+          <div class="auth-form-field">
+            <label for="loginAccount">Số điện thoại hoặc Email</label>
+            <div class="auth-input-wrapper">
+              <span class="icon input-icon">account_circle</span>
+              <input type="text" id="loginAccount" placeholder="VD: 0912345678 hoặc dsvn@vr.com.vn" required />
+            </div>
+          </div>
+
+          <div class="auth-form-field">
+            <label for="loginPassword">Mật khẩu</label>
+            <div class="auth-input-wrapper">
+              <span class="icon input-icon">lock</span>
+              <input type="password" id="loginPassword" placeholder="Nhập mật khẩu tài khoản" required />
+              <button type="button" class="btn-toggle-pwd" onclick="toggleMatKhau('loginPassword', this)" title="Hiện mật khẩu">
+                <span class="icon" style="font-size:18px">visibility_off</span>
+              </button>
+            </div>
+          </div>
+
+          <div style="display:flex;align-items:center;justify-content:space-between;font-size:12.5px;margin: 10px 0 16px 0;">
+            <label style="display:flex;align-items:center;gap:6px;cursor:pointer;color:#475569;font-weight:500;">
+              <input type="checkbox" checked style="accent-color:#0284c7;" /> Ghi nhớ đăng nhập
+            </label>
+            <a href="#" style="color:#0284c7;font-weight:600;text-decoration:none;" onclick="quenMatKhauToast();return false;">Quên mật khẩu?</a>
+          </div>
+
+          <button type="submit" class="btn-auth-submit">
+            <span class="icon">login</span>
+            <span>Đăng nhập hệ thống</span>
+          </button>
+
+          <div class="auth-divider">
+            <span>HOẶC TIẾP TỤC VỚI</span>
+          </div>
+
+          <button type="button" class="btn-sso-vneid" onclick="dangNhapVNeID()">
+            <span class="vneid-star">★</span>
+            <span>Đăng nhập bằng tài khoản VNeID (Định danh Quốc gia)</span>
+          </button>
+
+          <div class="auth-footer-prompt">
+            Chưa có tài khoản hội viên? <a href="#" onclick="chuyenTabAuth('register');return false;">Đăng ký ngay tại đây</a>
+          </div>
+        </form>
+
+        <!-- FORM ĐĂNG KÝ -->
+        <form id="formAuthRegister" style="display:none">
+          <div class="auth-form-field">
+            <label for="regFullName">Họ và tên (theo CCCD) *</label>
+            <div class="auth-input-wrapper">
+              <span class="icon input-icon">badge</span>
+              <input type="text" id="regFullName" placeholder="VD: NGUYỄN VĂN AN" required />
+            </div>
+          </div>
+
+          <div class="auth-form-field">
+            <label for="regPhone">Số điện thoại *</label>
+            <div class="auth-input-wrapper">
+              <span class="icon input-icon">phone</span>
+              <input type="tel" id="regPhone" placeholder="VD: 0987654321" required />
+            </div>
+          </div>
+
+          <div class="auth-form-field">
+            <label for="regIdCard">Số CCCD / Mã định danh</label>
+            <div class="auth-input-wrapper">
+              <span class="icon input-icon">fingerprint</span>
+              <input type="text" id="regIdCard" placeholder="12 chữ số trên thẻ căn cước" />
+            </div>
+          </div>
+
+          <div class="auth-form-field">
+            <label for="regEmail">Email nhận vé điện tử</label>
+            <div class="auth-input-wrapper">
+              <span class="icon input-icon">mail</span>
+              <input type="email" id="regEmail" placeholder="hanhkhach@gmail.com" />
+            </div>
+          </div>
+
+          <div class="auth-form-field">
+            <label for="regPassword">Mật khẩu *</label>
+            <div class="auth-input-wrapper">
+              <span class="icon input-icon">lock</span>
+              <input type="password" id="regPassword" placeholder="Tối thiểu 6 ký tự" required />
+              <button type="button" class="btn-toggle-pwd" onclick="toggleMatKhau('regPassword', this)" title="Hiện mật khẩu">
+                <span class="icon" style="font-size:18px">visibility_off</span>
+              </button>
+            </div>
+          </div>
+
+          <label class="auth-terms-label">
+            <input type="checkbox" checked required style="accent-color:#0284c7;" />
+            <span>Tôi đồng ý với <a href="quy-dinh.html" target="_blank" style="color:#0284c7;font-weight:600;">Quy chế vận tải</a> & Chính sách hội viên Đường sắt Việt Nam</span>
+          </label>
+
+          <button type="submit" class="btn-auth-submit">
+            <span class="icon">person_add</span>
+            <span>Hoàn tất đăng ký hội viên</span>
+          </button>
+
+          <div class="auth-footer-prompt">
+            Đã có tài khoản? <a href="#" onclick="chuyenTabAuth('login');return false;">Đăng nhập ngay</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts Modular JS -->
+  <script src="../js/dieu-huong.js"></script>
+  <script src="../js/thong-bao.js"></script>
+  <script src="../js/ngon-ngu.js"></script>
+  <script src="../js/tai-khoan.js"></script>
+  <script src="../js/quy-dinh-muc-luc.js"></script>
+</body>
+</html>

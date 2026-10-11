@@ -1,0 +1,1304 @@
+/* ==========================================================================
+   DSVN - VIETNAM RAILWAYS
+   File: css/tai-khoan.css
+   Mô tả: Giao diện Đăng nhập, Đăng ký, Menu tài khoản người dùng và Modal Đặt vé
+   ========================================================================== */
+
+/* --- 1. NÚT VÀ MENU TÀI KHOẢN TRÊN HEADER --- */
+.user-menu-wrapper {
+  position: relative;
+}
+
+.user-account-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--background);
+  color: var(--text);
+  padding: 6px 14px;
+  border-radius: 4px;
+  border: 1px solid var(--vien-the);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--chuyen-dong);
+}
+
+.user-account-btn:hover {
+  background: #e5e7eb;
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.user-avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.user-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  width: 220px;
+  background: #ffffff;
+  border-radius: var(--bo-goc-lon);
+  box-shadow: var(--bong-noi-bat);
+  border: 1px solid var(--vien-nhe);
+  padding: 8px 0;
+  display: none;
+  z-index: 1050;
+}
+
+.user-dropdown-menu.show {
+  display: block;
+}
+
+.user-dropdown-header {
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--vien-nhe);
+  font-size: 0.85rem;
+}
+
+.user-dropdown-header strong {
+  display: block;
+  color: var(--mau-chinh);
+  font-size: 0.95rem;
+}
+
+.user-dropdown-header span {
+  color: var(--chu-mo);
+  font-size: 0.78rem;
+}
+
+.user-dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  color: var(--chu-chinh);
+  font-size: 0.88rem;
+  font-weight: 500;
+  transition: var(--chuyen-dong);
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+}
+
+.user-dropdown-item:hover {
+  background: var(--nen-xam-nhe);
+  color: var(--mau-do-duong-sat);
+}
+
+.user-dropdown-item .icon {
+  font-size: 18px;
+  color: var(--chu-phu);
+}
+
+/* --- 2. HỘP THOẠI MODAL CHUNG (POPUP) --- */
+.custom-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(6, 17, 32, 0.7);
+  backdrop-filter: blur(4px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  overflow-y: auto;
+  opacity: 0;
+  pointer-events: none;
+  transition: var(--chuyen-dong);
+}
+
+.custom-modal-backdrop.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.custom-modal-card {
+  background: #ffffff;
+  width: 100%;
+  max-width: 480px;
+  border-radius: 16px;
+  box-shadow: var(--bong-noi-bat);
+  overflow: hidden;
+  position: relative;
+  transform: translateY(20px);
+  transition: var(--chuyen-dong);
+}
+
+.custom-modal-card.modal-lg {
+  max-width: 680px;
+}
+
+.custom-modal-backdrop.open .custom-modal-card {
+  transform: translateY(0);
+}
+
+.modal-header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 24px;
+  background: var(--mau-chinh);
+  color: #ffffff;
+}
+
+.modal-header-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-close-modal {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 24px;
+  transition: var(--chuyen-dong);
+}
+
+.btn-close-modal:hover {
+  color: #ffffff;
+  transform: rotate(90deg);
+}
+
+.modal-body-content {
+  padding: 24px;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+/* --- NÂNG CẤP MODAL ĐĂNG NHẬP / ĐĂNG KÝ CHUYÊN NGHIỆP --- */
+.auth-modal-card {
+  max-width: 440px;
+  border-radius: 14px;
+  border: 1px solid var(--vien-the);
+  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.22);
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.auth-modal-header {
+  background: linear-gradient(135deg, #1e40af 0%, #2fa4e7 100%);
+  color: #ffffff;
+  padding: 20px 24px 16px 24px;
+  text-align: center;
+  position: relative;
+}
+
+.auth-modal-header .btn-close-modal {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 22px;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.auth-brand-badge {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: #ffffff;
+  padding: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.auth-brand-badge img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.auth-modal-title {
+  font-size: 16px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin: 0 0 4px 0;
+  color: #ffffff;
+}
+
+.auth-modal-desc {
+  font-size: 11.5px;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.auth-tab-switch {
+  display: flex;
+  background: #f1f5f9;
+  padding: 4px;
+  border-radius: 8px;
+  margin-bottom: 18px;
+  border: 1px solid #e2e8f0;
+}
+
+.auth-tab-btn {
+  flex: 1;
+  padding: 8px 12px;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #64748b;
+  border-radius: 6px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.auth-tab-btn.active {
+  background: #ffffff;
+  color: #1e40af;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.auth-form-field {
+  margin-bottom: 14px;
+}
+
+.auth-form-field label {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #475569;
+  letter-spacing: 0.03em;
+  margin-bottom: 5px;
+}
+
+.auth-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 8px;
+  height: 44px;
+  padding: 0 12px;
+  transition: all 0.2s ease;
+}
+
+.auth-input-wrapper:focus-within {
+  border-color: #0284c7;
+  box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+}
+
+.auth-input-wrapper .input-icon {
+  font-size: 20px;
+  color: #64748b;
+  flex-shrink: 0;
+  margin-right: 8px;
+}
+
+.auth-input-wrapper input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 13.5px;
+  color: #0f172a;
+  height: 100%;
+  padding-right: 28px;
+}
+
+.btn-toggle-pwd {
+  position: absolute;
+  right: 10px;
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.btn-toggle-pwd:hover {
+  color: #0f172a;
+  background: #f1f5f9;
+}
+
+.btn-auth-submit {
+  width: 100%;
+  height: 42px;
+  background: linear-gradient(135deg, #2fa4e7 0%, #1682c7 100%);
+  color: #ffffff;
+  font-size: 13.5px;
+  font-weight: 700;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 4px 12px rgba(47, 164, 231, 0.3);
+  margin-top: 14px;
+  transition: all 0.2s ease;
+}
+
+.btn-auth-submit:hover {
+  background: linear-gradient(135deg, #1d95dc 0%, #0e72b3 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(47, 164, 231, 0.4);
+}
+
+.auth-divider {
+  display: flex;
+  align-items: center;
+  margin: 16px 0;
+  text-align: center;
+  color: #94a3b8;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.auth-divider span {
+  padding: 0 10px;
+}
+
+.btn-sso-vneid {
+  width: 100%;
+  height: 42px;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #dc2626;
+  border-radius: 6px;
+  font-size: 12.5px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.btn-sso-vneid:hover {
+  background: #fee2e2;
+  border-color: #fca5a5;
+  color: #b91c1c;
+}
+
+.vneid-star {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  background: #dc2626;
+  color: #facc15;
+  border-radius: 50%;
+  font-size: 11px;
+}
+
+.auth-footer-prompt {
+  margin-top: 14px;
+  text-align: center;
+  font-size: 12px;
+  color: #64748b;
+}
+
+.auth-footer-prompt a {
+  color: #2fa4e7;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.auth-footer-prompt a:hover {
+  text-decoration: underline;
+}
+
+.auth-terms-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 11px;
+  color: #64748b;
+  cursor: pointer;
+  margin-top: 10px;
+  line-height: 1.4;
+}
+
+.auth-terms-label input {
+  margin-top: 2px;
+}
+
+/* --- 3. LUỒNG ĐẶT VÉ MODAL (BOOKING CHECKOUT REDESIGN CHUYÊN NGHIỆP) --- */
+.checkout-modal-card {
+  max-width: 720px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 25px 60px rgba(15, 23, 42, 0.25);
+  border: 1px solid #cbd5e1;
+}
+
+.checkout-modal-header {
+  background: linear-gradient(135deg, #0284c7 0%, #009fe3 100%);
+  padding: 16px 24px;
+}
+
+.checkout-modal-header .modal-header-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #ffffff;
+}
+
+.checkout-modal-body {
+  padding: 22px 26px;
+  background: #f8fafc;
+}
+
+/* Stepper tiến trình đặt vé liên kết chuẩn UX */
+.booking-step-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+  background: #ffffff;
+  padding: 12px 18px;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+}
+
+.booking-stepper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.step-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #94a3b8;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.step-item.active {
+  color: #0284c7;
+  font-weight: 700;
+}
+
+.step-circle {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #f1f5f9;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  border: 1.5px solid #cbd5e1;
+}
+
+.step-item.active .step-circle {
+  background: #0284c7;
+  color: #ffffff;
+  border-color: #0284c7;
+  box-shadow: 0 2px 6px rgba(2, 132, 199, 0.35);
+}
+
+.step-connector {
+  width: 28px;
+  height: 2px;
+  background: #e2e8f0;
+  border-radius: 2px;
+}
+
+/* Đồng hồ đếm ngược giữ chỗ cảnh báo thanh lịch */
+.timer-badge {
+  background: #fef2f2;
+  color: #dc2626;
+  border: 1px solid #fecaca;
+  font-weight: 700;
+  font-size: 12.5px;
+  padding: 5px 12px;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 1px 3px rgba(220, 38, 38, 0.08);
+}
+
+.timer-badge .icon {
+  font-size: 16px;
+  color: #ef4444;
+}
+
+/* Card Thông tin Hành khách */
+.passenger-entry-box {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 18px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.passenger-entry-box:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.passenger-entry-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px dashed #e2e8f0;
+}
+
+.passenger-title-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #1e293b;
+}
+
+.passenger-header-icon {
+  color: #0284c7;
+  font-size: 20px;
+}
+
+.passenger-header-text {
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.passenger-seat-price-info {
+  font-size: 13px;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.passenger-seat-price-info strong {
+  color: #0284c7;
+}
+
+/* Badge số ghế cao cấp */
+.passenger-seat-badge {
+  background: #eff6ff;
+  color: #1d4ed8;
+  border: 1px solid #bfdbfe;
+  font-weight: 700;
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.passenger-seat-badge .icon {
+  font-size: 16px;
+}
+
+/* Lưới các trường nhập liệu */
+.passenger-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.form-field-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-field-group .form-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #334155;
+  margin-bottom: 6px;
+  display: block;
+}
+
+/* Hộp nhập liệu chuẩn input-box với viền tinh tế và focus glow */
+.input-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #ffffff;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 7px;
+  padding: 0 12px;
+  height: 44px;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+}
+
+.input-box:hover {
+  border-color: #94a3b8;
+}
+
+.input-box:focus-within {
+  border-color: #009fe3;
+  box-shadow: 0 0 0 3px rgba(0, 159, 227, 0.16);
+  background: #ffffff;
+}
+
+.input-prefix-icon {
+  font-size: 18px;
+  color: #64748b;
+  flex-shrink: 0;
+}
+
+.input-box:focus-within .input-prefix-icon {
+  color: #009fe3;
+}
+
+.input-box input {
+  border: none !important;
+  outline: none !important;
+  background: transparent !important;
+  width: 100% !important;
+  height: 100% !important;
+  font-size: 13.5px !important;
+  font-weight: 600 !important;
+  color: #0f172a !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  font-family: inherit !important;
+  box-sizing: border-box !important;
+}
+
+.input-box input::placeholder {
+  color: #94a3b8 !important;
+  font-weight: 500 !important;
+}
+
+/* Fix dứt điểm lỗi 2 mũi tên dropdown: ẩn mũi tên mặc định của trình duyệt */
+.input-box-select {
+  padding-right: 36px;
+}
+
+.input-box select {
+  border: none !important;
+  outline: none !important;
+  background: transparent !important;
+  width: 100% !important;
+  height: 100% !important;
+  font-size: 13.5px !important;
+  font-weight: 600 !important;
+  color: #0f172a !important;
+  cursor: pointer !important;
+  font-family: inherit !important;
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  padding: 0 !important;
+  box-sizing: border-box !important;
+}
+
+.input-box .select-arrow {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: #64748b;
+  font-size: 20px;
+}
+
+/* Card Thông Tin Người Nhận Vé */
+.checkout-contact-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 18px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+}
+
+.checkout-card-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #0284c7;
+  margin-bottom: 12px;
+}
+
+.checkout-card-title .icon {
+  font-size: 20px;
+  color: #0284c7;
+}
+
+.checkout-card-subtitle {
+  font-size: 11.5px;
+  font-weight: 400;
+  color: #64748b;
+  margin: 2px 0 0 0;
+}
+
+.checkout-contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+/* Card Phương thức thanh toán */
+.checkout-payment-section {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 18px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+}
+
+.payment-methods-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.payment-method-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 8px;
+  background: #ffffff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.payment-method-card:hover {
+  border-color: #0284c7;
+  background: #f8fafc;
+}
+
+.payment-method-card.selected {
+  border-color: #0284c7;
+  background: #f0f9ff;
+  box-shadow: 0 0 0 2px rgba(2, 132, 199, 0.15);
+}
+
+.payment-card-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.payment-icon {
+  font-size: 26px;
+  color: #0284c7;
+}
+
+.payment-title {
+  font-weight: 700;
+  color: #0f172a;
+  font-size: 13.5px;
+}
+
+.payment-desc {
+  font-size: 11.5px;
+  color: #64748b;
+}
+
+.payment-check-icon {
+  font-size: 22px;
+  color: #0284c7;
+}
+
+.payment-check-icon.payment-uncheck {
+  color: #94a3b8;
+}
+
+/* Footer tổng tiền & nút hoàn tất */
+.checkout-footer-bar {
+  background: #ffffff;
+  padding: 16px 20px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 14px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.checkout-total-block {
+  display: flex;
+  flex-direction: column;
+}
+
+.checkout-total-label {
+  font-size: 11.5px;
+  color: #64748b;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+.checkout-total-value {
+  font-size: 22px;
+  font-weight: 800;
+  color: #f24e1e;
+  line-height: 1.2;
+}
+
+.btn-proceed-reserve {
+  height: 46px;
+  padding: 0 24px;
+  font-size: 14.5px;
+  background: linear-gradient(135deg, #f24e1e 0%, #e03d0d 100%);
+  color: #ffffff;
+  border: none;
+  border-radius: 7px;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 3px 12px rgba(242, 78, 30, 0.35);
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.btn-proceed-reserve:hover {
+  background: linear-gradient(135deg, #e03d0d 0%, #c43208 100%);
+  box-shadow: 0 5px 16px rgba(242, 78, 30, 0.45);
+  transform: translateY(-1px);
+}
+
+.btn-proceed-reserve:active {
+  transform: translateY(1px);
+}
+
+@media (max-width: 640px) {
+  .passenger-grid,
+  .checkout-contact-grid {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+  .booking-step-indicator {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
+  }
+  .checkout-footer-bar {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+  .btn-proceed-reserve {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+}
+
+/* --- 4. MODAL VÉ ĐIỆN TỬ & ĐẶT VÉ THÀNH CÔNG (COMPACT & SLEEK) --- */
+.ticket-success-card {
+  max-width: 590px;
+  max-height: 94vh;
+  border-radius: 12px;
+  border: 1px solid var(--vien-the);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  animation: modalPopIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+  margin: auto;
+}
+
+@keyframes modalPopIn {
+  0% { transform: scale(0.94) translateY(12px); opacity: 0; }
+  100% { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+.ticket-success-header {
+  background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+  color: #ffffff;
+  padding: 12px 18px;
+  position: relative;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.ticket-success-header .btn-close-modal {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 22px;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.success-icon-badge {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.success-icon-badge .icon {
+  font-size: 20px;
+  color: #ffffff;
+}
+
+.ticket-success-title {
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  margin: 0 0 2px 0;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+.ticket-success-subtitle {
+  font-size: 11.5px;
+  color: rgba(255, 255, 255, 0.92);
+  margin: 0;
+  line-height: 1.35;
+}
+
+.ticket-success-body {
+  padding: 12px 16px;
+  background: #f8fafc;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.booking-code-banner {
+  background: #ffffff;
+  border: 1.5px dashed #10b981;
+  border-radius: 8px;
+  padding: 8px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  gap: 10px;
+}
+
+.booking-code-label {
+  font-size: 10px;
+  font-weight: 700;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.booking-code-value {
+  font-size: 18px;
+  font-weight: 800;
+  color: #059669;
+  letter-spacing: 0.06em;
+  font-family: 'Consolas', 'Monaco', monospace;
+  line-height: 1.1;
+}
+
+.btn-copy-code {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: #ecfdf5;
+  color: #059669;
+  border: 1px solid #a7f3d0;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-copy-code:hover {
+  background: #10b981;
+  color: #ffffff;
+}
+
+/* Thẻ vé điện tử Boarding Pass Card */
+.boarding-pass-preview {
+  background: #ffffff;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  padding: 10px 14px;
+  margin-bottom: 8px;
+  position: relative;
+}
+
+.boarding-pass-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 8px;
+  margin-bottom: 8px;
+}
+
+.pass-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pass-brand-title {
+  font-size: 11.5px;
+  font-weight: 800;
+  color: #1e3a8a;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+}
+
+.pass-brand-sub {
+  font-size: 9px;
+  font-weight: 600;
+  color: #64748b;
+  letter-spacing: 0.04em;
+}
+
+.pass-status-pill {
+  background: #ecfdf5;
+  color: #059669;
+  border: 1px solid #10b981;
+  font-size: 9.5px;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: 12px;
+  letter-spacing: 0.03em;
+}
+
+.pass-route-col {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f1f5f9;
+  padding: 6px 12px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+}
+
+.pass-route-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.pass-lbl {
+  font-size: 9px;
+  font-weight: 700;
+  color: #64748b;
+  text-transform: uppercase;
+  margin-bottom: 1px;
+}
+
+.pass-val-station {
+  font-size: 14.5px;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.pass-route-arrow .icon {
+  font-size: 18px;
+  color: var(--accent);
+}
+
+.pass-details-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px 10px;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 8px;
+  margin-bottom: 8px;
+}
+
+.pass-detail-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.pass-val {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.pass-val.price-highlight {
+  color: #ea580c;
+  font-size: 13.5px;
+  font-weight: 800;
+}
+
+.pass-qr-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #fafafa;
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px dashed #cbd5e1;
+}
+
+.pass-qr-note {
+  font-size: 10.5px;
+  color: #475569;
+  line-height: 1.35;
+}
+
+.ticket-notice-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  color: #1e40af;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 10.5px;
+  line-height: 1.4;
+}
+
+.ticket-notice-box .icon {
+  font-size: 16px;
+  color: #2563eb;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.ticket-success-footer {
+  background: #ffffff;
+  padding: 10px 16px;
+  border-top: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+}
+
+.btn-ticket-secondary {
+  height: 34px;
+  padding: 0 14px;
+  background: #f1f5f9;
+  color: #475569;
+  border: 1px solid #cbd5e1;
+  border-radius: 5px;
+  font-size: 11.5px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-ticket-secondary:hover {
+  background: #e2e8f0;
+  color: #1e293b;
+}
+
+.btn-ticket-primary {
+  height: 34px;
+  padding: 0 16px;
+  background: #2563eb;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  font-size: 11.5px;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: all 0.2s;
+}
+
+.btn-ticket-primary:hover {
+  background: #1d4ed8;
+}
+
+.btn-ticket-accent {
+  height: 34px;
+  padding: 0 16px;
+  background: #059669;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  font-size: 11.5px;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: all 0.2s;
+}
+
+.btn-ticket-accent:hover {
+  background: #047857;
+}
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #boardingPassPrintArea, #boardingPassPrintArea * {
+    visibility: visible;
+  }
+  #boardingPassPrintArea {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    box-shadow: none;
+    border: 1px solid #000;
+  }
+}

@@ -1,0 +1,1266 @@
+/* ==========================================================================
+   DSVN - VIETNAM RAILWAYS
+   File: css/giao-dien-di-dong.css
+   Mô tả: Hệ thống Responsive chuẩn hóa đa thiết bị (Desktop -> Tablet -> Mobile)
+   Khắc phục 100% lỗi tràn màn hình, lệch khung, méo tỷ lệ trên thiết bị di động
+   ========================================================================== */
+
+/* --- 0. BẢO VỆ CHỐNG TRÀN TOÀN CỤC TRÊN MỌI THIẾT BỊ --- */
+html, body {
+  overflow-x: hidden !important;
+  max-width: 100vw !important;
+  width: 100% !important;
+  position: relative;
+  -webkit-text-size-adjust: 100%;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box !important;
+}
+
+img, svg, video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* --- 1. MÀN HÌNH MÁY TÍNH BẢNG & TABLET (Dưới 1024px) --- */
+@media screen and (max-width: 1024px) {
+  .main-nav {
+    display: none !important;
+  }
+
+  .mobile-menu-toggle {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .mobile-nav-brand {
+    display: flex !important;
+    align-items: center;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+  }
+
+  .search-form-grid {
+    grid-template-columns: 1fr 44px 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 12px;
+  }
+
+  .form-group:nth-child(1) { grid-column: 1 / 2; }
+  .btn-swap-stations { grid-column: 2 / 3; align-self: center; }
+  .form-group:nth-child(3) { grid-column: 3 / 4; }
+
+  .form-group:nth-child(4) { grid-column: 1 / 2; }
+  .form-group:nth-child(5) { grid-column: 2 / 4; }
+
+  .form-group:nth-child(6) { grid-column: 1 / 3; }
+  .form-group:nth-child(7) { grid-column: 3 / 4; }
+
+  .destination-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 20px !important;
+  }
+
+  .heritage-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 20px !important;
+  }
+
+  .stations-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 14px !important;
+  }
+
+  .regulations-layout {
+    grid-template-columns: 1fr !important;
+  }
+
+  .sticky-toc-box {
+    position: static !important;
+    margin-bottom: 20px !important;
+  }
+
+  .steps-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 16px !important;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 28px !important;
+  }
+
+  .ticket-pass-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .ticket-qr-code {
+    grid-column: 1 / -1 !important;
+    margin: 10px auto 0 auto !important;
+  }
+
+  .process-steps-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  .train-card-main {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+}
+
+/* --- 2. ĐIỆN THOẠI DI ĐỘNG SMARTPHONE (Dưới 768px) --- */
+@media screen and (max-width: 768px) {
+  :root {
+    --chieu-cao-header: 52px;
+  }
+
+  html {
+    font-size: 13.5px;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .container {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* === 2.1 HEADER & NAVBAR TRÊN MOBILE === */
+  .site-topbar {
+    height: auto !important;
+    min-height: 52px !important;
+    padding: 6px 0 !important;
+  }
+
+  .topbar-container {
+    gap: 8px !important;
+    padding: 0 12px !important;
+    flex-wrap: nowrap !important;
+  }
+
+  .brand-logo-area {
+    gap: 8px !important;
+    min-width: 0 !important;
+    flex: 1 !important;
+  }
+
+  .brand-logo-icon {
+    width: 32px !important;
+    height: 32px !important;
+    flex-shrink: 0 !important;
+  }
+
+  .brand-text {
+    min-width: 0 !important;
+  }
+
+  .brand-title {
+    font-size: 12px !important;
+    letter-spacing: 0.02em !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    display: block !important;
+  }
+
+  .brand-subtitle,
+  .topbar-marquee,
+  .topbar-hotline,
+  .header-hotline-badge {
+    display: none !important;
+  }
+
+  .topbar-right {
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    flex-shrink: 0 !important;
+  }
+
+  .lang-switch {
+    font-size: 11px !important;
+    gap: 2px !important;
+  }
+
+  .lang-btn {
+    padding: 2px 5px !important;
+    font-size: 11px !important;
+  }
+
+  .user-account-btn {
+    padding: 4px 8px !important;
+    font-size: 11px !important;
+    gap: 4px !important;
+    white-space: nowrap !important;
+  }
+
+  .user-avatar {
+    width: 20px !important;
+    height: 20px !important;
+    font-size: 10px !important;
+  }
+
+  /* Navbar xanh trên Mobile */
+  .site-navbar {
+    height: 42px !important;
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 1000 !important;
+  }
+
+  .navbar-container {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 0 12px !important;
+  }
+
+  .mobile-menu-toggle {
+    display: flex !important;
+    color: #ffffff !important;
+    font-size: 22px !important;
+    padding: 4px !important;
+    cursor: pointer !important;
+  }
+
+  .mobile-nav-brand {
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    color: #ffffff !important;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.02em !important;
+  }
+
+  /* === 2.2 PAGE BANNER === */
+  .page-banner {
+    padding: 18px 0 16px 0 !important;
+  }
+
+  .page-title {
+    font-size: 18px !important;
+    line-height: 1.3 !important;
+    margin-bottom: 6px !important;
+  }
+
+  .page-subtitle {
+    font-size: 12px !important;
+    line-height: 1.45 !important;
+  }
+
+  .breadcrumb-nav {
+    margin-bottom: 6px !important;
+    font-size: 11px !important;
+  }
+
+  /* === 2.3 SECTION TIÊU ĐỀ CHUNG === */
+  .section-title-box {
+    margin-bottom: 22px !important;
+  }
+
+  .section-eyebrow {
+    font-size: 0.72rem !important;
+    margin-bottom: 3px !important;
+  }
+
+  .section-title {
+    font-size: 1.4rem !important;
+  }
+
+  .section-desc {
+    font-size: 0.85rem !important;
+    line-height: 1.4 !important;
+    margin-top: 4px !important;
+  }
+
+  /* === 2.4 HERO & FORM TÌM VÉ TRANG CHỦ === */
+  .hero-section {
+    padding: 10px 0 20px 0 !important;
+  }
+
+  .hero-title {
+    font-size: 16px !important;
+    line-height: 1.3 !important;
+  }
+
+  .hero-subtitle {
+    font-size: 12px !important;
+  }
+
+  .home-banner-wrapper {
+    margin-bottom: 14px !important;
+    border-radius: 6px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .home-banner-img {
+    max-height: 180px !important;
+    border-radius: 6px !important;
+    width: 100% !important;
+  }
+
+  .search-console-wrapper {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    box-sizing: border-box !important;
+    padding: 0 !important;
+  }
+
+  .search-card {
+    padding: 16px 14px !important;
+    border-radius: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+  }
+
+  .search-card-header {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 12px !important;
+    padding-bottom: 12px !important;
+    margin-bottom: 14px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .search-card-title {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    width: 100% !important;
+    letter-spacing: 0.02em !important;
+    box-sizing: border-box !important;
+  }
+
+  .trip-type-selector {
+    display: flex !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .trip-type-btn {
+    flex: 1 !important;
+    justify-content: center !important;
+    padding: 8px 10px !important;
+    font-size: 12.5px !important;
+    white-space: nowrap !important;
+    box-sizing: border-box !important;
+  }
+
+  .search-top-bar {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 8px !important;
+    padding-bottom: 10px !important;
+    margin-bottom: 12px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .popular-routes-bar {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    gap: 6px !important;
+    font-size: 11.5px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .popular-chip {
+    font-size: 11px !important;
+    padding: 4px 8px !important;
+    border-radius: 20px !important;
+    white-space: nowrap !important;
+    box-sizing: border-box !important;
+  }
+
+  .trip-type-radios {
+    width: 100% !important;
+    justify-content: flex-start !important;
+    gap: 16px !important;
+  }
+
+  .trip-type-radios label {
+    font-size: 12px !important;
+  }
+
+  .quick-routes-bar {
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 6px !important;
+  }
+
+  .quick-routes-list {
+    display: flex !important;
+    gap: 6px !important;
+    overflow-x: auto !important;
+    width: 100% !important;
+    padding-bottom: 4px !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  .btn-quick-route {
+    font-size: 11px !important;
+    padding: 4px 8px !important;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* Form và lưới tìm vé trên mobile: Đơn cột 100% chống tràn tuyệt đối */
+  #trainSearchForm {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .search-form-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    gap: 10px !important;
+    box-sizing: border-box !important;
+  }
+
+  .search-form-grid > .form-group {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .btn-swap-stations {
+    width: 36px !important;
+    height: 36px !important;
+    align-self: center !important;
+    margin: 2px auto !important;
+    transform: rotate(90deg) !important;
+    flex-shrink: 0 !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .form-group label,
+  .form-label {
+    font-size: 11.5px !important;
+    margin-bottom: 4px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .input-box {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    height: 44px !important;
+    padding: 0 12px !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+  }
+
+  .input-box input,
+  .input-box select {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    font-size: 13px !important;
+    box-sizing: border-box !important;
+    flex: 1 !important;
+  }
+
+  .input-box input[type="date"] {
+    -webkit-appearance: none !important;
+    appearance: none !important;
+    min-width: 0 !important;
+    width: 100% !important;
+    flex: 1 !important;
+    font-size: 13px !important;
+  }
+
+  .btn-search-submit {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 46px !important;
+    font-size: 14.5px !important;
+    font-weight: 700 !important;
+    border-radius: var(--bo-goc-vua) !important;
+    box-sizing: border-box !important;
+    margin-top: 4px !important;
+  }
+
+  /* Widget tìm kiếm chuẩn DSVN trên mobile */
+  .dsvn-trip-capsule {
+    width: 100% !important;
+    display: flex !important;
+    margin-bottom: 8px !important;
+    box-sizing: border-box !important;
+  }
+
+  .dsvn-pill-btn {
+    flex: 1 !important;
+    text-align: center !important;
+    padding: 7px 12px !important;
+    font-size: 13px !important;
+  }
+
+  .dsvn-search-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+    width: 100% !important;
+  }
+
+  .dsvn-col {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+    width: 100% !important;
+  }
+
+  .dsvn-input-card {
+    min-height: 48px !important;
+    height: 48px !important;
+    padding: 5px 12px !important;
+    width: 100% !important;
+    border-radius: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .dsvn-return-group {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+    width: 100% !important;
+  }
+
+  .dsvn-return-group .dsvn-btn-submit {
+    width: 100% !important;
+    min-height: 46px !important;
+    height: 46px !important;
+    border-radius: 0 !important;
+    margin-top: 2px !important;
+  }
+
+  .dsvn-bar-row {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+    width: 100% !important;
+  }
+
+  .dsvn-bar-station,
+  .dsvn-bar-date {
+    width: 100% !important;
+    flex: none !important;
+  }
+
+  .dsvn-bar-submit {
+    width: 100% !important;
+    min-height: 48px !important;
+    height: 48px !important;
+    margin-top: 4px !important;
+  }
+
+  .dsvn-btn-swap {
+    display: flex !important;
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px !important;
+    align-self: center !important;
+    margin: -4px auto !important;
+    transform: rotate(90deg) !important;
+    z-index: 5 !important;
+  }
+
+  .banner-audio-btn {
+    display: none !important;
+  }
+
+  .search-bottom-notice {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 8px !important;
+    font-size: 11.5px !important;
+    line-height: 1.45 !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .search-notice-left {
+    align-items: flex-start !important;
+    gap: 6px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .search-notice-link {
+    font-size: 11.5px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 4px !important;
+  }
+
+  /* Giao diện tìm vé DSVN chuẩn trên Mobile - kích thước vừa vặn */
+  .dsvn-trip-capsule {
+    width: 100% !important;
+    display: flex !important;
+    box-sizing: border-box !important;
+    margin-bottom: 8px !important;
+    padding: 3px !important;
+  }
+
+  .dsvn-pill-btn {
+    flex: 1 !important;
+    text-align: center !important;
+    padding: 6px 8px !important;
+    font-size: 12.5px !important;
+    box-sizing: border-box !important;
+  }
+
+  .dsvn-search-form {
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 7px !important;
+    box-sizing: border-box !important;
+  }
+
+  .dsvn-form-row.dsvn-row-stations {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 7px !important;
+    box-sizing: border-box !important;
+  }
+
+  .dsvn-form-row.dsvn-row-dates-submit {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 7px !important;
+    box-sizing: border-box !important;
+  }
+
+  .dsvn-input-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: 44px !important;
+    height: 44px !important;
+    padding: 4px 10px !important;
+    gap: 8px !important;
+    box-sizing: border-box !important;
+  }
+
+  .dsvn-card-icon {
+    font-size: 18px !important;
+  }
+
+  .dsvn-card-label {
+    font-size: 10.5px !important;
+    margin-bottom: 0 !important;
+  }
+
+  .dsvn-card-input {
+    font-size: 13px !important;
+  }
+
+  .dsvn-date-display-val,
+  .dsvn-return-text {
+    font-size: 13px !important;
+  }
+
+  .dsvn-btn-swap {
+    width: 30px !important;
+    height: 30px !important;
+    align-self: center !important;
+    margin: 1px auto !important;
+    transform: rotate(90deg) !important;
+  }
+
+  .dsvn-btn-swap .icon {
+    font-size: 16px !important;
+  }
+
+  .dsvn-btn-submit {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 44px !important;
+    min-height: 44px !important;
+    font-size: 14.5px !important;
+    font-weight: 700 !important;
+    box-sizing: border-box !important;
+    margin-top: 2px !important;
+  }
+
+  /* === 2.5 SECTION: ĐIỂM ĐẾN HẤP DẪN === */
+  .destination-section {
+    padding: 32px 0 !important;
+  }
+
+  .destination-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  .destination-card {
+    border-radius: 10px !important;
+    width: 100% !important;
+  }
+
+  .destination-img-wrap {
+    width: 100% !important;
+    aspect-ratio: 16 / 9 !important;
+  }
+
+  .destination-info-bar {
+    padding: 12px 14px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 8px !important;
+  }
+
+  .destination-name {
+    font-size: 14.5px !important;
+  }
+
+  .destination-desc {
+    font-size: 11.5px !important;
+  }
+
+  .destination-action {
+    font-size: 11.5px !important;
+    padding: 5px 10px !important;
+    width: 100% !important;
+    text-align: center !important;
+    justify-content: center !important;
+  }
+
+  /* === 2.6 SECTION: NHÀ GA TRỌNG ĐIỂM === */
+  .stations-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+  }
+
+  .station-card {
+    border-radius: 8px !important;
+  }
+
+  .station-card-media {
+    height: auto !important;
+    aspect-ratio: 4 / 3 !important;
+  }
+
+  .station-badge-ribbon {
+    font-size: 8.5px !important;
+    padding: 2px 5px !important;
+    top: 5px !important;
+    left: 5px !important;
+  }
+
+  .station-card-bottom {
+    padding: 6px 8px !important;
+  }
+
+  .station-card-title {
+    font-size: 10.5px !important;
+  }
+
+  /* === 2.7 SECTION: HÀNH TRÌNH TIÊU BIỂU === */
+  .heritage-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  .heritage-card {
+    border-radius: 10px !important;
+  }
+
+  .heritage-card-body {
+    padding: 14px !important;
+  }
+
+  .heritage-card-title {
+    font-size: 14.5px !important;
+  }
+
+  .heritage-card-text {
+    font-size: 12px !important;
+  }
+
+  /* === 2.7b KẾT QUẢ TÌM VÉ, ĐOÀN TÀU & SƠ ĐỒ CHỖ TRÊN MOBILE === */
+  .results-header-bar {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
+    padding-bottom: 12px !important;
+    margin-bottom: 16px !important;
+  }
+
+  .results-title {
+    font-size: 1.35rem !important;
+  }
+
+  .train-filters {
+    overflow-x: auto !important;
+    flex-wrap: nowrap !important;
+    width: 100% !important;
+    padding-bottom: 6px !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  .filter-btn {
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+    padding: 5px 12px !important;
+    font-size: 11.5px !important;
+  }
+
+  .train-card-main {
+    grid-template-columns: 1fr !important;
+    padding: 14px 12px !important;
+    gap: 14px !important;
+  }
+
+  .train-schedule-track {
+    padding: 0 !important;
+  }
+
+  .node-time {
+    font-size: 1.25rem !important;
+  }
+
+  .node-station {
+    font-size: 0.85rem !important;
+  }
+
+  .timeline-line-box {
+    margin: 0 10px !important;
+  }
+
+  .train-price-action {
+    align-items: stretch !important;
+    width: 100% !important;
+    border-top: 1px dashed var(--vien-the) !important;
+    padding-top: 10px !important;
+    margin-top: 4px !important;
+  }
+
+  .train-price-action .btn-select-train {
+    width: 100% !important;
+    height: 42px !important;
+    justify-content: center !important;
+  }
+
+  .train-carriages-drawer {
+    padding: 12px !important;
+  }
+
+  .carriage-list-scroll {
+    gap: 8px !important;
+    padding-bottom: 6px !important;
+  }
+
+  .carriage-card {
+    min-width: 140px !important;
+    padding: 10px !important;
+  }
+
+  .seat-map-container {
+    overflow-x: auto !important;
+    padding-bottom: 8px !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  .seat-grid {
+    min-width: 300px !important;
+    gap: 6px !important;
+  }
+
+  .booking-summary-bar {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 10px !important;
+  }
+
+  .btn-proceed-reserve {
+    width: 100% !important;
+    justify-content: center !important;
+    text-align: center !important;
+  }
+
+  .passenger-grid {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+
+  .checkout-contact-grid {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+
+  .luggage-cards-grid {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+
+
+  /* Quy trình đặt vé 3 bước trên trang chủ */
+  .process-steps-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+
+  .process-step-item {
+    padding: 14px 16px !important;
+    gap: 12px !important;
+  }
+
+  .process-step-num {
+    width: 36px !important;
+    height: 36px !important;
+    font-size: 15px !important;
+  }
+
+  /* Trang quy định */
+  .regulations-layout {
+    gap: 16px !important;
+    padding: 16px 0 36px 0 !important;
+  }
+
+  .regulation-card {
+    padding: 16px 14px !important;
+  }
+
+  .custom-table-wrapper {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    width: 100% !important;
+  }
+
+  .custom-table {
+    min-width: 480px !important;
+    font-size: 11.5px !important;
+  }
+
+  .custom-table th,
+  .custom-table td {
+    padding: 8px 10px !important;
+  }
+
+  .luggage-cards-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+
+
+  /* === 2.8 TRANG TRA CỨU VÉ & THẺ LÊN TÀU === */
+  .lookup-container {
+    padding: 0 !important;
+    margin-bottom: 20px !important;
+  }
+
+  .lookup-card {
+    padding: 16px 14px !important;
+    border-radius: 8px !important;
+  }
+
+  .lookup-form-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+  }
+
+  .lookup-form-grid .form-group {
+    width: 100% !important;
+  }
+
+  .lookup-form-grid button {
+    width: 100% !important;
+    height: 44px !important;
+  }
+
+  /* Thẻ lên tàu điện tử trên trang tra cứu */
+  .ticket-pass-result {
+    padding: 14px !important;
+    margin-top: 14px !important;
+    border-radius: 8px !important;
+  }
+
+  .ticket-pass-header {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 8px !important;
+    padding-bottom: 10px !important;
+    margin-bottom: 12px !important;
+  }
+
+  .ticket-pass-brand {
+    gap: 8px !important;
+  }
+
+  .ticket-pass-status {
+    font-size: 11px !important;
+    padding: 3px 8px !important;
+    align-self: flex-start !important;
+  }
+
+  .ticket-pass-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 10px !important;
+  }
+
+  .ticket-qr-code {
+    grid-column: 1 / -1 !important;
+    margin: 8px auto !important;
+    text-align: center !important;
+    width: 90px !important;
+    height: 90px !important;
+  }
+
+  .ticket-qr-code img {
+    width: 80px !important;
+    height: 80px !important;
+  }
+
+  /* Khối quy trình 4 bước */
+  .steps-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+    margin-top: 16px !important;
+  }
+
+  .step-card {
+    padding: 14px 16px !important;
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
+    border-radius: 8px !important;
+  }
+
+  .step-number {
+    width: 32px !important;
+    height: 32px !important;
+    font-size: 14px !important;
+    flex-shrink: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+  .step-title {
+    font-size: 13.5px !important;
+  }
+
+  .step-text {
+    font-size: 12px !important;
+  }
+
+  /* Khối phương thức thanh toán & Lưu ý */
+  .payment-notes-grid {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+
+  .payment-notes-grid .card-token {
+    padding: 14px 16px !important;
+  }
+
+  /* === 2.9 MODALS POPUP TRÊN MOBILE === */
+  .custom-modal-backdrop {
+    padding: 8px !important;
+    align-items: center !important;
+  }
+
+  .custom-modal-card {
+    max-width: 100% !important;
+    width: 100% !important;
+    margin: auto !important;
+    border-radius: 12px !important;
+    max-height: 94vh !important;
+    overflow: hidden !important;
+  }
+
+  .auth-modal-card {
+    max-width: 100% !important;
+    margin: auto !important;
+  }
+
+  .modal-body-content {
+    padding: 14px !important;
+    max-height: 75vh !important;
+    overflow-y: auto !important;
+  }
+
+  .auth-modal-header {
+    padding: 14px 14px 10px 14px !important;
+  }
+
+  .auth-brand-badge {
+    width: 36px !important;
+    height: 36px !important;
+  }
+
+  .auth-modal-title {
+    font-size: 13.5px !important;
+  }
+
+  .auth-modal-desc {
+    font-size: 10.5px !important;
+  }
+
+  .auth-tab-btn {
+    padding: 7px 10px !important;
+    font-size: 11.5px !important;
+  }
+
+  .btn-auth-submit,
+  .btn-sso-vneid {
+    height: 42px !important;
+    font-size: 12px !important;
+  }
+
+  /* Modal vé điện tử thành công */
+  .ticket-success-card {
+    max-width: 100% !important;
+    max-height: 94vh !important;
+    border-radius: 10px !important;
+    margin: auto !important;
+  }
+
+  .ticket-success-header {
+    padding: 10px 14px !important;
+  }
+
+  .ticket-success-title {
+    font-size: 13.5px !important;
+  }
+
+  .booking-code-banner {
+    padding: 6px 10px !important;
+    flex-wrap: wrap !important;
+    gap: 6px !important;
+  }
+
+  .booking-code-value {
+    font-size: 15px !important;
+  }
+
+  .boarding-pass-preview {
+    padding: 8px 10px !important;
+  }
+
+  .pass-route-col {
+    padding: 6px 10px !important;
+  }
+
+  .pass-val-station {
+    font-size: 13px !important;
+  }
+
+  .pass-details-row {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 6px 8px !important;
+  }
+
+  .pass-qr-box {
+    flex-direction: column !important;
+    text-align: center !important;
+    gap: 6px !important;
+  }
+
+  .ticket-success-footer {
+    flex-direction: column !important;
+    gap: 8px !important;
+    padding: 10px 14px !important;
+  }
+
+  .ticket-success-footer button {
+    width: 100% !important;
+    height: 38px !important;
+    justify-content: center !important;
+  }
+
+  /* === 2.10 CHÂN TRANG (FOOTER) === */
+  .site-footer {
+    padding: 32px 0 18px 0 !important;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+
+  .footer-bottom {
+    flex-direction: column !important;
+    text-align: center !important;
+    gap: 6px !important;
+    font-size: 11px !important;
+    padding-top: 14px !important;
+    margin-top: 20px !important;
+  }
+
+  /* === 2.11 TOAST THÔNG BÁO === */
+  .toast-container {
+    left: 10px !important;
+    right: 10px !important;
+    bottom: 10px !important;
+  }
+
+  .toast {
+    max-width: 100% !important;
+    font-size: 12px !important;
+    padding: 10px 14px !important;
+  }
+}
+
+/* --- 3. MÀN HÌNH ĐIỆN THOẠI CỰC NHỎ (Dưới 480px) --- */
+@media screen and (max-width: 480px) {
+  .stations-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .brand-title {
+    font-size: 11px !important;
+  }
+
+  .section-title {
+    font-size: 1.3rem !important;
+  }
+
+  .passenger-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .train-price-action {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 8px !important;
+  }
+
+  .train-price-action .btn-select-train {
+    width: 100% !important;
+  }
+}

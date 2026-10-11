@@ -1,0 +1,12 @@
+{
+  "name": "dsvn-website",
+  "version": "1.0.0",
+  "description": "Website giao diện đặt vé Tổng công ty Đường sắt Việt Nam",
+  "scripts": {
+    "start": "npx -y serve . -p 8080",
+    "dev": "npx -y serve . -p 8080"
+  },
+  "keywords": ["dsvn", "duong-sat-viet-nam"],
+  "author": "",
+  "license": "ISC"
+}

@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quản Trị Cẩm Nang & Tin Tức - Tổng công ty Đường sắt Việt Nam</title>
+  <meta name="description" content="Trang quản trị nội dung bài viết cẩm nang du lịch và tin tức ngành Đường sắt Việt Nam." />
+
+  <!-- CSS Design System DSVN -->
+  <link rel="stylesheet" href="../css/bien-mau-sac.css" />
+  <link rel="stylesheet" href="../css/chung.css" />
+  <link rel="stylesheet" href="../css/admin-blog.css" />
+
+  <!-- Supabase CDN Client -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+
+<body class="admin-body">
+
+  <!-- ==================== 1. HEADER QUẢN TRỊ VIÊN ==================== -->
+  <header class="admin-header">
+    <div class="admin-header-container">
+      <a href="index.html" class="admin-brand" title="Về trang chủ DSVN">
+        <img src="../images/logo-dsvn.png" alt="Logo Đường sắt Việt Nam" />
+        <div class="admin-brand-info">
+          <span class="admin-brand-title">ĐƯỜNG SẮT VIỆT NAM</span>
+          <span class="admin-brand-sub">HỆ THỐNG QUẢN TRỊ CẨM NANG & TIN TỨC</span>
+        </div>
+      </a>
+
+      <div class="admin-header-actions">
+        <!-- Chỉ báo trạng thái máy chủ -->
+        <div class="server-status-badge" id="serverStatusBadge" title="Trạng thái kết nối máy chủ">
+          <span class="status-indicator-dot" id="supabaseStatusDot"></span>
+          <span id="supabaseStatusText">Máy chủ: Trực tuyến</span>
+        </div>
+
+        <button type="button" class="btn-header-link" onclick="moModalSupabaseConfig()" title="Cài đặt kết nối máy chủ & cơ sở dữ liệu">
+          <span class="icon" style="font-size:18px">tune</span>
+          <span>Cài đặt máy chủ</span>
+        </button>
+
+        <a href="tin-tuc-blog.html" class="btn-header-link" target="_blank" title="Xem giao diện người dùng">
+          <span class="icon" style="font-size:18px">open_in_new</span>
+          <span>Xem trang Cẩm nang</span>
+        </a>
+
+        <a href="index.html" class="btn-header-link" title="Về trang chủ đặt vé">
+          <span class="icon" style="font-size:18px">home</span>
+          <span>Trang chủ DSVN</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== 2. NỘI DUNG CHÍNH (DASHBOARD) ==================== -->
+  <main class="admin-main-container">
+
+    <!-- Lưới thẻ thống kê nhanh -->
+    <section class="admin-stats-grid">
+      <div class="stat-card">
+        <div class="stat-info-left">
+          <span class="stat-title">Tổng số bài viết</span>
+          <span class="stat-number" id="statTotalArticles">0</span>
+        </div>
+        <div class="stat-icon-box">
+          <span class="icon" style="font-size:24px">article</span>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-info-left">
+          <span class="stat-title">Đã xuất bản</span>
+          <span class="stat-number" id="statPublishedArticles" style="color:#059669">0</span>
+        </div>
+        <div class="stat-icon-box green">
+          <span class="icon" style="font-size:24px">check_circle</span>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-info-left">
+          <span class="stat-title">Bản nháp / Lưu tạm</span>
+          <span class="stat-number" id="statDraftArticles" style="color:#d97706">0</span>
+        </div>
+        <div class="stat-icon-box amber">
+          <span class="icon" style="font-size:24px">edit_note</span>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-info-left">
+          <span class="stat-title">Chuyên mục</span>
+          <span class="stat-number" id="statCategories" style="color:#7c3aed">4</span>
+        </div>
+        <div class="stat-icon-box purple">
+          <span class="icon" style="font-size:24px">category</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Thanh công cụ (Toolbar) -->
+    <section class="admin-toolbar-card">
+      <div class="toolbar-search-filter">
+        <div class="admin-search-box">
+          <span class="icon">search</span>
+          <input type="text" id="adminSearchInput" class="admin-search-input" placeholder="Tìm theo tiêu đề, tác giả, tóm tắt..." />
+        </div>
+
+        <select id="adminCategoryFilter" class="admin-category-select">
+          <option value="all">Tất cả chuyên mục</option>
+          <option value="Trải nghiệm">Trải nghiệm đoàn tàu</option>
+          <option value="Cẩm nang">Cẩm nang du lịch</option>
+          <option value="Ẩm thực">Ẩm thực đường sắt</option>
+          <option value="Tin tức">Tin tức & Sự kiện</option>
+        </select>
+
+        <span style="font-size:13px;color:#64748b;font-weight:600" id="filterCountBadge">--</span>
+      </div>
+
+      <div class="toolbar-buttons">
+        <button type="button" class="btn-admin btn-admin-outline" onclick="khoiPhucBaiMau()" title="Nạp lại đầy đủ 12 bài viết cẩm nang mẫu ban đầu">
+          <span class="icon">restart_alt</span>
+          <span>Khôi phục 12 bài mẫu</span>
+        </button>
+
+        <button type="button" class="btn-admin btn-admin-outline" id="btnSyncSupabase" onclick="dongBoBaiMauLenSupabase()" title="Đồng bộ danh sách bài viết từ kho lưu trữ">
+          <span class="icon">sync</span>
+          <span>Đồng bộ dữ liệu</span>
+        </button>
+
+        <button type="button" class="btn-admin btn-admin-primary" onclick="moFormTaoMoi()">
+          <span class="icon">add</span>
+          <span>+ Viết bài mới</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Bảng danh sách bài viết -->
+    <section class="admin-table-card">
+      <div class="admin-table-wrapper">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th style="width:60px">ID</th>
+              <th>Tiêu đề & Tóm tắt bài viết</th>
+              <th style="width:170px">Chuyên mục</th>
+              <th style="width:160px">Tác giả</th>
+              <th style="width:130px">Ngày đăng</th>
+              <th style="width:130px">Trạng thái</th>
+              <th style="width:120px;text-align:center">Thao tác</th>
+            </tr>
+          </thead>
+          <tbody id="articlesTableBody">
+            <!-- Render động từ admin-blog.js -->
+          </tbody>
+        </table>
+      </div>
+
+      <div id="tableLoading" style="display:none;text-align:center;padding:30px;color:#64748b;">
+        <span class="icon" style="font-size:24px;animation:spin 1s infinite linear">sync</span>
+        <div style="font-size:13.5px;margin-top:6px">Đang tải dữ liệu bài viết...</div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================== 3. MODAL SOẠN THẢO BÀI VIẾT ==================== -->
+  <div class="admin-modal-backdrop" id="articleEditorModal">
+    <div class="admin-modal-box">
+      <div class="admin-modal-header">
+        <div class="admin-modal-title">
+          <span class="icon" style="color:var(--accent)">edit_document</span>
+          <span id="editorModalTitle">Thêm Bài Viết Mới</span>
+        </div>
+        <button type="button" class="btn-modal-close" onclick="dongFormEditor()">
+          <span class="icon">close</span>
+        </button>
+      </div>
+
+      <form id="articleForm" onsubmit="return false;">
+        <div class="admin-modal-body">
+          <div class="form-group">
+            <label class="form-label">Tiêu đề bài viết <span class="required">*</span></label>
+            <input type="text" id="articleTitle" class="form-input" placeholder="Ví dụ: Trải nghiệm đoàn tàu kết nối di sản Huế – Đà Nẵng..." required />
+          </div>
+
+          <div class="form-group-grid">
+            <div class="form-group" style="margin-bottom:0">
+              <label class="form-label">Chuyên mục <span class="required">*</span></label>
+              <select id="articleCategory" class="form-select" required>
+                <option value="Trải nghiệm">Trải nghiệm đoàn tàu</option>
+                <option value="Cẩm nang">Cẩm nang du lịch</option>
+                <option value="Ẩm thực">Ẩm thực đường sắt</option>
+                <option value="Tin tức">Tin tức & Sự kiện</option>
+              </select>
+            </div>
+
+            <div class="form-group" style="margin-bottom:0">
+              <label class="form-label">Thời gian đọc ước tính</label>
+              <input type="text" id="articleReadTime" class="form-input" placeholder="5 phút" value="5 phút" />
+            </div>
+          </div>
+
+          <div class="form-group-grid">
+            <div class="form-group" style="margin-bottom:0">
+              <label class="form-label">Tác giả</label>
+              <input type="text" id="articleAuthor" class="form-input" placeholder="Ban Biên Tập DSVN" value="Ban Biên Tập DSVN" />
+            </div>
+
+            <div class="form-group" style="margin-bottom:0">
+              <label class="form-label">Vai trò / Chức danh tác giả</label>
+              <input type="text" id="articleAuthorRole" class="form-input" placeholder="Đội ngũ truyền thông" value="Đội ngũ truyền thông" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Hình ảnh đại diện bài viết</label>
+            <div class="image-upload-wrapper">
+              <div class="image-preview-box">
+                <img id="articleImagePreview" src="../images/tau_1.png" alt="Xem trước ảnh" onerror="this.src='../images/tau_1.png'" />
+              </div>
+              <div class="image-upload-controls">
+                <label class="btn-upload-file">
+                  <span class="icon">upload_file</span>
+                  <span>Chọn ảnh từ máy tính</span>
+                  <input type="file" id="articleImageFile" accept="image/*" style="display:none" />
+                </label>
+                <div style="font-size:12px;color:#64748b">Hoặc nhập đường dẫn ảnh (URL hoặc đường dẫn tương đối):</div>
+                <input type="text" id="articleImageUrl" class="form-input" placeholder="../images/tau_1.png hoặc https://..." value="../images/tau_1.png" />
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Đoạn trích dẫn / Tóm tắt ngắn (Excerpt) <span class="required">*</span></label>
+            <textarea id="articleExcerpt" class="form-textarea" placeholder="Tóm tắt nội dung 1-2 câu hấp dẫn để hiển thị trên danh sách bài viết..." rows="2" required></textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Nội dung chi tiết bài viết (Hỗ trợ định dạng HTML)</label>
+            <div class="editor-toolbar">
+              <button type="button" class="editor-btn" onclick="chenDinhDang('h3')"><span class="icon" style="font-size:16px">title</span> Tiêu đề H3</button>
+              <button type="button" class="editor-btn" onclick="chenDinhDang('p')"><span class="icon" style="font-size:16px">notes</span> Đoạn văn</button>
+              <button type="button" class="editor-btn" onclick="chenDinhDang('b')"><strong>B</strong> Đậm</button>
+              <button type="button" class="editor-btn" onclick="chenDinhDang('i')"><em>I</em> Nghiêng</button>
+              <button type="button" class="editor-btn" onclick="chenDinhDang('quote')"><span class="icon" style="font-size:16px">format_quote</span> Trích dẫn</button>
+              <button type="button" class="editor-btn" onclick="chenDinhDang('img')"><span class="icon" style="font-size:16px">image</span> Ảnh minh họa</button>
+              <button type="button" class="editor-btn" onclick="chenDinhDang('ul')"><span class="icon" style="font-size:16px">format_list_bulleted</span> Danh sách</button>
+            </div>
+            <textarea id="articleContent" class="editor-textarea" placeholder="Nhập nội dung bài viết tại đây. Sử dụng các nút định dạng ở trên để bài viết thêm sinh động..."></textarea>
+          </div>
+
+          <div class="form-group" style="margin-bottom:0">
+            <label class="form-label">Trạng thái xuất bản</label>
+            <select id="articleStatus" class="form-select">
+              <option value="published">Xuất bản công khai ngay</option>
+              <option value="draft">Lưu dưới dạng bản nháp (Ẩn)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="admin-modal-footer">
+          <button type="button" class="btn-admin btn-admin-outline" onclick="dongFormEditor()">Hủy bỏ</button>
+          <button type="submit" class="btn-admin btn-admin-primary" id="btnSubmitArticle">
+            <span class="icon">save</span>
+            <span>Lưu & Xuất bản</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ==================== 4. MODAL CẤU HÌNH KẾT NỐI SUPABASE ==================== -->
+  <div class="admin-modal-backdrop" id="supabaseConfigModal">
+    <div class="admin-modal-box" style="max-width:720px">
+      <div class="admin-modal-header">
+        <div class="admin-modal-title">
+          <span class="icon" style="color:var(--accent)">dns</span>
+          <span>Cài Đặt Kết Nối Máy Chủ & Dữ Liệu</span>
+        </div>
+        <button type="button" class="btn-modal-close" onclick="dongModalSupabaseConfig()">
+          <span class="icon">close</span>
+        </button>
+      </div>
+
+      <form id="supabaseConfigForm" onsubmit="return false;">
+        <div class="admin-modal-body">
+          <div class="supabase-guide-box">
+            <strong>💡 Thiết lập máy chủ lưu trữ (Cloud Database & Storage):</strong>
+            <p style="margin:4px 0 0 0">Nhập địa chỉ API Endpoint và khóa dịch vụ để hệ thống tự động lưu trữ bài viết và tải ảnh trực tiếp lên máy chủ.</p>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Địa chỉ máy chủ API (API Endpoint URL) <span class="required">*</span></label>
+            <input type="url" id="supabaseUrlInput" class="form-input" placeholder="https://xxxxxxxx.supabase.co" required />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Khóa xác thực dịch vụ (API Access Key) <span class="required">*</span></label>
+            <input type="text" id="supabaseKeyInput" class="form-input" placeholder="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..." required />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Thư mục lưu trữ hình ảnh (Media Storage Bucket)</label>
+            <input type="text" id="supabaseBucketInput" class="form-input" value="blog-images" placeholder="blog-images" />
+          </div>
+
+          <div class="form-group" style="margin-bottom:0">
+            <label class="form-label">Mã khởi tạo cấu trúc bảng dữ liệu (SQL Schema - Tùy chọn ban đầu):</label>
+            <div class="code-block-box">
+              <button type="button" class="btn-copy-sql" onclick="copySQLCode()">Sao chép SQL</button>
+              <pre style="margin:0"><code>-- Tạo bảng articles lưu trữ bài viết
+create table if not exists public.articles (
+  id bigint primary key,
+  title text not null,
+  category text not null,
+  image text,
+  date text,
+  readTime text default '5 phút',
+  author text,
+  authorRole text,
+  excerpt text,
+  content text,
+  status text default 'published',
+  created_at timestamp with time zone default timezone('utc'::text, now()) not null
+);
+
+-- Bật RLS và cấp quyền đọc/ghi công khai
+alter table public.articles enable row level security;
+create policy "Cho phep doc cong khai" on public.articles for select using (true);
+create policy "Cho phep them bai viet" on public.articles for insert with check (true);
+create policy "Cho phep sua bai viet" on public.articles for update using (true);
+create policy "Cho phep xoa bai viet" on public.articles for delete using (true);</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="admin-modal-footer">
+          <button type="button" class="btn-admin btn-admin-outline" onclick="dongModalSupabaseConfig()">Đóng</button>
+          <button type="submit" class="btn-admin btn-admin-primary">
+            <span class="icon">check</span>
+            <span>Lưu cấu hình</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ==================== 5. MODAL XEM THỬ BÀI VIẾT (PREVIEW) ==================== -->
+  <div class="admin-modal-backdrop" id="previewModal">
+    <div class="admin-modal-box" style="max-width:850px">
+      <div class="admin-modal-header">
+        <div class="admin-modal-title">
+          <span class="icon" style="color:#10b981">visibility</span>
+          <span>Xem Trước Bài Viết (Giao diện hiển thị)</span>
+        </div>
+        <button type="button" class="btn-modal-close" onclick="dongPreviewModal()">
+          <span class="icon">close</span>
+        </button>
+      </div>
+      <div class="admin-modal-body" id="previewModalBody">
+        <!-- Render nội dung bài viết xem trước -->
+      </div>
+      <div class="admin-modal-footer">
+        <button type="button" class="btn-admin btn-admin-outline" onclick="dongPreviewModal()">Đóng xem thử</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts dữ liệu & logic -->
+  <script src="../js/blog.js"></script>
+  <script src="../js/thong-bao.js"></script>
+  <script src="../js/admin-blog.js"></script>
+</body>
+
+</html>

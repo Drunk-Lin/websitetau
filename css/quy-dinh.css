@@ -1,0 +1,203 @@
+/* ==========================================================================
+   DSVN - VIETNAM RAILWAYS
+   File: css/quy-dinh.css
+   Mô tả: Giao diện trang Quy định vận chuyển, Bảng biểu phí và Mục lục ScrollSpy
+   ========================================================================== */
+
+.regulations-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 32px;
+  align-items: flex-start;
+  padding: 36px 0 70px 0;
+}
+
+.sticky-toc-box {
+  position: sticky;
+  top: 60px;
+  background: #ffffff;
+  border-radius: 8px;
+  border: 1px solid var(--vien-the);
+  padding: 20px;
+  box-shadow: var(--shadow-sm);
+}
+
+.toc-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--chu-phu);
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--vien-nhe);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.toc-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.toc-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--chu-phu);
+  border-radius: var(--bo-goc-vua);
+  transition: var(--chuyen-dong);
+}
+
+.toc-link:hover {
+  background: var(--nen-xam-nhe);
+  color: var(--mau-chinh);
+}
+
+.toc-link.active {
+  background: var(--mau-chinh);
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.toc-number {
+  font-size: 0.75rem;
+  font-weight: 700;
+  background: rgba(0, 0, 0, 0.08);
+  padding: 2px 6px;
+  border-radius: var(--bo-goc-nho);
+}
+
+.toc-link.active .toc-number {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.regulations-article-list {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.regulation-card {
+  background: #ffffff;
+  border: 1px solid var(--vien-nhe);
+  border-radius: var(--bo-goc-lon);
+  padding: 28px;
+  box-shadow: var(--bong-nhe);
+}
+
+.regulation-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--mau-do-duong-sat);
+  margin-bottom: 6px;
+}
+
+.regulation-title {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: var(--mau-chinh);
+  margin-bottom: 14px;
+  line-height: 1.3;
+}
+
+.regulation-text {
+  font-size: 0.95rem;
+  color: var(--chu-phu);
+  line-height: 1.65;
+  margin-bottom: 16px;
+}
+
+/* Bảng biểu phí quy định */
+.custom-table-wrapper {
+  overflow-x: auto;
+  margin: 16px 0;
+  border-radius: var(--bo-goc-vua);
+  border: 1px solid var(--vien-nhe);
+}
+
+.custom-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.9rem;
+}
+
+.custom-table th {
+  background: var(--mau-chinh);
+  color: #ffffff;
+  padding: 12px 16px;
+  font-weight: 600;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.custom-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--vien-nhe);
+  color: var(--chu-chinh);
+}
+
+.custom-table tr:last-child td {
+  border-bottom: none;
+}
+
+.custom-table tr:nth-child(even) {
+  background: #f8fafc;
+}
+
+.highlight-fee {
+  color: var(--mau-do-duong-sat);
+  font-weight: 700;
+}
+
+/* Hộp cảnh báo / Chú thích */
+.callout-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px 18px;
+  border-radius: var(--bo-goc-vua);
+  background: var(--nen-xam-nhe);
+  border-left: 4px solid var(--mau-do-duong-sat);
+  margin: 16px 0;
+  font-size: 0.9rem;
+  color: var(--chu-phu);
+}
+
+.callout-box.info {
+  border-left-color: var(--trang-thai-thong-tin);
+  background: #f0f9ff;
+}
+
+.callout-box.warning {
+  border-left-color: var(--mau-do-duong-sat);
+  background: var(--mau-do-nhat);
+}
+
+.callout-icon {
+  font-size: 22px;
+  flex-shrink: 0;
+}
+
+.callout-box.warning .callout-icon { color: var(--mau-do-duong-sat); }
+.callout-box.info .callout-icon { color: var(--trang-thai-thong-tin); }
+
+/* Lưới hiển thị tiêu chuẩn hành lý */
+.luggage-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-bottom: 16px;
+}
+

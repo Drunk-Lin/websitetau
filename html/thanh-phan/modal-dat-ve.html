@@ -1,0 +1,114 @@
+<!-- ==================== THÀNH PHẦN: MODAL ĐIỀN THÔNG TIN HÀNH KHÁCH & THANH TOÁN ==================== -->
+<div class="custom-modal-backdrop" id="checkoutModal">
+  <div class="custom-modal-card modal-lg checkout-modal-card">
+    <div class="modal-header-bar checkout-modal-header">
+      <div class="modal-header-title">
+        <span class="icon">confirmation_number</span>
+        <span>Thông Tin Hành Khách & Thanh Toán</span>
+      </div>
+      <button type="button" class="btn-close-modal" onclick="dongModalDatVe()" aria-label="Đóng">&times;</button>
+    </div>
+
+    <div class="modal-body-content checkout-modal-body">
+      <!-- Thanh tiến trình & Đếm ngược thời gian -->
+      <div class="booking-step-indicator">
+        <div class="booking-stepper">
+          <div class="step-item active">
+            <div class="step-circle">1</div>
+            <span class="step-label">Hành khách</span>
+          </div>
+          <div class="step-connector"></div>
+          <div class="step-item">
+            <div class="step-circle">2</div>
+            <span class="step-label">Thanh toán</span>
+          </div>
+          <div class="step-connector"></div>
+          <div class="step-item">
+            <div class="step-circle">3</div>
+            <span class="step-label">Xuất vé</span>
+          </div>
+        </div>
+
+        <div class="timer-badge">
+          <span class="icon">schedule</span>
+          <span>Giữ chỗ: <strong id="checkoutTimer">10:00</strong></span>
+        </div>
+      </div>
+
+      <!-- Danh sách nhập thông tin hành khách động theo ghế chọn -->
+      <div id="passengersInputContainer"></div>
+
+      <!-- Thông tin liên hệ nhận vé -->
+      <div class="checkout-contact-card">
+        <div class="checkout-card-title">
+          <span class="icon">contact_mail</span>
+          <div>
+            <span>Thông Tin Người Nhận Vé</span>
+            <p class="checkout-card-subtitle">Vé điện tử và hóa đơn sẽ được gửi đến số điện thoại và email này</p>
+          </div>
+        </div>
+        <div class="checkout-contact-grid">
+          <div class="form-field-group">
+            <label class="form-label">Số điện thoại nhận vé <span class="text-danger" style="color:#ef4444">*</span></label>
+            <div class="input-box">
+              <span class="icon input-prefix-icon">call</span>
+              <input type="tel" id="checkoutPhone" placeholder="0912345678" required />
+            </div>
+          </div>
+          <div class="form-field-group">
+            <label class="form-label">Email nhận Thẻ lên tàu</label>
+            <div class="input-box">
+              <span class="icon input-prefix-icon">mail</span>
+              <input type="email" id="checkoutEmail" placeholder="khachhang@email.com" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lựa chọn phương thức thanh toán -->
+      <div class="checkout-payment-section">
+        <div class="checkout-card-title" style="margin-bottom:12px">
+          <span class="icon">payments</span>
+          <span>Phương thức thanh toán trực tuyến</span>
+        </div>
+
+        <div class="payment-methods-grid">
+          <div class="payment-method-card selected" onclick="chonPhuongThucThanhToan(this, 'vnpay')">
+            <div class="payment-card-left">
+              <span class="icon payment-icon">qr_code_scanner</span>
+              <div>
+                <div class="payment-title">Quét mã VNPAY-QR (Khuyên dùng)</div>
+                <div class="payment-desc">Hơn 30 ngân hàng và ví điện tử VNPAY</div>
+              </div>
+            </div>
+            <span class="icon payment-check-icon">check_circle</span>
+          </div>
+
+          <div class="payment-method-card" onclick="chonPhuongThucThanhToan(this, 'atm')">
+            <div class="payment-card-left">
+              <span class="icon payment-icon">credit_card</span>
+              <div>
+                <div class="payment-title">Thẻ ATM / Internet Banking</div>
+                <div class="payment-desc">Cổng Napas các ngân hàng nội địa</div>
+              </div>
+            </div>
+            <span class="icon payment-check-icon payment-uncheck">radio_button_unchecked</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tổng tiền thanh toán & Nút hoàn tất -->
+      <div class="checkout-footer-bar">
+        <div class="checkout-total-block">
+          <span class="checkout-total-label">Tổng tiền thanh toán</span>
+          <div class="checkout-total-value" id="checkoutTotalDisplay">0 VNĐ</div>
+        </div>
+
+        <button type="button" class="btn-proceed-reserve" onclick="xacNhanHoanTatDatVe()">
+          <span class="icon">verified</span>
+          <span>Xác Nhận & Thanh Toán</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

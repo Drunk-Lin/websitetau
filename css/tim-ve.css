@@ -1,0 +1,1512 @@
+/* ==========================================================================
+   DSVN - VIETNAM RAILWAYS
+   File: css/tim-ve.css
+   Mô tả: Giao diện tìm vé tàu, danh sách chuyến tàu, toa tàu và sơ đồ chọn ghế
+   ========================================================================== */
+
+/* --- 1. HERO BANNER & FORM TÌM VÉ (Tham khảo vetauduongsat.com) --- */
+.hero-section {
+  position: relative;
+  background: var(--background);
+  padding: 20px 0 36px 0;
+}
+
+.home-banner-wrapper {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  margin-bottom: 16px;
+  background: #ffffff;
+  border: 1px solid var(--vien-the);
+}
+
+.home-banner-img {
+  width: 100%;
+  height: auto;
+  max-height: 260px;
+  object-fit: cover;
+  display: block;
+}
+
+.banner-audio-btn {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #f59e0b;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 3px 10px rgba(245, 158, 11, 0.4);
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+  z-index: 5;
+}
+
+.banner-audio-btn:hover {
+  transform: scale(1.08);
+  background: #d97706;
+}
+
+.banner-audio-btn .icon {
+  font-size: 18px;
+}
+
+.home-banner-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(15, 23, 42, 0.75) 0%, rgba(15, 23, 42, 0.35) 60%, transparent 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 40px;
+  color: #ffffff;
+}
+
+.home-banner-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--accent);
+  color: #ffffff;
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 10px;
+  align-self: flex-start;
+}
+
+.home-banner-title {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.25;
+  color: #ffffff;
+  margin-bottom: 8px;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+.home-banner-desc {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 580px;
+  line-height: 1.5;
+}
+
+/* KHUNG TÌM KIẾM CHÍNH */
+.search-console-wrapper {
+  position: relative;
+  z-index: 10;
+  max-width: 1140px;
+  margin: 18px auto 0 auto;
+}
+
+.search-card {
+  background: #ffffff;
+  color: var(--chu-chinh);
+  border-radius: 10px;
+  padding: 22px 26px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e2e8f0;
+  border-top: 4px solid #009fe3;
+}
+
+.search-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e5e7eb;
+  margin-bottom: 18px;
+}
+
+.search-card-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #009fe3;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin: 0;
+}
+
+.search-card-title .icon {
+  font-size: 22px;
+  color: #009fe3;
+}
+
+/* ==========================================================================
+   DSVN.VN - GIAO DIỆN TÌM VÉ CHUẨN ĐƯỜNG SẮT VIỆT NAM (THEO ẢNH MẪU)
+   ========================================================================== */
+
+/* Capsule chọn loại vé: Một chiều / Khứ hồi */
+.dsvn-trip-capsule {
+  display: inline-flex;
+  align-items: center;
+  background: #009fe3;
+  padding: 4px;
+  border-radius: 9999px;
+  margin-bottom: 16px;
+  box-shadow: 0 3px 8px rgba(0, 159, 227, 0.2);
+}
+
+.dsvn-pill-btn {
+  border: none;
+  background: transparent;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 13.5px;
+  padding: 6px 20px;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dsvn-pill-btn.active {
+  background: #ffffff;
+  color: #d32f2f;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.14);
+}
+
+.dsvn-pill-btn:not(.active):hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+/* ==========================================================================
+   DSVN.VN - THANH TÌM KIẾM 1 HÀNG NGANG HIỆN ĐẠI (PHƯƠNG ÁN B)
+   ========================================================================== */
+.dsvn-search-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 100%;
+}
+
+/* Thanh ngang 1 hàng liền mạch trên Desktop */
+.dsvn-search-bar-mode {
+  width: 100%;
+}
+
+.dsvn-bar-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Các ô Ga đi / Ga đến */
+.dsvn-bar-station {
+  flex: 1.15;
+  min-width: 0;
+}
+
+/* Nút đảo chiều ga tròn hiện đại nằm giữa 2 ga */
+.dsvn-btn-swap {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  min-width: 38px;
+  border-radius: 50% !important;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  color: #009fe3;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  padding: 0;
+  z-index: 3;
+}
+
+.dsvn-btn-swap:hover {
+  background: #f0f9ff;
+  border-color: #009fe3;
+  color: #0284c7;
+  transform: rotate(180deg) scale(1.1);
+  box-shadow: 0 3px 10px rgba(0, 159, 227, 0.25);
+}
+
+.dsvn-btn-swap:active {
+  transform: rotate(180deg) scale(0.95);
+}
+
+.dsvn-btn-swap .icon {
+  font-size: 20px;
+}
+
+/* Các ô Ngày đi / Ngày về */
+.dsvn-bar-date {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Nút TÌM VÉ ở cuối thanh ngang */
+.dsvn-bar-submit {
+  flex: 0 0 auto;
+  width: 135px;
+  min-height: 56px;
+  height: 56px;
+  border-radius: 6px !important;
+  background: linear-gradient(135deg, #f24e1e 0%, #e03d0d 100%) !important;
+  color: #ffffff !important;
+  font-size: 15px !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.04em !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 6px !important;
+  box-shadow: 0 3px 12px rgba(242, 78, 30, 0.35) !important;
+  border: none !important;
+  cursor: pointer;
+  transition: all 0.2s ease !important;
+  white-space: nowrap;
+}
+
+.dsvn-bar-submit .icon {
+  font-size: 20px;
+}
+
+.dsvn-bar-submit:hover {
+  background: linear-gradient(135deg, #e03d0d 0%, #c43208 100%) !important;
+  box-shadow: 0 5px 16px rgba(242, 78, 30, 0.5) !important;
+  transform: translateY(-1px);
+}
+
+.dsvn-bar-submit:active {
+  transform: translateY(1px);
+}
+
+/* Tablet & Màn hình vừa (769px - 1024px): Chia 2 tầng cân đối */
+@media screen and (max-width: 1024px) and (min-width: 769px) {
+  .dsvn-bar-row {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .dsvn-bar-station {
+    flex: 1 1 calc(50% - 29px);
+  }
+
+  .dsvn-bar-date {
+    flex: 1 1 calc(37% - 10px);
+  }
+
+  .dsvn-bar-submit {
+    flex: 1 1 20%;
+    width: auto;
+  }
+}
+
+/* Giữ tương thích lưới cũ nếu có */
+.dsvn-search-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.dsvn-col {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-width: 0;
+}
+
+.dsvn-return-group {
+  display: flex;
+  gap: 12px;
+  align-items: stretch;
+  width: 100%;
+}
+
+.dsvn-return-group .dsvn-input-card {
+  flex: 1;
+  min-width: 0;
+}
+
+.dsvn-return-group .dsvn-btn-submit {
+  width: 120px;
+  flex-shrink: 0;
+}
+
+/* Card hộp nhập liệu chuẩn DSVN */
+.dsvn-input-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #ffffff;
+  border-radius: 6px;
+  padding: 8px 14px;
+  min-height: 56px;
+  height: 56px;
+  border: 1px solid #cbd5e1;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  cursor: pointer;
+}
+
+.dsvn-input-card:hover {
+  border-color: #009fe3;
+}
+
+.dsvn-input-card:focus-within {
+  border-color: #009fe3;
+  box-shadow: 0 0 0 2px rgba(0, 159, 227, 0.2);
+}
+
+/* Trạng thái disabled cho Ngày về (khi Một chiều) */
+.dsvn-input-card.disabled {
+  background: #f8fafc;
+  border-color: #e2e8f0;
+  box-shadow: none;
+  cursor: pointer;
+}
+
+.dsvn-input-card.disabled:hover {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+}
+
+.dsvn-input-card.disabled .dsvn-card-icon {
+  color: #94a3b8;
+}
+
+.dsvn-input-card.disabled .dsvn-card-label {
+  color: #64748b;
+}
+
+.dsvn-input-card.disabled .dsvn-return-text {
+  color: #94a3b8;
+  font-weight: 600;
+}
+
+
+.dsvn-input-card.disabled .dsvn-card-label {
+  color: #4b5563;
+}
+
+.dsvn-input-card.disabled .dsvn-return-text {
+  color: #6b7280;
+  font-weight: 600;
+}
+
+/* Icon bên trái */
+.dsvn-card-icon {
+  font-size: 24px;
+  color: #4b5563;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+/* Cột nội dung bên trong */
+.dsvn-card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1;
+  min-width: 0;
+  gap: 2px;
+}
+
+/* Dòng tiêu đề nhỏ bên trên */
+.dsvn-card-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: #4b5563;
+  line-height: 1.2;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Input văn bản (Nơi đi, Nơi đến) */
+.dsvn-card-input {
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 14.5px;
+  font-weight: 700;
+  color: #1f2937;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  line-height: 1.25;
+  font-family: inherit;
+}
+
+.dsvn-card-input::placeholder {
+  color: #6b7280;
+  font-weight: 600;
+  opacity: 1;
+}
+
+/* Text hiển thị ngày đi/về */
+.dsvn-date-display-val {
+  font-size: 14.5px;
+  font-weight: 700;
+  color: #111827;
+  line-height: 1.25;
+  user-select: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dsvn-return-text {
+  font-size: 14.5px;
+  font-weight: 700;
+  color: #111827;
+  line-height: 1.25;
+  user-select: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Input ngày ẩn/overlay để mở native picker */
+.dsvn-date-native-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.dsvn-input-card.disabled .dsvn-date-native-overlay {
+  pointer-events: none;
+}
+
+/* Icon mũi tên caret bên phải */
+.dsvn-caret-icon {
+  font-size: 22px;
+  color: #374151;
+  flex-shrink: 0;
+  margin-left: auto;
+  line-height: 1;
+}
+
+/* Nút hoán đổi ga đã được hiển thị trên thanh ngang */
+
+/* Ẩn nút loa theo yêu cầu của người dùng */
+.banner-audio-btn {
+  display: none !important;
+}
+
+/* Nút TÌM màu cam rực rỡ chuẩn DSVN */
+.dsvn-btn-submit {
+  border: none;
+  background: #f24e1e;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  border-radius: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 56px;
+  height: 56px;
+  box-shadow: 0 2px 6px rgba(242, 78, 30, 0.35);
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.dsvn-btn-submit:hover {
+  background: #e03d0d;
+  box-shadow: 0 4px 10px rgba(242, 78, 30, 0.45);
+}
+
+.dsvn-btn-submit:active {
+  transform: translateY(1px);
+}
+
+/* Chặng phổ biến và thông báo dưới form */
+.dsvn-search-bottom {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+.popular-routes-bar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: var(--chu-phu);
+}
+
+.popular-chip {
+  background: var(--nen-xam-nhe);
+  color: var(--mau-chinh);
+  font-weight: 700;
+  font-size: 0.8rem;
+  padding: 4px 10px;
+  border-radius: 0;
+  border: 1px solid var(--vien-nhe);
+  transition: var(--chuyen-dong);
+}
+
+.popular-chip:hover {
+  background: var(--mau-do-duong-sat);
+  color: #ffffff;
+  border-color: var(--mau-do-duong-sat);
+}
+
+/* Autocomplete Ga đi - Ga đến */
+.station-autocomplete-list {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  background: #ffffff;
+  border: 1px solid var(--vien-nhe);
+  border-radius: 0;
+  box-shadow: var(--bong-lon);
+  max-height: 260px;
+  overflow-y: auto;
+  z-index: 100;
+  display: none;
+}
+
+.station-autocomplete-list.show {
+  display: block;
+}
+
+.station-item {
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: background 0.15s ease;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.station-item:last-child {
+  border-bottom: none;
+}
+
+.station-item:hover,
+.station-item.active {
+  background: var(--nen-xam-nhe);
+}
+
+.station-item-name {
+  font-weight: 600;
+  color: var(--chu-chinh);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.station-item-code {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--mau-do-duong-sat);
+  background: var(--mau-do-nhat);
+  padding: 2px 6px;
+  border-radius: var(--bo-goc-nho);
+}
+
+.station-item-province {
+  font-size: 0.8rem;
+  color: var(--chu-mo);
+}
+
+.search-bottom-notice {
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid var(--vien-nhe);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 0.85rem;
+  color: var(--chu-phu);
+}
+
+.search-notice-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.search-notice-link {
+  color: var(--mau-do-duong-sat);
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.search-notice-link:hover {
+  text-decoration: underline;
+}
+
+/* --- 2. KẾT QUẢ CHUYẾN TÀU & SƠ ĐỒ CHỖ NGỒI --- */
+.results-section {
+  padding: 40px 0 70px 0;
+  background-color: var(--nen-website);
+}
+
+.results-header-bar {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--vien-nhe);
+}
+
+.route-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--mau-do-duong-sat);
+  margin-bottom: 4px;
+}
+
+.results-title {
+  font-size: 1.7rem;
+  font-weight: 800;
+  color: var(--mau-chinh);
+  letter-spacing: -0.01em;
+}
+
+.results-title-arrow {
+  color: var(--mau-do-duong-sat);
+  margin: 0 4px;
+}
+
+.results-meta {
+  font-size: 0.95rem;
+  color: var(--chu-phu);
+  margin-top: 4px;
+}
+
+.results-meta strong {
+  color: var(--chu-chinh);
+}
+
+.train-filters {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  padding: 6px 14px;
+  border-radius: var(--bo-goc-tron);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--chu-phu);
+  background: var(--nen-the-trang);
+  border: 1px solid var(--vien-nhe);
+  transition: var(--chuyen-dong);
+}
+
+.filter-btn:hover {
+  border-color: var(--mau-chinh);
+  color: var(--mau-chinh);
+}
+
+.filter-btn.active {
+  background: var(--mau-chinh);
+  color: #ffffff;
+  border-color: var(--mau-chinh);
+}
+
+/* Thẻ đoàn tàu */
+.train-card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.train-card {
+  background: var(--nen-the-trang);
+  border-radius: var(--bo-goc-lon);
+  border: 1px solid var(--vien-nhe);
+  box-shadow: var(--bong-nhe);
+  overflow: hidden;
+  transition: var(--chuyen-dong);
+}
+
+.train-card:hover {
+  box-shadow: var(--bong-vua);
+  border-color: rgba(11, 30, 54, 0.2);
+}
+
+.train-card-main {
+  padding: 22px 24px;
+  display: grid;
+  grid-template-columns: 140px 1fr 200px;
+  align-items: center;
+  gap: 24px;
+}
+
+.train-badge-box {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.train-code-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--mau-chinh);
+  color: #ffffff;
+  font-size: 1.25rem;
+  font-weight: 800;
+  padding: 6px 12px;
+  border-radius: var(--bo-goc-nho);
+  letter-spacing: 0.04em;
+}
+
+.train-type-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--chu-phu);
+  text-align: center;
+}
+
+.train-heritage-tag {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--mau-vang-di-san);
+  background: var(--mau-vang-nhat);
+  border: 1px solid rgba(212, 163, 89, 0.4);
+  padding: 2px 6px;
+  border-radius: var(--bo-goc-nho);
+  text-align: center;
+}
+
+/* Timeline Ga đi & Ga đến */
+.train-schedule-track {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  padding: 0 10px;
+}
+
+.station-node {
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+}
+
+.station-node.destination {
+  text-align: right;
+  align-items: flex-end;
+}
+
+.node-time {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: var(--chu-chinh);
+  font-variant-numeric: tabular-nums;
+  line-height: 1.1;
+}
+
+.node-station {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--chu-phu);
+  margin-top: 2px;
+}
+
+.node-date {
+  font-size: 0.78rem;
+  color: var(--chu-mo);
+}
+
+.timeline-line-box {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 20px;
+  position: relative;
+}
+
+.timeline-duration {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--chu-phu);
+  background: var(--nen-xam-nhe);
+  padding: 2px 10px;
+  border-radius: var(--bo-goc-tron);
+  margin-bottom: 6px;
+  border: 1px solid var(--vien-nhe);
+}
+
+.timeline-bar {
+  width: 100%;
+  height: 2px;
+  background: var(--vien-nhe);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.timeline-bar::before,
+.timeline-bar::after {
+  content: '';
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--mau-chinh);
+}
+
+.timeline-bar::before {
+  left: 0;
+}
+
+.timeline-bar::after {
+  right: 0;
+  background: var(--mau-do-duong-sat);
+}
+
+.timeline-train-icon {
+  position: absolute;
+  color: var(--mau-do-duong-sat);
+  font-size: 16px;
+  background: var(--nen-the-trang);
+  padding: 0 4px;
+}
+
+.train-price-action {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  border-left: 1px solid var(--vien-nhe);
+  padding-left: 20px;
+}
+
+.price-label {
+  font-size: 0.78rem;
+  color: var(--chu-mo);
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.price-value {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--mau-do-duong-sat);
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+
+.price-value span {
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.btn-select-train {
+  width: 100%;
+  padding: 10px 16px;
+  background: var(--mau-chinh);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.92rem;
+  border-radius: var(--bo-goc-vua);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: var(--chuyen-dong);
+}
+
+.btn-select-train:hover {
+  background: var(--mau-chinh-nhe);
+}
+
+.train-card.expanded .btn-select-train {
+  background: var(--mau-do-duong-sat);
+}
+
+/* Ngăn kéo chọn toa xe */
+.train-carriages-drawer {
+  background: #f8fafc;
+  border-top: 1px solid var(--vien-nhe);
+  padding: 18px 24px;
+  display: none;
+}
+
+.train-card.expanded .train-carriages-drawer {
+  display: block;
+}
+
+.carriages-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.carriages-title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--chu-chinh);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.carriage-list-scroll {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+}
+
+.carriage-card {
+  min-width: 160px;
+  background: #ffffff;
+  border: 1.5px solid var(--vien-nhe);
+  border-radius: var(--bo-goc-vua);
+  padding: 12px;
+  cursor: pointer;
+  transition: var(--chuyen-dong);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.carriage-card:hover {
+  border-color: var(--mau-chinh);
+  transform: translateY(-2px);
+  box-shadow: var(--bong-nhe);
+}
+
+.carriage-card.active {
+  border-color: var(--mau-do-duong-sat);
+  background: var(--mau-do-nhat);
+  box-shadow: 0 0 0 2px var(--mau-do-duong-sat);
+}
+
+.carriage-number {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--mau-chinh);
+}
+
+.carriage-type {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--chu-phu);
+}
+
+.carriage-seats-left {
+  font-size: 0.75rem;
+  color: var(--trang-thai-thanh-cong);
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+.carriage-price {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--mau-do-duong-sat);
+}
+
+/* Sơ đồ ghế */
+.seat-map-container {
+  margin-top: 16px;
+  background: #ffffff;
+  border-radius: var(--bo-goc-vua);
+  padding: 18px;
+  border: 1px solid var(--vien-nhe);
+}
+
+.seat-map-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+  font-size: 0.85rem;
+}
+
+.seat-legend {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  color: var(--chu-phu);
+}
+
+.legend-box {
+  width: 18px;
+  height: 18px;
+  border-radius: 3px;
+  border: 1px solid var(--vien-nhe);
+}
+
+.legend-box.available {
+  background: #ffffff;
+  border-color: #cbd5e1;
+}
+
+.legend-box.selected {
+  background: var(--mau-chinh);
+  border-color: var(--mau-chinh);
+}
+
+.legend-box.occupied {
+  background: #e2e8f0;
+  border-color: #cbd5e1;
+}
+
+.seat-grid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 10px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.seat-btn {
+  height: 38px;
+  background: #ffffff;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--chu-chinh);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--chuyen-dong);
+}
+
+.seat-btn:hover:not(.occupied) {
+  border-color: var(--mau-chinh);
+  background: var(--nen-xam-nhe);
+}
+
+.seat-btn.selected {
+  background: var(--mau-chinh);
+  border-color: var(--mau-chinh);
+  color: #ffffff;
+}
+
+.seat-btn.occupied {
+  background: #e2e8f0;
+  color: #94a3b8;
+  border-color: #e2e8f0;
+  cursor: not-allowed;
+}
+
+.booking-summary-bar {
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid var(--vien-nhe);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.booking-summary-text {
+  font-size: 0.9rem;
+  color: var(--chu-phu);
+}
+
+.booking-summary-text strong {
+  color: var(--mau-chinh);
+}
+
+.btn-proceed-reserve {
+  padding: 10px 24px;
+  background: var(--mau-do-duong-sat);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.95rem;
+  border-radius: var(--bo-goc-vua);
+  box-shadow: var(--bong-nhe);
+  transition: var(--chuyen-dong);
+}
+
+.btn-proceed-reserve:hover {
+  background: var(--mau-do-hover);
+}
+
+/* Spinner và Box trạng thái */
+.state-box {
+  background: #ffffff;
+  border-radius: var(--bo-goc-lon);
+  border: 1px solid var(--vien-nhe);
+  padding: 50px 20px;
+  text-align: center;
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+.state-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--mau-chinh);
+  margin-bottom: 8px;
+}
+
+.state-desc {
+  font-size: 0.95rem;
+  color: var(--chu-phu);
+  max-width: 480px;
+  margin: 0 auto 16px auto;
+}
+
+.spinner {
+  width: 44px;
+  height: 44px;
+  border: 3px solid rgba(11, 30, 54, 0.1);
+  border-top-color: var(--mau-do-duong-sat);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin: 0 auto 16px auto;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* --- 3. CÁC TUYẾN DI SẢN --- */
+.section-title-box {
+  text-align: center;
+  max-width: 650px;
+  margin: 0 auto 36px auto;
+}
+
+.section-eyebrow {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--mau-do-duong-sat);
+  margin-bottom: 6px;
+}
+
+.section-title {
+  font-size: 1.85rem;
+  font-weight: 800;
+  color: var(--mau-chinh);
+  letter-spacing: -0.01em;
+}
+
+.section-desc {
+  font-size: 0.95rem;
+  color: var(--chu-phu);
+  margin-top: 6px;
+}
+
+.heritage-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.heritage-card {
+  background: #ffffff;
+  border-radius: var(--bo-goc-lon);
+  border: 1px solid var(--vien-nhe);
+  overflow: hidden;
+  box-shadow: var(--bong-nhe);
+  transition: var(--chuyen-dong);
+  display: flex;
+  flex-direction: column;
+}
+
+.heritage-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--bong-lon);
+}
+
+.heritage-card-media {
+  height: 190px;
+  position: relative;
+  background: var(--mau-chinh);
+  overflow: hidden;
+}
+
+.heritage-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.heritage-card-tag {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(11, 30, 54, 0.85);
+  backdrop-filter: blur(4px);
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: var(--bo-goc-nho);
+  letter-spacing: 0.04em;
+}
+
+.heritage-card-body {
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.heritage-card-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--mau-chinh);
+  margin-bottom: 8px;
+}
+
+.heritage-card-text {
+  font-size: 0.88rem;
+  color: var(--chu-phu);
+  line-height: 1.5;
+  margin-bottom: 16px;
+  flex: 1;
+}
+
+.heritage-card-link {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--mau-do-duong-sat);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.heritage-card-link:hover {
+  gap: 8px;
+}
+
+/* --- 6. QUY TRÌNH ĐẶT VÉ TRỰC TUYẾN 3 BƯỚC (vetauduongsat style) --- */
+.booking-process-section {
+  padding: 44px 0;
+  background: #ffffff;
+  border-top: 1px solid var(--vien-the);
+  border-bottom: 1px solid var(--vien-the);
+}
+
+.process-heading-box {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.process-heading {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--chu-chinh);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.process-subheading {
+  font-size: 13px;
+  color: var(--chu-mo);
+}
+
+.process-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.process-step-item {
+  background: var(--background);
+  border: 1px solid var(--vien-the);
+  border-radius: 8px;
+  padding: 24px 20px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  box-shadow: var(--shadow-sm);
+  transition: var(--chuyen-dong);
+}
+
+.process-step-item:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--accent);
+}
+
+.process-step-num {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 3px 8px rgba(47, 164, 231, 0.3);
+}
+
+.process-step-info h3 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--chu-chinh);
+  margin-bottom: 6px;
+}
+
+.process-step-info p {
+  font-size: 13px;
+  color: var(--chu-phu);
+  line-height: 1.5;
+}
+
+/* --- 7. HỆ THỐNG NHÀ GA ĐƯỜNG SẮT (vetauduongsat style) --- */
+.stations-section {
+  padding: 50px 0;
+  background: #ffffff;
+  border-top: 1px solid var(--vien-the);
+}
+
+.stations-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.station-card {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--vien-the);
+  background: #ffffff;
+  transition: var(--chuyen-dong);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
+.station-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--accent);
+}
+
+.station-card-media {
+  position: relative;
+  width: 100%;
+  height: 240px;
+  overflow: hidden;
+  background: #1e293b;
+}
+
+.station-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+  display: block;
+}
+
+.station-card:hover .station-card-img {
+  transform: scale(1.06);
+}
+
+.station-badge-ribbon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: linear-gradient(135deg, #0284c7 0%, #2fa4e7 100%);
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 14px 4px 10px;
+  border-bottom-right-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+  z-index: 2;
+  letter-spacing: 0.02em;
+}
+
+.station-card-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.85) 100%);
+  padding: 28px 14px 14px 14px;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  z-index: 2;
+}
+
+.station-card-title {
+  font-size: 14.5px;
+  font-weight: 700;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin: 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.station-card:hover .station-card-title {
+  color: #38bdf8;
+  transform: translateX(3px);
+}
