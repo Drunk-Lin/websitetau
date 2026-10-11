@@ -1,5 +1,5 @@
 /**
- * DSVN - Tổng công ty Đường sắt Việt Nam
+ * DSVN - Tập đoàn Đường sắt Quốc gia Việt Nam
  * File: js/tim-ve.js
  * Mô tả: Xử lý tìm kiếm vé tàu, gợi ý ga, đổi ga, kiểm tra ràng buộc ngày đi và ngày về
  */

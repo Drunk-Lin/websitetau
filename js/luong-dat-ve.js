@@ -1,5 +1,5 @@
 /**
- * DSVN - Tổng công ty Đường sắt Việt Nam
+ * DSVN - Tập đoàn Đường sắt Quốc gia Việt Nam
  * File: js/luong-dat-ve.js
  * Mô tả: Luồng xử lý Đặt vé trực tuyến, Điền thông tin hành khách, Giảm giá đối tượng, Đếm ngược giữ chỗ và Thanh toán
  */

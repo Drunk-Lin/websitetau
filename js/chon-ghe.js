@@ -1,5 +1,5 @@
 /**
- * DSVN - Tổng công ty Đường sắt Việt Nam
+ * DSVN - Tập đoàn Đường sắt Quốc gia Việt Nam
  * File: js/chon-ghe.js
  * Mô tả: Xử lý xem chi tiết toa tàu, sơ đồ chọn chỗ ngồi và tính toán tiền vé
  */

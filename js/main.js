@@ -1,5 +1,5 @@
 /**
- * DSVN - Tổng công ty Đường sắt Việt Nam
+ * DSVN - Tập đoàn Đường sắt Quốc gia Việt Nam
  * File: js/main.js
  * Chức năng: Điều hướng, menu mobile, toast thông báo, tương tác chung
  */

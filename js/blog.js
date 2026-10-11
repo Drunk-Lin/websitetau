@@ -1,5 +1,5 @@
 /**
- * DSVN - Tổng công ty Đường sắt Việt Nam
+ * DSVN - Tập đoàn Đường sắt Quốc gia Việt Nam
  * File: js/blog.js
  * Mô tả: Dữ liệu và logic xử lý Cẩm nang du lịch đường sắt, Tìm kiếm & Đọc bài viết
  */
@@ -269,7 +269,7 @@ let DANH_SACH_BAI_VIET = [
     authorRole: "Ban Công nghệ Thông tin",
     excerpt: "Hành khách chỉ cần quét mã QR trên điện thoại di động tại cổng soát vé thông minh để vào ga lên tàu mà không cần in vé giấy.",
     content: `
-      <p>Trong nỗ lực nâng cao trải nghiệm hành khách và hướng tới mô hình đường sắt thông minh - thân thiện với môi trường, Tổng công ty Đường sắt Việt Nam đã đồng loạt triển khai hệ thống cổng soát vé tự động không tiếp xúc tại các nhà ga trọng điểm trên toàn quốc.</p>
+      <p>Trong nỗ lực nâng cao trải nghiệm hành khách và hướng tới mô hình đường sắt thông minh - thân thiện với môi trường, Tập đoàn Đường sắt Quốc gia Việt Nam đã đồng loạt triển khai hệ thống cổng soát vé tự động không tiếp xúc tại các nhà ga trọng điểm trên toàn quốc.</p>
 
       <div class="article-inner-image">
         <img src="../images/blog-soat-ve-qr.jpg" alt="Cổng soát vé tự động quét mã QR thông minh tại ga tàu" />
@@ -294,7 +294,7 @@ let DANH_SACH_BAI_VIET = [
     authorRole: "Phòng Kinh doanh Vận tải",
     excerpt: "DSVN chính thức mở bán vé tàu phục vụ Tết Nguyên đán 2026 qua website và ứng dụng, áp dụng nhiều chính sách giảm giá cho sinh viên, công nhân và vé khứ hồi.",
     content: `
-      <p>Tổng công ty Đường sắt Việt Nam thông báo kế hoạch tổ chức chạy tàu và mở bán vé tàu Tết Nguyên đán 2026 nhằm đáp ứng tối đa nhu cầu sum họp gia đình của người dân cả nước.</p>
+      <p>Tập đoàn Đường sắt Quốc gia Việt Nam thông báo kế hoạch tổ chức chạy tàu và mở bán vé tàu Tết Nguyên đán 2026 nhằm đáp ứng tối đa nhu cầu sum họp gia đình của người dân cả nước.</p>
 
       <div class="article-inner-image">
         <img src="../images/blog-ve-tau-tet.jpg" alt="Không khí mở bán vé tàu Tết vui tươi tại ga tàu" />
@@ -319,7 +319,7 @@ let DANH_SACH_BAI_VIET = [
     authorRole: "Đội ngũ Kỹ thuật Đường sắt",
     excerpt: "Toa xe thế hệ mới sử dụng hệ thống giảm chấn túi khí, cách âm chống ồn vượt trội và hệ thống sạc không dây hiện đại tại từng ghế ngồi.",
     content: `
-      <p>Nhằm không ngừng hiện đại hóa đội tàu và mang lại sự êm ái tối đa cho hành khách, Tổng công ty Đường sắt Việt Nam đã chính thức tiếp nhận và đưa vào vận hành đoàn tàu thế hệ mới đóng hoàn toàn tại Nhà máy Xe lửa Dĩ An.</p>
+      <p>Nhằm không ngừng hiện đại hóa đội tàu và mang lại sự êm ái tối đa cho hành khách, Tập đoàn Đường sắt Quốc gia Việt Nam đã chính thức tiếp nhận và đưa vào vận hành đoàn tàu thế hệ mới đóng hoàn toàn tại Nhà máy Xe lửa Dĩ An.</p>
 
       <h3>1. Công nghệ giảm rung lắc và cách âm tiên tiến</h3>
       <p>Toa xe áp dụng công nghệ lò xo không khí nhập khẩu, giúp hấp thụ chấn động từ đường ray khi tàu chạy qua các khúc cua hay đường giao cắt, giảm thiểu tối đa cảm giác mệt mỏi cho hành khách đi đường dài.</p>
@@ -724,7 +724,7 @@ window.moDocBaiViet = function(id) {
         <div class="article-reader-footer-bar">
           <div style="font-size:13px;color:#64748b;display:flex;align-items:center;gap:6px">
             <span class="icon" style="font-size:16px;color:#10b981">verified</span>
-            <span>Nội dung chính thức từ Tổng công ty Đường sắt Việt Nam</span>
+            <span>Nội dung chính thức từ Tập đoàn Đường sắt Quốc gia Việt Nam</span>
           </div>
           <button type="button" class="btn-close-article-footer" onclick="dongDocBaiViet()">Đóng bài viết</button>
         </div>

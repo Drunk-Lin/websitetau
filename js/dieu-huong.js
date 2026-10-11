@@ -1,5 +1,5 @@
 /**
- * DSVN - Tổng công ty Đường sắt Việt Nam
+ * DSVN - Tập đoàn Đường sắt Quốc gia Việt Nam
  * File: js/dieu-huong.js
  * Mô tả: Xử lý đóng/mở menu trên thiết bị di động
  */

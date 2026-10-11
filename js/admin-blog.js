@@ -1,5 +1,5 @@
 /**
- * DSVN - Tổng công ty Đường sắt Việt Nam
+ * DSVN - Tập đoàn Đường sắt Quốc gia Việt Nam
  * File: js/admin-blog.js
  * Mô tả: Logic điều hành Trang Quản trị Cẩm Nang & Blog du lịch, Tích hợp Supabase & LocalStorage
  */

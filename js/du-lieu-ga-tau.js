@@ -1,5 +1,5 @@
 /**
- * DSVN - Tổng công ty Đường sắt Việt Nam
+ * DSVN - Tập đoàn Đường sắt Quốc gia Việt Nam
  * File: js/du-lieu-ga-tau.js
  * Mô tả: Danh mục hệ thống Ga đường sắt Việt Nam và thông tin đoàn tàu mẫu
  */

@@ -1,5 +1,5 @@
 /**
- * DSVN - Tổng công ty Đường sắt Việt Nam
+ * DSVN - Tập đoàn Đường sắt Quốc gia Việt Nam
  * File: js/quy-dinh-muc-luc.js
  * Mô tả: ScrollSpy đánh dấu vị trí mục lục đang xem khi cuộn trang Quy định
  */

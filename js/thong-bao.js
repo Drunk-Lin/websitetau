@@ -1,5 +1,5 @@
 /**
- * DSVN - Tổng công ty Đường sắt Việt Nam
+ * DSVN - Tập đoàn Đường sắt Quốc gia Việt Nam
  * File: js/thong-bao.js
  * Mô tả: Hệ thống thông báo Toast nổi trên màn hình
  */

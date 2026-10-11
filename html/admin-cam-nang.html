@@ -4,8 +4,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Quản Trị Cẩm Nang & Tin Tức - Tổng công ty Đường sắt Việt Nam</title>
-  <meta name="description" content="Trang quản trị nội dung bài viết cẩm nang du lịch và tin tức ngành Đường sắt Việt Nam." />
+  <title>Quản Trị Cẩm Nang & Tin Tức - Tập đoàn Đường sắt Quốc gia Việt Nam</title>
+  <meta name="description"
+    content="Trang quản trị nội dung bài viết cẩm nang du lịch và tin tức ngành Đường sắt Việt Nam." />
 
   <!-- CSS Design System DSVN -->
   <link rel="stylesheet" href="../css/bien-mau-sac.css" />
@@ -24,7 +25,7 @@
       <a href="index.html" class="admin-brand" title="Về trang chủ DSVN">
         <img src="../images/logo-dsvn.png" alt="Logo Đường sắt Việt Nam" />
         <div class="admin-brand-info">
-          <span class="admin-brand-title">ĐƯỜNG SẮT VIỆT NAM</span>
+          <span class="admin-brand-title">TẬP ĐOÀN ĐƯỜNG SẮT QUỐC GIA VIỆT NAM</span>
           <span class="admin-brand-sub">HỆ THỐNG QUẢN TRỊ CẨM NANG & TIN TỨC</span>
         </div>
       </a>
@@ -36,7 +37,8 @@
           <span id="supabaseStatusText">Máy chủ: Trực tuyến</span>
         </div>
 
-        <button type="button" class="btn-header-link" onclick="moModalSupabaseConfig()" title="Cài đặt kết nối máy chủ & cơ sở dữ liệu">
+        <button type="button" class="btn-header-link" onclick="moModalSupabaseConfig()"
+          title="Cài đặt kết nối máy chủ & cơ sở dữ liệu">
           <span class="icon" style="font-size:18px">tune</span>
           <span>Cài đặt máy chủ</span>
         </button>
@@ -105,7 +107,8 @@
       <div class="toolbar-search-filter">
         <div class="admin-search-box">
           <span class="icon">search</span>
-          <input type="text" id="adminSearchInput" class="admin-search-input" placeholder="Tìm theo tiêu đề, tác giả, tóm tắt..." />
+          <input type="text" id="adminSearchInput" class="admin-search-input"
+            placeholder="Tìm theo tiêu đề, tác giả, tóm tắt..." />
         </div>
 
         <select id="adminCategoryFilter" class="admin-category-select">
@@ -120,12 +123,14 @@
       </div>
 
       <div class="toolbar-buttons">
-        <button type="button" class="btn-admin btn-admin-outline" onclick="khoiPhucBaiMau()" title="Nạp lại đầy đủ 12 bài viết cẩm nang mẫu ban đầu">
+        <button type="button" class="btn-admin btn-admin-outline" onclick="khoiPhucBaiMau()"
+          title="Nạp lại đầy đủ 12 bài viết cẩm nang mẫu ban đầu">
           <span class="icon">restart_alt</span>
           <span>Khôi phục 12 bài mẫu</span>
         </button>
 
-        <button type="button" class="btn-admin btn-admin-outline" id="btnSyncSupabase" onclick="dongBoBaiMauLenSupabase()" title="Đồng bộ danh sách bài viết từ kho lưu trữ">
+        <button type="button" class="btn-admin btn-admin-outline" id="btnSyncSupabase"
+          onclick="dongBoBaiMauLenSupabase()" title="Đồng bộ danh sách bài viết từ kho lưu trữ">
           <span class="icon">sync</span>
           <span>Đồng bộ dữ liệu</span>
         </button>
@@ -182,7 +187,8 @@
         <div class="admin-modal-body">
           <div class="form-group">
             <label class="form-label">Tiêu đề bài viết <span class="required">*</span></label>
-            <input type="text" id="articleTitle" class="form-input" placeholder="Ví dụ: Trải nghiệm đoàn tàu kết nối di sản Huế – Đà Nẵng..." required />
+            <input type="text" id="articleTitle" class="form-input"
+              placeholder="Ví dụ: Trải nghiệm đoàn tàu kết nối di sản Huế – Đà Nẵng..." required />
           </div>
 
           <div class="form-group-grid">
@@ -205,12 +211,14 @@
           <div class="form-group-grid">
             <div class="form-group" style="margin-bottom:0">
               <label class="form-label">Tác giả</label>
-              <input type="text" id="articleAuthor" class="form-input" placeholder="Ban Biên Tập DSVN" value="Ban Biên Tập DSVN" />
+              <input type="text" id="articleAuthor" class="form-input" placeholder="Ban Biên Tập DSVN"
+                value="Ban Biên Tập DSVN" />
             </div>
 
             <div class="form-group" style="margin-bottom:0">
               <label class="form-label">Vai trò / Chức danh tác giả</label>
-              <input type="text" id="articleAuthorRole" class="form-input" placeholder="Đội ngũ truyền thông" value="Đội ngũ truyền thông" />
+              <input type="text" id="articleAuthorRole" class="form-input" placeholder="Đội ngũ truyền thông"
+                value="Đội ngũ truyền thông" />
             </div>
           </div>
 
@@ -218,7 +226,8 @@
             <label class="form-label">Hình ảnh đại diện bài viết</label>
             <div class="image-upload-wrapper">
               <div class="image-preview-box">
-                <img id="articleImagePreview" src="../images/tau_1.png" alt="Xem trước ảnh" onerror="this.src='../images/tau_1.png'" />
+                <img id="articleImagePreview" src="../images/tau_1.png" alt="Xem trước ảnh"
+                  onerror="this.src='../images/tau_1.png'" />
               </div>
               <div class="image-upload-controls">
                 <label class="btn-upload-file">
@@ -227,28 +236,37 @@
                   <input type="file" id="articleImageFile" accept="image/*" style="display:none" />
                 </label>
                 <div style="font-size:12px;color:#64748b">Hoặc nhập đường dẫn ảnh (URL hoặc đường dẫn tương đối):</div>
-                <input type="text" id="articleImageUrl" class="form-input" placeholder="../images/tau_1.png hoặc https://..." value="../images/tau_1.png" />
+                <input type="text" id="articleImageUrl" class="form-input"
+                  placeholder="../images/tau_1.png hoặc https://..." value="../images/tau_1.png" />
               </div>
             </div>
           </div>
 
           <div class="form-group">
             <label class="form-label">Đoạn trích dẫn / Tóm tắt ngắn (Excerpt) <span class="required">*</span></label>
-            <textarea id="articleExcerpt" class="form-textarea" placeholder="Tóm tắt nội dung 1-2 câu hấp dẫn để hiển thị trên danh sách bài viết..." rows="2" required></textarea>
+            <textarea id="articleExcerpt" class="form-textarea"
+              placeholder="Tóm tắt nội dung 1-2 câu hấp dẫn để hiển thị trên danh sách bài viết..." rows="2"
+              required></textarea>
           </div>
 
           <div class="form-group">
             <label class="form-label">Nội dung chi tiết bài viết (Hỗ trợ định dạng HTML)</label>
             <div class="editor-toolbar">
-              <button type="button" class="editor-btn" onclick="chenDinhDang('h3')"><span class="icon" style="font-size:16px">title</span> Tiêu đề H3</button>
-              <button type="button" class="editor-btn" onclick="chenDinhDang('p')"><span class="icon" style="font-size:16px">notes</span> Đoạn văn</button>
+              <button type="button" class="editor-btn" onclick="chenDinhDang('h3')"><span class="icon"
+                  style="font-size:16px">title</span> Tiêu đề H3</button>
+              <button type="button" class="editor-btn" onclick="chenDinhDang('p')"><span class="icon"
+                  style="font-size:16px">notes</span> Đoạn văn</button>
               <button type="button" class="editor-btn" onclick="chenDinhDang('b')"><strong>B</strong> Đậm</button>
               <button type="button" class="editor-btn" onclick="chenDinhDang('i')"><em>I</em> Nghiêng</button>
-              <button type="button" class="editor-btn" onclick="chenDinhDang('quote')"><span class="icon" style="font-size:16px">format_quote</span> Trích dẫn</button>
-              <button type="button" class="editor-btn" onclick="chenDinhDang('img')"><span class="icon" style="font-size:16px">image</span> Ảnh minh họa</button>
-              <button type="button" class="editor-btn" onclick="chenDinhDang('ul')"><span class="icon" style="font-size:16px">format_list_bulleted</span> Danh sách</button>
+              <button type="button" class="editor-btn" onclick="chenDinhDang('quote')"><span class="icon"
+                  style="font-size:16px">format_quote</span> Trích dẫn</button>
+              <button type="button" class="editor-btn" onclick="chenDinhDang('img')"><span class="icon"
+                  style="font-size:16px">image</span> Ảnh minh họa</button>
+              <button type="button" class="editor-btn" onclick="chenDinhDang('ul')"><span class="icon"
+                  style="font-size:16px">format_list_bulleted</span> Danh sách</button>
             </div>
-            <textarea id="articleContent" class="editor-textarea" placeholder="Nhập nội dung bài viết tại đây. Sử dụng các nút định dạng ở trên để bài viết thêm sinh động..."></textarea>
+            <textarea id="articleContent" class="editor-textarea"
+              placeholder="Nhập nội dung bài viết tại đây. Sử dụng các nút định dạng ở trên để bài viết thêm sinh động..."></textarea>
           </div>
 
           <div class="form-group" style="margin-bottom:0">
@@ -288,22 +306,26 @@
         <div class="admin-modal-body">
           <div class="supabase-guide-box">
             <strong>💡 Thiết lập máy chủ lưu trữ (Cloud Database & Storage):</strong>
-            <p style="margin:4px 0 0 0">Nhập địa chỉ API Endpoint và khóa dịch vụ để hệ thống tự động lưu trữ bài viết và tải ảnh trực tiếp lên máy chủ.</p>
+            <p style="margin:4px 0 0 0">Nhập địa chỉ API Endpoint và khóa dịch vụ để hệ thống tự động lưu trữ bài viết
+              và tải ảnh trực tiếp lên máy chủ.</p>
           </div>
 
           <div class="form-group">
             <label class="form-label">Địa chỉ máy chủ API (API Endpoint URL) <span class="required">*</span></label>
-            <input type="url" id="supabaseUrlInput" class="form-input" placeholder="https://xxxxxxxx.supabase.co" required />
+            <input type="url" id="supabaseUrlInput" class="form-input" placeholder="https://xxxxxxxx.supabase.co"
+              required />
           </div>
 
           <div class="form-group">
             <label class="form-label">Khóa xác thực dịch vụ (API Access Key) <span class="required">*</span></label>
-            <input type="text" id="supabaseKeyInput" class="form-input" placeholder="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..." required />
+            <input type="text" id="supabaseKeyInput" class="form-input"
+              placeholder="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..." required />
           </div>
 
           <div class="form-group">
             <label class="form-label">Thư mục lưu trữ hình ảnh (Media Storage Bucket)</label>
-            <input type="text" id="supabaseBucketInput" class="form-input" value="blog-images" placeholder="blog-images" />
+            <input type="text" id="supabaseBucketInput" class="form-input" value="blog-images"
+              placeholder="blog-images" />
           </div>
 
           <div class="form-group" style="margin-bottom:0">

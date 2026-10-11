@@ -1,5 +1,5 @@
 /**
- * DSVN - Tổng công ty Đường sắt Việt Nam
+ * DSVN - Tập đoàn Đường sắt Quốc gia Việt Nam
  * File: js/tra-cuu-ve.js
  * Mô tả: Xử lý tra cứu mã đặt chỗ thực tế từ cơ sở dữ liệu và in Thẻ lên tàu điện tử
  */

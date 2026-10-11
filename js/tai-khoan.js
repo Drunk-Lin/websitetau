@@ -1,5 +1,5 @@
 /**
- * DSVN - Tổng công ty Đường sắt Việt Nam
+ * DSVN - Tập đoàn Đường sắt Quốc gia Việt Nam
  * File: js/tai-khoan.js
  * Mô tả: Hệ thống xác thực tài khoản hành khách (Đăng nhập, Đăng ký, Đăng xuất, Lưu phiên)
  */

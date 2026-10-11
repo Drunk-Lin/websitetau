@@ -1,5 +1,5 @@
 /**
- * DSVN - Tổng công ty Đường sắt Việt Nam
+ * DSVN - Tập đoàn Đường sắt Quốc gia Việt Nam
  * File: js/ngon-ngu.js
  * Mô tả: Hệ thống Đa ngôn ngữ (i18n) Song ngữ Toàn diện Việt - Anh (VN / EN)
  * Dịch thuật 100% giao diện: Header, Menu, Banner, Form tìm vé, Kết quả, 
@@ -25,7 +25,7 @@ const TU_DIEN = {
     'btn_logout': 'Đăng xuất',
 
     // Hero & Search Console
-    'hero_badge': 'Tổng công ty Đường sắt Việt Nam',
+    'hero_badge': 'Tập đoàn Đường sắt Quốc gia Việt Nam',
     'hero_title': 'HỆ THỐNG VÉ TÀU ĐIỆN TỬ CHÍNH THỨC',
     'hero_desc': 'Đặt vé trực tuyến an toàn, tra cứu giờ tàu chính xác và trải nghiệm hành trình xuyên Việt thuận tiện.',
     'trip_one_way': 'Một chiều',
@@ -87,14 +87,14 @@ const TU_DIEN = {
 
     // Tra cứu vé & Thẻ lên tàu
     'page_lookup_title': 'Tra Cứu Thông Tin Đặt Chỗ & Thẻ Lên Tàu Điện Tử',
-    'page_lookup_sub': 'Hệ thống tra cứu vé tàu hỏa điện tử chính thức của Tổng công ty Đường sắt Việt Nam. Quý khách vui lòng nhập Mã đặt chỗ và Số điện thoại/Email để kiểm tra chi tiết hoặc in lại Thẻ lên tàu.',
+    'page_lookup_sub': 'Hệ thống tra cứu vé tàu hỏa điện tử chính thức của Tập đoàn Đường sắt Quốc gia Việt Nam. Quý khách vui lòng nhập Mã đặt chỗ và Số điện thoại/Email để kiểm tra chi tiết hoặc in lại Thẻ lên tàu.',
     'lbl_lookup_pnr': 'Mã đặt chỗ (Code)',
     'ph_lookup_pnr': 'VD: VNR8921',
     'lbl_lookup_contact': 'SĐT hoặc Email đặt vé',
     'ph_lookup_contact': 'VD: 0912345678',
     'btn_lookup': 'Tra cứu',
     'pass_card_title': 'THẺ LÊN TÀU HỎA ĐIỆN TỬ',
-    'pass_company': 'TỔNG CÔNG TY ĐƯỜNG SẮT VIỆT NAM (DSVN)',
+    'pass_company': 'TẬP ĐOÀN ĐƯỜNG SẮT QUỐC GIA VIỆT NAM (DSVN)',
     'pass_status_paid': 'ĐÃ THANH TOÁN (HỢP LỆ)',
     'pass_lbl_code': 'Mã đặt chỗ',
     'pass_lbl_train': 'Đoàn tàu / Hành trình',
@@ -115,7 +115,7 @@ const TU_DIEN = {
 
     // Trang Quy định
     'page_rules_title': 'Quy Định Vận Chuyển & Chính Sách Đổi, Trả Vé',
-    'page_rules_sub': 'Văn bản chính thức ban hành bởi Tổng công ty Đường sắt Việt Nam về điều kiện vận tải hành khách, biểu phí đổi trả và quy định hành lý trên mạng lưới đường sắt quốc gia.',
+    'page_rules_sub': 'Văn bản chính thức ban hành bởi Tập đoàn Đường sắt Quốc gia Việt Nam về điều kiện vận tải hành khách, biểu phí đổi trả và quy định hành lý trên mạng lưới đường sắt quốc gia.',
     'toc_heading': 'Mục Lục Văn Bản',
 
     // Auth modal
@@ -134,11 +134,11 @@ const TU_DIEN = {
     'auth_reg_now': 'Đăng ký ngay tại đây',
 
     // Footer
-    'footer_brand': 'TỔNG CÔNG TY ĐƯỜNG SẮT VIỆT NAM',
+    'footer_brand': 'TẬP ĐOÀN ĐƯỜNG SẮT QUỐC GIA VIỆT NAM',
     'footer_col1_title': 'Dịch Vụ Trực Tuyến',
     'footer_col2_title': 'Chính Sách & Quy Định',
     'footer_col3_title': 'Thông Tin Liên Hệ',
-    'footer_copy': '© 2026 Tổng công ty Đường sắt Việt Nam (DSVN). Tất cả quyền được bảo lưu.',
+    'footer_copy': '© 2026 Tập đoàn Đường sắt Quốc gia Việt Nam (DSVN). Tất cả quyền được bảo lưu.',
     'footer_sub': 'Hệ thống bán vé tàu điện tử chính thức tiêu chuẩn quốc gia.'
   },
 
@@ -157,7 +157,7 @@ const TU_DIEN = {
     'btn_logout': 'Sign Out',
 
     // Hero & Search Console
-    'hero_badge': 'Vietnam Railways Corporation',
+    'hero_badge': 'Vietnam National Railways Group',
     'hero_title': 'OFFICIAL ELECTRONIC TRAIN TICKET SYSTEM',
     'hero_desc': 'Book train tickets securely online, check schedules and experience convenient journeys across Vietnam.',
     'trip_one_way': 'One-way',
@@ -219,14 +219,14 @@ const TU_DIEN = {
 
     // Tra cứu vé & Thẻ lên tàu
     'page_lookup_title': 'Check Booking Information & Electronic Boarding Pass',
-    'page_lookup_sub': 'Official e-ticket verification system of Vietnam Railways Corporation. Please enter your Booking Code and Phone/Email to view details or reprint your Boarding Pass.',
+    'page_lookup_sub': 'Official e-ticket verification system of Vietnam National Railways Group. Please enter your Booking Code and Phone/Email to view details or reprint your Boarding Pass.',
     'lbl_lookup_pnr': 'Booking Code (PNR)',
     'ph_lookup_pnr': 'e.g. VNR8921',
     'lbl_lookup_contact': 'Phone Number or Email',
     'ph_lookup_contact': 'e.g. 0912345678',
     'btn_lookup': 'Look Up Ticket',
     'pass_card_title': 'ELECTRONIC BOARDING PASS',
-    'pass_company': 'VIETNAM RAILWAYS CORPORATION (DSVN)',
+    'pass_company': 'VIETNAM NATIONAL RAILWAYS GROUP (DSVN)',
     'pass_status_paid': 'PAID & CONFIRMED',
     'pass_lbl_code': 'Booking Code',
     'pass_lbl_train': 'Train / Route',
@@ -247,7 +247,7 @@ const TU_DIEN = {
 
     // Trang Quy định
     'page_rules_title': 'Transport Regulations & Ticket Refund Policy',
-    'page_rules_sub': 'Official regulations issued by Vietnam Railways Corporation regarding passenger transport conditions, refund/exchange fees and baggage rules.',
+    'page_rules_sub': 'Official regulations issued by Vietnam National Railways Group regarding passenger transport conditions, refund/exchange fees and baggage rules.',
     'toc_heading': 'Document Contents',
 
     // Auth modal
@@ -266,11 +266,11 @@ const TU_DIEN = {
     'auth_reg_now': 'Register here',
 
     // Footer
-    'footer_brand': 'VIETNAM RAILWAYS CORPORATION',
+    'footer_brand': 'VIETNAM NATIONAL RAILWAYS GROUP',
     'footer_col1_title': 'Online Services',
     'footer_col2_title': 'Policies & Regulations',
     'footer_col3_title': 'Contact Information',
-    'footer_copy': '© 2026 Vietnam Railways Corporation (DSVN). All rights reserved.',
+    'footer_copy': '© 2026 Vietnam National Railways Group (DSVN). All rights reserved.',
     'footer_sub': 'Official national standard electronic railway ticketing system.'
   }
 };
@@ -296,7 +296,7 @@ const DANH_SACH_CHUOI_SONG_NGU = [
   { vi: "Đăng xuất", en: "Sign Out" },
 
   // Home Hero & Tìm vé
-  { vi: "Tổng công ty Đường sắt Việt Nam", en: "Vietnam Railways Corporation" },
+  { vi: "Tập đoàn Đường sắt Quốc gia Việt Nam", en: "Vietnam National Railways Group" },
   { vi: "HỆ THỐNG VÉ TÀU ĐIỆN TỬ CHÍNH THỨC", en: "OFFICIAL ELECTRONIC TRAIN TICKET SYSTEM" },
   { vi: "Đặt vé trực tuyến an toàn, tra cứu giờ tàu chính xác và trải nghiệm hành trình xuyên Việt thuận tiện.", en: "Book train tickets securely online, check schedules and experience convenient journeys across Vietnam." },
   { vi: "Một chiều", en: "One-way" },
@@ -390,13 +390,13 @@ const DANH_SACH_CHUOI_SONG_NGU = [
 
   // Trang Thông tin đặt chỗ (thong-tin-dat-cho.html)
   { vi: "Tra Cứu Thông Tin Đặt Chỗ & Thẻ Lên Tàu Điện Tử", en: "Check Booking Information & Electronic Boarding Pass" },
-  { vi: "Hệ thống tra cứu vé tàu hỏa điện tử chính thức của Tổng công ty Đường sắt Việt Nam. Quý khách vui lòng nhập Mã đặt chỗ và Số điện thoại/Email để kiểm tra chi tiết hoặc in lại Thẻ lên tàu.", en: "Official e-ticket verification system of Vietnam Railways Corporation. Please enter your Booking Code and Phone/Email to check details or reprint your Boarding Pass." },
+  { vi: "Hệ thống tra cứu vé tàu hỏa điện tử chính thức của Tập đoàn Đường sắt Quốc gia Việt Nam. Quý khách vui lòng nhập Mã đặt chỗ và Số điện thoại/Email để kiểm tra chi tiết hoặc in lại Thẻ lên tàu.", en: "Official e-ticket verification system of Vietnam National Railways Group. Please enter your Booking Code and Phone/Email to check details or reprint your Boarding Pass." },
   { vi: "Tra cứu thông tin vé điện tử", en: "Check E-Ticket Information" },
   { vi: "Nhập mã vé hoặc mã đặt chỗ và thông tin liên hệ đã đăng ký khi mua vé.", en: "Enter booking code or ticket code and registered contact info." },
   { vi: "Mã đặt chỗ (Code)", en: "Booking Code (PNR)" },
   { vi: "SĐT hoặc Email đặt vé", en: "Phone Number or Email" },
   { vi: "THẺ LÊN TÀU HỎA ĐIỆN TỬ", en: "ELECTRONIC BOARDING PASS" },
-  { vi: "TỔNG CÔNG TY ĐƯỜNG SẮT VIỆT NAM (DSVN)", en: "VIETNAM RAILWAYS CORPORATION (DSVN)" },
+  { vi: "TẬP ĐOÀN ĐƯỜNG SẮT QUỐC GIA VIỆT NAM (DSVN)", en: "VIETNAM NATIONAL RAILWAYS GROUP (DSVN)" },
   { vi: "ĐÃ THANH TOÁN (HỢP LỆ)", en: "PAID & CONFIRMED" },
   { vi: "Mã đặt chỗ", en: "Booking Code" },
   { vi: "Đoàn tàu / Hành trình", en: "Train / Route" },
@@ -435,7 +435,7 @@ const DANH_SACH_CHUOI_SONG_NGU = [
 
   // Trang Quy định (quy-dinh.html)
   { vi: "Quy Định Vận Chuyển & Chính Sách Đổi, Trả Vé", en: "Transport Regulations & Ticket Refund Policy" },
-  { vi: "Văn bản chính thức ban hành bởi Tổng công ty Đường sắt Việt Nam về điều kiện vận tải hành khách, biểu phí đổi trả và quy định hành lý trên mạng lưới đường sắt quốc gia.", en: "Official regulations issued by Vietnam Railways Corporation regarding passenger transport conditions, refund/exchange fees and baggage rules." },
+  { vi: "Văn bản chính thức ban hành bởi Tập đoàn Đường sắt Quốc gia Việt Nam về điều kiện vận tải hành khách, biểu phí đổi trả và quy định hành lý trên mạng lưới đường sắt quốc gia.", en: "Official regulations issued by Vietnam National Railways Group regarding passenger transport conditions, refund/exchange fees and baggage rules." },
   { vi: "Mục Lục Văn Bản", en: "Document Contents" },
   { vi: "Đổi, trả vé ngày thường", en: "Regular Ticket Exchange & Refund" },
   { vi: "Quy định cao điểm Tết", en: "Peak & Tet Holiday Rules" },
@@ -473,7 +473,7 @@ const DANH_SACH_CHUOI_SONG_NGU = [
   { vi: "Xem trong Tra Cứu Vé", en: "View in Ticket Search" },
 
   // Footer
-  { vi: "TỔNG CÔNG TY ĐƯỜNG SẮT VIỆT NAM", en: "VIETNAM RAILWAYS CORPORATION" },
+  { vi: "TẬP ĐOÀN ĐƯỜNG SẮT QUỐC GIA VIỆT NAM", en: "VIETNAM NATIONAL RAILWAYS GROUP" },
   { vi: "Doanh nghiệp nhà nước giữ vai trò chủ đạo trong vận tải đường sắt quốc gia, kết nối kinh tế - văn hóa - xã hội trên toàn tuyến đường sắt Việt Nam.", en: "State enterprise playing the leading role in national rail transport, connecting socio-economic regions along Vietnam's railways." },
   { vi: "Giấy chứng nhận ĐKKD số: 0100105052 do Sở KHĐT TP. Hà Nội cấp.", en: "Business License No: 0100105052 issued by Hanoi DPI." },
   { vi: "Quyết định thành lập số 973/QĐ-TTg của Thủ tướng Chính phủ.", en: "Establishment Decision No. 973/QD-TTg of the Prime Minister." },
@@ -491,7 +491,7 @@ const DANH_SACH_CHUOI_SONG_NGU = [
   { vi: "Trụ sở: 118 Lê Duẩn, Hoàn Kiếm, Hà Nội", en: "Headquarters: 118 Le Duan, Hoan Kiem, Hanoi" },
   { vi: "Trung tâm CSKH: 1900 0109 (Miền Bắc) - 1900 1520 (Miền Nam)", en: "Customer Care: 1900 0109 (North) - 1900 1520 (South)" },
   { vi: "Email hỗ trợ: dsvn@vr.com.vn", en: "Support Email: dsvn@vr.com.vn" },
-  { vi: "© 2026 Tổng công ty Đường sắt Việt Nam (DSVN). Tất cả quyền được bảo lưu.", en: "© 2026 Vietnam Railways Corporation (DSVN). All rights reserved." },
+  { vi: "© 2026 Tập đoàn Đường sắt Quốc gia Việt Nam (DSVN). Tất cả quyền được bảo lưu.", en: "© 2026 Vietnam National Railways Group (DSVN). All rights reserved." },
   { vi: "Hệ thống bán vé tàu điện tử chính thức tiêu chuẩn quốc gia.", en: "Official national standard electronic railway ticketing system." }
 ];
 
