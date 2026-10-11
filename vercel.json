@@ -4,6 +4,26 @@
     {
       "source": "/",
       "destination": "/html/index.html"
+    },
+    {
+      "source": "/admin",
+      "destination": "/html/admin-cam-nang.html"
+    },
+    {
+      "source": "/admin-cam-nang",
+      "destination": "/html/admin-cam-nang.html"
+    },
+    {
+      "source": "/admin-cam-nang.html",
+      "destination": "/html/admin-cam-nang.html"
+    },
+    {
+      "source": "/cam-nang",
+      "destination": "/html/tin-tuc-blog.html"
+    },
+    {
+      "source": "/tin-tuc",
+      "destination": "/html/tin-tuc-blog.html"
     }
   ]
 }
