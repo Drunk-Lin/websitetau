@@ -44,21 +44,34 @@ function khoiTaoSupabase() {
   const statusPill = document.getElementById('supabaseStatusPill');
   const statusText = document.getElementById('supabaseStatusText');
   const statusDot = document.getElementById('supabaseStatusDot');
+  const statusTextMobile = document.getElementById('supabaseStatusTextMobile');
+  const statusDotMobile = document.getElementById('supabaseStatusDotMobile');
+
+  const capNhatGiaoDien = (isOnline, msg) => {
+    if (statusDot) {
+      if (isOnline) statusDot.classList.add('connected');
+      else statusDot.classList.remove('connected');
+    }
+    if (statusText) statusText.textContent = msg;
+
+    if (statusDotMobile) {
+      if (isOnline) statusDotMobile.classList.add('connected');
+      else statusDotMobile.classList.remove('connected');
+    }
+    if (statusTextMobile) statusTextMobile.textContent = msg;
+  };
 
   if (cfg.url && cfg.key && window.supabase) {
     try {
       supabaseClient = window.supabase.createClient(cfg.url, cfg.key);
-      if (statusDot) statusDot.classList.add('connected');
-      if (statusText) statusText.textContent = 'Máy chủ: Trực tuyến';
+      capNhatGiaoDien(true, 'Máy chủ: Trực tuyến');
     } catch (err) {
       console.error('Không thể tạo kết nối máy chủ:', err);
-      if (statusDot) statusDot.classList.remove('connected');
-      if (statusText) statusText.textContent = 'Máy chủ: Gián đoạn';
+      capNhatGiaoDien(false, 'Máy chủ: Gián đoạn');
     }
   } else {
     supabaseClient = null;
-    if (statusDot) statusDot.classList.remove('connected');
-    if (statusText) statusText.textContent = 'Bộ nhớ: Cục bộ';
+    capNhatGiaoDien(false, 'Bộ nhớ: Cục bộ');
   }
 }
 
@@ -208,39 +221,49 @@ function hienThiBangBaiViet() {
     const imgThumb = item.image || '../images/tau_1.png';
 
     return `
-      <tr data-id="${item.id}">
-        <td style="font-weight:700;color:#64748b;font-size:13px">#${item.id}</td>
-        <td>
+      <tr data-id="${item.id}" class="admin-table-row">
+        <td class="col-id" data-label="ID"><span class="badge-id">#${item.id}</span></td>
+        <td class="col-main" data-label="Bài viết">
           <div class="table-article-info">
             <img src="${imgThumb}" alt="${item.title}" class="table-article-thumb" onerror="this.src='../images/tau_1.png'" />
             <div class="table-article-text">
               <a href="javascript:void(0)" onclick="xemThuBaiViet(${item.id})" class="table-article-title">${item.title}</a>
               <span class="table-article-excerpt">${item.excerpt || 'Chưa có trích dẫn tóm tắt'}</span>
+              <div class="mobile-card-meta">
+                <span class="meta-item"><span class="icon">person</span>${item.author || 'DSVN'}</span>
+                <span class="meta-dot">•</span>
+                <span class="meta-item"><span class="icon">calendar_today</span>${item.date || 'Hôm nay'}</span>
+                <span class="meta-dot">•</span>
+                <span class="meta-item"><span class="icon">schedule</span>${item.readTime || '5 phút'}</span>
+              </div>
             </div>
           </div>
         </td>
-        <td>
+        <td class="col-cat" data-label="Chuyên mục">
           <span class="table-cat-badge">${item.category || 'Tổng hợp'}</span>
         </td>
-        <td>
-          <div style="font-weight:600;color:#1e293b">${item.author || 'DSVN'}</div>
-          <div style="font-size:12px;color:#64748b">${item.authorRole || 'Ban Biên Tập'}</div>
+        <td class="col-author" data-label="Tác giả">
+          <div class="author-name"><span class="icon author-icon" style="font-size:16px">person</span>${item.author || 'DSVN'}</div>
+          <div class="author-role">${item.authorRole || 'Ban Biên Tập'}</div>
         </td>
-        <td>
-          <div style="color:#334155">${item.date || 'Hôm nay'}</div>
-          <div style="font-size:12px;color:#64748b">${item.readTime || '5 phút'}</div>
+        <td class="col-date" data-label="Thời gian">
+          <div class="publish-date"><span class="icon date-icon" style="font-size:16px">calendar_today</span>${item.date || 'Hôm nay'}</div>
+          <div class="read-time"><span class="icon time-icon" style="font-size:14px">schedule</span>${item.readTime || '5 phút'}</div>
         </td>
-        <td>${statusHtml}</td>
-        <td>
+        <td class="col-status" data-label="Trạng thái">${statusHtml}</td>
+        <td class="col-actions" data-label="Thao tác">
           <div class="table-actions">
-            <button type="button" class="btn-action-icon" title="Xem thử bài viết" onclick="xemThuBaiViet(${item.id})">
-              <span class="icon" style="font-size:18px">visibility</span>
+            <button type="button" class="btn-action-icon view" title="Xem thử bài viết" onclick="xemThuBaiViet(${item.id})">
+              <span class="icon">visibility</span>
+              <span class="btn-action-label">Xem</span>
             </button>
             <button type="button" class="btn-action-icon edit" title="Chỉnh sửa bài viết" onclick="moFormSuaBaiViet(${item.id})">
-              <span class="icon" style="font-size:18px">edit</span>
+              <span class="icon">edit</span>
+              <span class="btn-action-label">Sửa</span>
             </button>
             <button type="button" class="btn-action-icon delete" title="Xóa bài viết" onclick="xacNhanXoaBaiViet(${item.id})">
-              <span class="icon" style="font-size:18px">delete</span>
+              <span class="icon">delete</span>
+              <span class="btn-action-label">Xóa</span>
             </button>
           </div>
         </td>
@@ -842,6 +865,50 @@ function khoiTaoSuKien() {
         modal.classList.remove('open');
         document.body.style.overflow = '';
       });
+      dongMobileNav();
+    }
+  });
+
+  // Đóng mobile nav khi click ra ngoài header
+  document.addEventListener('click', (e) => {
+    const nav = document.getElementById('adminMobileNav');
+    const btn = document.getElementById('btnAdminMobileMenu');
+    if (nav && nav.classList.contains('open')) {
+      if (!nav.contains(e.target) && !btn.contains(e.target)) {
+        dongMobileNav();
+      }
+    }
+  });
+
+  // Tự động đóng mobile nav khi phóng to màn hình desktop
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 900) {
+      dongMobileNav();
     }
   });
 }
+
+/**
+ * 11. ĐIỀU HƯỚNG THANH CÔNG CỤ TRÊN THIẾT BỊ DI ĐỘNG (MOBILE NAVIGATION)
+ */
+window.toggleMobileNav = function() {
+  const nav = document.getElementById('adminMobileNav');
+  const icon = document.getElementById('adminMenuIcon');
+  if (!nav) return;
+  const isOpen = nav.classList.toggle('open');
+  if (icon) {
+    icon.textContent = isOpen ? 'close' : 'menu';
+  }
+};
+
+window.dongMobileNav = function() {
+  const nav = document.getElementById('adminMobileNav');
+  const icon = document.getElementById('adminMenuIcon');
+  if (nav && nav.classList.contains('open')) {
+    nav.classList.remove('open');
+    if (icon) {
+      icon.textContent = 'menu';
+    }
+  }
+};
+

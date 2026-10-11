@@ -53,6 +53,33 @@
           <span>Trang chủ DSVN</span>
         </a>
       </div>
+
+      <!-- Nút Hamburger Menu cho điện thoại/tablet -->
+      <button type="button" class="btn-admin-mobile-menu" id="btnAdminMobileMenu" aria-label="Mở menu điều hướng quản trị" onclick="toggleMobileNav()">
+        <span class="icon" id="adminMenuIcon">menu</span>
+      </button>
+    </div>
+
+    <!-- Dropdown Menu Quản Trị dành cho Mobile -->
+    <div class="admin-mobile-nav" id="adminMobileNav">
+      <div class="admin-mobile-nav-content">
+        <div class="mobile-server-status">
+          <span class="status-indicator-dot" id="supabaseStatusDotMobile"></span>
+          <span id="supabaseStatusTextMobile">Máy chủ: Trực tuyến</span>
+        </div>
+        <button type="button" class="mobile-nav-item" onclick="moModalSupabaseConfig(); dongMobileNav();">
+          <span class="icon">tune</span>
+          <span>Cài đặt máy chủ & dữ liệu</span>
+        </button>
+        <a href="tin-tuc-blog.html" class="mobile-nav-item" target="_blank" onclick="dongMobileNav()">
+          <span class="icon">open_in_new</span>
+          <span>Xem trang Cẩm nang (Client)</span>
+        </a>
+        <a href="index.html" class="mobile-nav-item" onclick="dongMobileNav()">
+          <span class="icon">home</span>
+          <span>Về trang chủ DSVN</span>
+        </a>
+      </div>
     </div>
   </header>
 
@@ -389,6 +416,12 @@ create policy "Cho phep xoa bai viet" on public.articles for delete using (true)
       </div>
     </div>
   </div>
+
+  <!-- Nút Thêm Bài Viết Nhanh (FAB - Floating Action Button) trên Mobile -->
+  <button type="button" class="admin-mobile-fab" onclick="moFormTaoMoi()" title="Viết bài mới" aria-label="Viết bài mới">
+    <span class="icon">add</span>
+    <span class="admin-fab-text">Viết bài</span>
+  </button>
 
   <!-- Scripts dữ liệu & logic -->
   <script src="../js/blog.js"></script>
